@@ -4,10 +4,8 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
 <title>Courses & Certifications — Yashas Chaudhry</title>
-<meta name="description" content="Yashas Chaudhry — CS50 Harvard, JavaScript mastery, Pickle.AI internship, Plaksha YDS, Rancho Labs AI camp."/>
+<meta name="description" content="My courses and certifications — CS50, JavaScript Mastery, Pickle.AI, Plaksha YDS, Rancho Labs, and more."/>
 <meta name="theme-color" content="#ffffff"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700;1,9..144,900&display=swap" rel="stylesheet"/>
 <style>/* ═══════════════════════════════════════════════════════
    YASHAS CHAUDHRY PORTFOLIO — Premium CSS v2
    Mobile-first, professional grade, admissions-ready
@@ -519,12 +517,35 @@ body{
   .nav-link:active{background:var(--g2)}
 }
 </style>
+<style>
+.photo-upload-zone{border:2px dashed var(--border2);border-radius:var(--rl);padding:2rem 1.25rem;text-align:center;background:var(--off);cursor:pointer;transition:border-color .2s,background .2s;margin:.5rem 0}
+.photo-upload-zone:hover{border-color:var(--gl);background:var(--g2)}
+.photo-upload-zone input[type=file]{display:none}
+.upload-ico{font-size:1.625rem;display:block;margin-bottom:.25rem}
+.photo-upload-zone p{font-size:.78rem;color:var(--muted)}
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.75rem;margin-top:.75rem}
+.photo-item{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:var(--off2);border:1px solid var(--border)}
+.photo-item img{width:100%;height:100%;object-fit:cover;display:block}
+.cert-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;margin-top:1rem}
+.cert-card{background:var(--off);border:1px solid var(--border);border-radius:var(--rl);padding:1.25rem}
+.cert-card h4{font-size:.875rem;font-weight:700;color:var(--ink);margin-bottom:.25rem;line-height:1.3}
+.cert-card p{font-size:.75rem;color:var(--mid);margin-bottom:.625rem}
+.cert-upload-zone{border:1.5px dashed var(--border2);border-radius:var(--r);padding:.75rem;text-align:center;cursor:pointer;transition:border-color .2s,background .2s;background:var(--white)}
+.cert-upload-zone:hover{border-color:var(--gl);background:var(--g2)}
+.cert-upload-zone input[type=file]{display:none}
+.cert-upload-zone span{font-size:.7rem;color:var(--muted)}
+.cert-preview{min-height:0}
+.cert-preview img{width:100%;border-radius:6px;margin-top:.375rem}
+.cert-preview p{font-size:.72rem;color:var(--g);font-weight:600;margin-top:.375rem}
+.resume-banner{background:var(--ink);border-radius:var(--rl);padding:1.625rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin:2rem 0}
+.resume-banner h3{font-family:"Fraunces",serif;font-size:1.125rem;font-weight:900;color:var(--white)}
+.resume-banner p{font-size:.78rem;color:rgba(255,255,255,.38);margin-top:.2rem}
+.resume-banner-btns{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center}
+@media(max-width:600px){.photo-grid{grid-template-columns:1fr 1fr}.cert-row{grid-template-columns:1fr}.resume-banner{flex-direction:column;align-items:flex-start}}
+</style>
 </head>
 <body>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700;1,9..144,900&display=swap" rel="stylesheet"/>
-
-<!-- MOBILE HEADER - always visible on small screens -->
+<!-- MOBILE HEADER -->
 <header class="mob-bar" id="mobBar">
   <a href="index.html" class="mob-bar-logo">Yashas Chaudhry</a>
   <div class="mob-bar-right">
@@ -535,7 +556,7 @@ body{
   </div>
 </header>
 
-<!-- OVERLAY - closes nav on tap -->
+<!-- VEIL -->
 <div class="mob-veil" id="veil"></div>
 
 <!-- SIDEBAR NAV -->
@@ -546,16 +567,17 @@ body{
       <span class="nav-role">Builder · Founder · Innovator</span>
     </a>
   </div>
-  <div class="nav-body">
+  <div class="nav-body" id="navBody">
     <a class="nav-link" href="index.html" onclick="closeNav()"><span class="ni">🏠</span>Home</a>
     <a class="nav-link" href="about.html" onclick="closeNav()"><span class="ni">👤</span>About Me</a>
     <div class="nav-divider"></div>
     <span class="nav-section-label">Projects</span>
     <a class="nav-link" href="battery-bin.html" onclick="closeNav()"><span class="ni">♻️</span>Battery Bin</a>
+    <a class="nav-link" href="threco.html" onclick="closeNav()"><span class="ni">🏭</span>Threco (North India)</a>
+    <a class="nav-link" href="research.html" onclick="closeNav()"><span class="ni">🔬</span>Research Paper</a>
     <a class="nav-link" href="phishsentinel.html" onclick="closeNav()"><span class="ni">🛡️</span>PhishSentinel</a>
     <a class="nav-link" href="brandsnap.html" onclick="closeNav()"><span class="ni">⚡</span>BrandSnap</a>
     <a class="nav-link" href="hardware-decoded.html" onclick="closeNav()"><span class="ni">💻</span>Hardware Decoded</a>
-    <a class="nav-link" href="caltrack.html" onclick="closeNav()"><span class="ni">🤖</span>CalTrack</a>
     <a class="nav-link" href="drone.html" onclick="closeNav()"><span class="ni">🚁</span>Robotics &amp; Eng.</a>
     <a class="nav-link" href="nas.html" onclick="closeNav()"><span class="ni">🖥️</span>Personal NAS</a>
     <div class="nav-divider"></div>
@@ -592,105 +614,254 @@ body{
 </nav>
 
 <script>
-(function() {
+(function () {
   'use strict';
-
-  var nav = document.getElementById('nav');
+  var NAV_SCROLL_KEY = 'navScrollTop';
+  var nav  = document.getElementById('nav');
+  var body_el = document.getElementById('navBody');
   var veil = document.getElementById('veil');
-  var btn = document.getElementById('hamburger');
+  var btn  = document.getElementById('hamburger');
   var isOpen = false;
 
+  /* ── Restore nav scroll position ── */
+  try {
+    var saved = sessionStorage.getItem(NAV_SCROLL_KEY);
+    if (saved !== null && body_el) body_el.scrollTop = parseInt(saved, 10);
+  } catch (e) {}
+
+  /* Save nav scroll on every scroll + before page unload */
+  function saveScroll() {
+    try { if (body_el) sessionStorage.setItem(NAV_SCROLL_KEY, body_el.scrollTop); } catch (e) {}
+  }
+  if (body_el) body_el.addEventListener('scroll', saveScroll, { passive: true });
+  window.addEventListener('pagehide', saveScroll);
+  window.addEventListener('beforeunload', saveScroll);
+
+  /* ── Save scroll on nav link click (before navigation) ── */
+  document.querySelectorAll('.nav-link').forEach(function (a) {
+    a.addEventListener('click', saveScroll);
+  });
+
+  /* ── Open / close ── */
   function openNav() {
     isOpen = true;
     nav.classList.add('open');
     veil.classList.add('open');
-    btn.setAttribute('aria-expanded', 'true');
+    if (btn) btn.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
   }
-
   function closeNav() {
     isOpen = false;
     nav.classList.remove('open');
     veil.classList.remove('open');
-    btn.setAttribute('aria-expanded', 'false');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+    saveScroll();
   }
-
   window.closeNav = closeNav;
 
-  function toggleNav() {
-    if (isOpen) { closeNav(); } else { openNav(); }
-  }
-
-  // Hamburger button
-  if (btn) btn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    toggleNav();
-  });
-
-  // Veil tap closes nav
+  if (btn) btn.addEventListener('click', function (e) { e.stopPropagation(); isOpen ? closeNav() : openNav(); });
   if (veil) veil.addEventListener('click', closeNav);
 
-  // Swipe left to close nav
-  var touchStartX = 0;
-  nav.addEventListener('touchstart', function(e) {
-    touchStartX = e.touches[0].clientX;
-  }, { passive: true });
-  nav.addEventListener('touchend', function(e) {
-    var dx = e.changedTouches[0].clientX - touchStartX;
-    if (dx < -60) closeNav();
-  }, { passive: true });
+  /* ── Swipe left to close ── */
+  var tx = 0;
+  nav.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; }, { passive: true });
+  nav.addEventListener('touchend',   function (e) { if (e.changedTouches[0].clientX - tx < -60) closeNav(); }, { passive: true });
 
-  // Close on Escape
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && isOpen) closeNav();
-  });
+  /* ── Escape key ── */
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && isOpen) closeNav(); });
 
-  // Highlight active page
+  /* ── Active link highlight ── */
   var p = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-link').forEach(function(a) {
-    if (a.getAttribute('href') === p) a.classList.add('active');
+  document.querySelectorAll('.nav-link').forEach(function (a) {
+    if (a.getAttribute('href') === p) {
+      a.classList.add('active');
+      /* Scroll active link into view inside nav body */
+      try {
+        if (saved === null && body_el) {
+          var linkTop = a.offsetTop - body_el.offsetTop;
+          var center  = linkTop - body_el.clientHeight / 2 + a.clientHeight / 2;
+          body_el.scrollTop = Math.max(0, center);
+        }
+      } catch (e) {}
+    }
   });
 })();
 </script>
 
 <main id="main">
+
 <div class="banner banner-purple">
   <div class="banner-watermark">Courses</div>
   <div class="banner-eyebrow">Academics · Courses &amp; Certifications</div>
-  <div class="banner-title">Courses &amp; <em>Certifications</em></div>
-  <div class="banner-desc">CS50 · Pickle.AI · Plaksha · JavaScript · Python AI</div>
+  <div class="banner-title">Courses &amp;<br><em>Certifications</em></div>
+  <div class="banner-desc">CS50 · JavaScript Mastery · Pickle.AI · Plaksha YDS · Rancho Labs · Jabberwocky · HPAIR</div>
 </div>
 <div class="content">
   <span class="eyebrow">Continuous learning</span>
   <h2 class="heading">Learning beyond<br><em>the classroom.</em></h2>
   <div class="rule"></div>
-  <p class="body-text">Every course here was chosen deliberately — not to fill a requirement, but to build a specific skill that the school syllabus did not provide. From Harvard&#39;s CS50 to an AI internship at a real company to a selective developer summit, the pattern is consistent: find the gap, fill it, ship something.</p>
-  <div class="rows">
-    <div class="row"><div class="row-l"><div class="row-ico ci-y">🎓</div><div class="row-text"><h4>CS50 — Harvard University</h4><p>Grade 12 · Harvard&#39;s flagship Introduction to Computer Science — completed</p></div></div><span class="badge ba">Completed</span></div>
-    <div class="row"><div class="row-l"><div class="row-ico ci-a">🌐</div><div class="row-text"><h4>The Complete JavaScript Course 2025 — From Zero to Expert</h4><p>Grade 12 · Udemy (Jonas Schmedtmann) — completed</p></div></div><span class="badge ba">Completed</span></div>
-    <div class="row"><div class="row-l"><div class="row-ico ci-g">🤖</div><div class="row-text"><h4>AI Internship — Pickle.AI</h4><p>Grade 11 · Industry internship in artificial intelligence product development</p></div></div><span class="badge bg">Completed</span></div>
-    <div class="row"><div class="row-l"><div class="row-ico ci-b">🏛️</div><div class="row-text"><h4>Plaksha Young Developer Summit (YDS)</h4><p>Grade 11 · Selective student developer programme at Plaksha University</p></div></div><span class="badge bb">Completed</span></div>
-    <div class="row"><div class="row-l"><div class="row-ico ci-g">🐍</div><div class="row-text"><h4>Python &amp; AI Summer Camp — Rancho Labs</h4><p>Grade 10 · Intensive AI and Python programming camp</p></div></div><span class="badge bg">Completed</span></div>
-    <div class="row"><div class="row-l"><div class="row-ico ci-r">🚁</div><div class="row-text"><h4>Drone Building Workshop</h4><p>Grade 11 · Hardware and flight systems — frame, ESC, Betaflight, PID tuning</p></div></div><span class="badge ba">Completed</span></div>
-    <div class="row"><div class="row-l"><div class="row-ico ci-b">🌐</div><div class="row-text"><h4>Coding with JavaScript — Mindbox</h4><p>Grade 9 · Formal coding education, JavaScript fundamentals and web development</p></div></div><span class="badge bb">Completed</span></div>
-    <div class="row"><div class="row-l"><div class="row-ico ci-g">🎤</div><div class="row-text"><h4>Debate &amp; Public Speaking — Jabberwocky</h4><p>Grade 9 · Structured debate training and public speaking development</p></div></div><span class="badge bg">Completed</span></div>
-    <div class="row"><div class="row-l"><div class="row-ico ci-y">🤝</div><div class="row-text"><h4>HPAIR Summer Leadership Workshop</h4><p>Grade 8 · Harvard Political Asian Review — leadership and policy thinking</p></div></div><span class="badge ba">Completed</span></div>
-    <div class="row"><div class="row-l"><div class="row-ico ci-p">🤖</div><div class="row-text"><h4>EV3 Robotics Summer Camp — Robo Club</h4><p>Grade 8 · LEGO EV3 robotics, autonomous programming fundamentals</p></div></div><span class="badge bb">Completed</span></div>
-  </div>
-  <div class="callout" style="margin-top:2rem">
-    <span class="callout-ico">🎓</span>
-    <div>
-      <h3>CS50 — Harvard University, completed</h3>
-      <p>Harvard&#39;s Introduction to Computer Science is widely regarded as the best intro CS course in the world. Completing it in Grade 12 — while managing clubs, internships, and ongoing projects — is not a school requirement. It is a deliberate choice to learn CS at the highest available standard before university begins.</p>
-      <span class="callout-tag">Harvard CS50 · Completed · Grade 12</span>
+  <p class="body-text">Every course here was chosen deliberately — to build a specific skill the school syllabus didn't cover. From Harvard's CS50 to an AI internship at a real startup to a selective residential developer summit, the pattern is consistent: identify the gap, fill it, build something with what you learn.</p>
+
+  <div class="cert-row">
+    <div class="cert-card">
+      <h4>CS50 — Harvard University</h4>
+      <p>Grade 12 · Completed</p>
+      <div class="cert-upload-zone" onclick="this.querySelector('input').click()">
+        <input type="file" accept="image/*,.pdf" onchange="handleCertUpload(this,'cert-0')"/>
+        <span>📎 Tap to attach certificate</span>
+      </div>
+      <div class="cert-preview" id="cert-0"></div>
+    </div>
+    <div class="cert-card">
+      <h4>The Complete JavaScript Course 2025</h4>
+      <p>Grade 12 · Udemy · Jonas Schmedtmann · Completed</p>
+      <div class="cert-upload-zone" onclick="this.querySelector('input').click()">
+        <input type="file" accept="image/*,.pdf" onchange="handleCertUpload(this,'cert-1')"/>
+        <span>📎 Tap to attach certificate</span>
+      </div>
+      <div class="cert-preview" id="cert-1"></div>
+    </div>
+    <div class="cert-card">
+      <h4>AI Internship — Pickle.AI</h4>
+      <p>Grade 11 · Industry internship · Completed</p>
+      <div class="cert-upload-zone" onclick="this.querySelector('input').click()">
+        <input type="file" accept="image/*,.pdf" onchange="handleCertUpload(this,'cert-2')"/>
+        <span>📎 Tap to attach certificate</span>
+      </div>
+      <div class="cert-preview" id="cert-2"></div>
+    </div>
+    <div class="cert-card">
+      <h4>Plaksha Young Developer Summit</h4>
+      <p>Grade 11 · 7-day residential · Completed</p>
+      <div class="cert-upload-zone" onclick="this.querySelector('input').click()">
+        <input type="file" accept="image/*,.pdf" onchange="handleCertUpload(this,'cert-3')"/>
+        <span>📎 Tap to attach certificate</span>
+      </div>
+      <div class="cert-preview" id="cert-3"></div>
+    </div>
+    <div class="cert-card">
+      <h4>Python & AI Summer Camp — Rancho Labs</h4>
+      <p>Grade 10 · Intensive AI & Python camp · Completed</p>
+      <div class="cert-upload-zone" onclick="this.querySelector('input').click()">
+        <input type="file" accept="image/*,.pdf" onchange="handleCertUpload(this,'cert-4')"/>
+        <span>📎 Tap to attach certificate</span>
+      </div>
+      <div class="cert-preview" id="cert-4"></div>
+    </div>
+    <div class="cert-card">
+      <h4>Drone Building Workshop</h4>
+      <p>Grade 11 · Hardware build & flight systems · Completed</p>
+      <div class="cert-upload-zone" onclick="this.querySelector('input').click()">
+        <input type="file" accept="image/*,.pdf" onchange="handleCertUpload(this,'cert-5')"/>
+        <span>📎 Tap to attach certificate</span>
+      </div>
+      <div class="cert-preview" id="cert-5"></div>
+    </div>
+    <div class="cert-card">
+      <h4>Debate & Public Speaking — Jabberwocky</h4>
+      <p>Grade 9 · Structured debate training · Completed</p>
+      <div class="cert-upload-zone" onclick="this.querySelector('input').click()">
+        <input type="file" accept="image/*,.pdf" onchange="handleCertUpload(this,'cert-6')"/>
+        <span>📎 Tap to attach certificate</span>
+      </div>
+      <div class="cert-preview" id="cert-6"></div>
+    </div>
+    <div class="cert-card">
+      <h4>Coding with JavaScript — Mindbox</h4>
+      <p>Grade 9 · JavaScript fundamentals · Completed</p>
+      <div class="cert-upload-zone" onclick="this.querySelector('input').click()">
+        <input type="file" accept="image/*,.pdf" onchange="handleCertUpload(this,'cert-7')"/>
+        <span>📎 Tap to attach certificate</span>
+      </div>
+      <div class="cert-preview" id="cert-7"></div>
+    </div>
+    <div class="cert-card">
+      <h4>HPAIR Summer Leadership Workshop</h4>
+      <p>Grade 8 · Harvard Political Asian Review · Completed</p>
+      <div class="cert-upload-zone" onclick="this.querySelector('input').click()">
+        <input type="file" accept="image/*,.pdf" onchange="handleCertUpload(this,'cert-8')"/>
+        <span>📎 Tap to attach certificate</span>
+      </div>
+      <div class="cert-preview" id="cert-8"></div>
+    </div>
+    <div class="cert-card">
+      <h4>EV3 Robotics Summer Camp — Robo Club</h4>
+      <p>Grade 8 · Autonomous robotics programming · Completed</p>
+      <div class="cert-upload-zone" onclick="this.querySelector('input').click()">
+        <input type="file" accept="image/*,.pdf" onchange="handleCertUpload(this,'cert-9')"/>
+        <span>📎 Tap to attach certificate</span>
+      </div>
+      <div class="cert-preview" id="cert-9"></div>
     </div>
   </div>
 </div>
+
 <footer class="foot">
   <p>© 2025 Yashas Chaudhry · yashaschaudhry.com</p>
   <a href="contact.html">Get in touch →</a>
 </footer>
 </main>
+
+<script>
+(function() {
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; obs.unobserve(e.target); }
+    });
+  }, {threshold:0.07});
+  document.querySelectorAll('.card,.row,.tl-item,.medal,.imp,.stat,.callout').forEach(function(el,i) {
+    el.style.opacity='0'; el.style.transform='translateY(20px)';
+    el.style.transition='opacity .5s ease '+(i*0.04)+'s, transform .5s ease '+(i*0.04)+'s';
+    obs.observe(el);
+  });
+  function animCount(el) {
+    var target=parseInt(el.dataset.t), suffix=el.dataset.suffix||'+', dur=1600, s=performance.now();
+    (function r(ts){var p=Math.min((ts-s)/dur,1),v=1-Math.pow(1-p,3); el.textContent=Math.round(v*target)+suffix; if(p<1)requestAnimationFrame(r);})(s);
+    requestAnimationFrame(function r(ts){var p=Math.min((ts-s)/dur,1),v=1-Math.pow(1-p,3); el.textContent=Math.round(v*target)+suffix; if(p<1)requestAnimationFrame(r);});
+  }
+  var cio=new IntersectionObserver(function(entries){entries.forEach(function(e){if(!e.isIntersecting)return;animCount(e.target);cio.unobserve(e.target);});},{threshold:.5});
+  document.querySelectorAll('[data-t]').forEach(function(el){cio.observe(el);});
+})();
+</script>
+
+<script>
+function handlePhotoUpload(input,gridId){
+  var grid=document.getElementById(gridId); if(!grid) return;
+  Array.from(input.files).forEach(function(file){
+    if(!file.type.startsWith('image/'))return;
+    var r=new FileReader();
+    r.onload=function(e){var d=document.createElement('div');d.className='photo-item';var img=document.createElement('img');img.src=e.target.result;img.alt=file.name;d.appendChild(img);grid.appendChild(d);};
+    r.readAsDataURL(file);
+  });
+}
+function handleCertUpload(input,previewId){
+  var p=document.getElementById(previewId); if(!p||!input.files[0])return;
+  var file=input.files[0], r=new FileReader();
+  r.onload=function(e){
+    p.innerHTML='';
+    if(file.type==='application/pdf'){p.innerHTML='<p style="font-size:.72rem;color:var(--g);font-weight:600;margin-top:.375rem">✓ '+file.name+'</p>';}
+    else{var img=document.createElement('img');img.src=e.target.result;img.style.cssText='width:100%;border-radius:6px;margin-top:.375rem';p.appendChild(img);}
+  };
+  r.readAsDataURL(file);
+}
+function handleResumeUpload(input){
+  if(!input.files[0])return;
+  var btn=document.getElementById('resumeDlBtn');
+  if(btn){btn.href=URL.createObjectURL(input.files[0]);btn.download='Yashas_Chaudhry_Resume.pdf';btn.textContent='↓ Download Resume';btn.style.background='var(--gl)';btn.style.color='#061410';}
+  var st=document.getElementById('resumeStatus'); if(st)st.textContent='Resume uploaded — ready to download.';
+}
+// Tab switcher for research page
+function showTab(id,btn){
+  document.querySelectorAll('.tab-panel').forEach(function(p){p.style.display='none';});
+  document.querySelectorAll('.tab-btn').forEach(function(b){b.style.background='';b.style.color='var(--ink)';b.classList.remove('active');});
+  var panel=document.getElementById(id); if(panel)panel.style.display='block';
+  if(btn){btn.style.background='var(--ink)';btn.style.color='var(--white)';btn.classList.add('active');}
+}
+window.addEventListener('DOMContentLoaded',function(){
+  var first=document.querySelector('.tab-btn'); var fp=document.querySelector('.tab-panel');
+  if(first&&fp){showTab(fp.id,first);}
+});
+</script>
 </body>
 </html>

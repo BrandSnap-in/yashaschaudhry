@@ -521,10 +521,7 @@ body{
 </style>
 </head>
 <body>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700;1,9..144,900&display=swap" rel="stylesheet"/>
-
-<!-- MOBILE HEADER - always visible on small screens -->
+<!-- MOBILE HEADER -->
 <header class="mob-bar" id="mobBar">
   <a href="index.html" class="mob-bar-logo">Yashas Chaudhry</a>
   <div class="mob-bar-right">
@@ -535,7 +532,7 @@ body{
   </div>
 </header>
 
-<!-- OVERLAY - closes nav on tap -->
+<!-- VEIL -->
 <div class="mob-veil" id="veil"></div>
 
 <!-- SIDEBAR NAV -->
@@ -546,16 +543,17 @@ body{
       <span class="nav-role">Builder · Founder · Innovator</span>
     </a>
   </div>
-  <div class="nav-body">
+  <div class="nav-body" id="navBody">
     <a class="nav-link" href="index.html" onclick="closeNav()"><span class="ni">🏠</span>Home</a>
     <a class="nav-link" href="about.html" onclick="closeNav()"><span class="ni">👤</span>About Me</a>
     <div class="nav-divider"></div>
     <span class="nav-section-label">Projects</span>
     <a class="nav-link" href="battery-bin.html" onclick="closeNav()"><span class="ni">♻️</span>Battery Bin</a>
+    <a class="nav-link" href="threco.html" onclick="closeNav()"><span class="ni">🏭</span>Threco (North India)</a>
+    <a class="nav-link" href="research.html" onclick="closeNav()"><span class="ni">🔬</span>Research Paper</a>
     <a class="nav-link" href="phishsentinel.html" onclick="closeNav()"><span class="ni">🛡️</span>PhishSentinel</a>
     <a class="nav-link" href="brandsnap.html" onclick="closeNav()"><span class="ni">⚡</span>BrandSnap</a>
     <a class="nav-link" href="hardware-decoded.html" onclick="closeNav()"><span class="ni">💻</span>Hardware Decoded</a>
-    <a class="nav-link" href="caltrack.html" onclick="closeNav()"><span class="ni">🤖</span>CalTrack</a>
     <a class="nav-link" href="drone.html" onclick="closeNav()"><span class="ni">🚁</span>Robotics &amp; Eng.</a>
     <a class="nav-link" href="nas.html" onclick="closeNav()"><span class="ni">🖥️</span>Personal NAS</a>
     <div class="nav-divider"></div>
@@ -592,64 +590,77 @@ body{
 </nav>
 
 <script>
-(function() {
+(function () {
   'use strict';
-
-  var nav = document.getElementById('nav');
+  var NAV_SCROLL_KEY = 'navScrollTop';
+  var nav  = document.getElementById('nav');
+  var body_el = document.getElementById('navBody');
   var veil = document.getElementById('veil');
-  var btn = document.getElementById('hamburger');
+  var btn  = document.getElementById('hamburger');
   var isOpen = false;
 
+  /* ── Restore nav scroll position ── */
+  try {
+    var saved = sessionStorage.getItem(NAV_SCROLL_KEY);
+    if (saved !== null && body_el) body_el.scrollTop = parseInt(saved, 10);
+  } catch (e) {}
+
+  /* Save nav scroll on every scroll + before page unload */
+  function saveScroll() {
+    try { if (body_el) sessionStorage.setItem(NAV_SCROLL_KEY, body_el.scrollTop); } catch (e) {}
+  }
+  if (body_el) body_el.addEventListener('scroll', saveScroll, { passive: true });
+  window.addEventListener('pagehide', saveScroll);
+  window.addEventListener('beforeunload', saveScroll);
+
+  /* ── Save scroll on nav link click (before navigation) ── */
+  document.querySelectorAll('.nav-link').forEach(function (a) {
+    a.addEventListener('click', saveScroll);
+  });
+
+  /* ── Open / close ── */
   function openNav() {
     isOpen = true;
     nav.classList.add('open');
     veil.classList.add('open');
-    btn.setAttribute('aria-expanded', 'true');
+    if (btn) btn.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
   }
-
   function closeNav() {
     isOpen = false;
     nav.classList.remove('open');
     veil.classList.remove('open');
-    btn.setAttribute('aria-expanded', 'false');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+    saveScroll();
   }
-
   window.closeNav = closeNav;
 
-  function toggleNav() {
-    if (isOpen) { closeNav(); } else { openNav(); }
-  }
-
-  // Hamburger button
-  if (btn) btn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    toggleNav();
-  });
-
-  // Veil tap closes nav
+  if (btn) btn.addEventListener('click', function (e) { e.stopPropagation(); isOpen ? closeNav() : openNav(); });
   if (veil) veil.addEventListener('click', closeNav);
 
-  // Swipe left to close nav
-  var touchStartX = 0;
-  nav.addEventListener('touchstart', function(e) {
-    touchStartX = e.touches[0].clientX;
-  }, { passive: true });
-  nav.addEventListener('touchend', function(e) {
-    var dx = e.changedTouches[0].clientX - touchStartX;
-    if (dx < -60) closeNav();
-  }, { passive: true });
+  /* ── Swipe left to close ── */
+  var tx = 0;
+  nav.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; }, { passive: true });
+  nav.addEventListener('touchend',   function (e) { if (e.changedTouches[0].clientX - tx < -60) closeNav(); }, { passive: true });
 
-  // Close on Escape
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && isOpen) closeNav();
-  });
+  /* ── Escape key ── */
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && isOpen) closeNav(); });
 
-  // Highlight active page
+  /* ── Active link highlight ── */
   var p = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-link').forEach(function(a) {
-    if (a.getAttribute('href') === p) a.classList.add('active');
+  document.querySelectorAll('.nav-link').forEach(function (a) {
+    if (a.getAttribute('href') === p) {
+      a.classList.add('active');
+      /* Scroll active link into view inside nav body */
+      try {
+        if (saved === null && body_el) {
+          var linkTop = a.offsetTop - body_el.offsetTop;
+          var center  = linkTop - body_el.clientHeight / 2 + a.clientHeight / 2;
+          body_el.scrollTop = Math.max(0, center);
+        }
+      } catch (e) {}
+    }
   });
 })();
 </script>
@@ -666,7 +677,7 @@ body{
   <h2 class="heading">I do not wait<br>for the <em>right time.</em></h2>
   <div class="rule"></div>
   <p class="body-text">Technology found me early — not through a class or a parent who coded, but through the simple need to know how things worked. Robotics was a regular school activity from Grade 2. By Grade 7 I joined Helios Tech Club and started exploring coding seriously — not because it was required, but because making a computer do something new felt genuinely exciting. By Grade 8 I had built a Discord community for hardware enthusiasts (raided twice, rebuilt three times — now 300+ members). By Grade 10 I was running a battery recycling initiative and speaking about it to a full school auditorium. By Grade 11 I had four internships, a cybersecurity app, a design agency with seven paying clients, and a competition cybersecurity dossier. Nobody assigned any of it.</p>
-  <p class="body-text">I sit at the intersection of <strong>technology, sustainability, and entrepreneurship</strong> — not because it sounds good on paper, but because these are the three things I cannot stop thinking about. Battery Bin is environmental. PhishSentinel is technical. BrandSnap is entrepreneurial. Hardware Decoded is community. CalTrack is AI. My NAS is infrastructure. The thread connecting all of them: I saw something worth building and built it.</p>
+  <p class="body-text">I sit at the intersection of <strong>technology, sustainability, and entrepreneurship</strong> — not because it sounds good on paper, but because these are the three things I cannot stop thinking about. Battery Bin is environmental. PhishSentinel is technical. BrandSnap is entrepreneurial. Hardware Decoded is community. My NAS is infrastructure. The thread connecting all of them: I saw something worth building and built it.</p>
   <p class="body-text">Outside the projects: I have played <strong>Indian classical flute since Grade 3</strong> — over a decade, uninterrupted, with a school award in Grade 9. I have won gold medals in skating and chess. I taught myself chess seriously during COVID in Grade 7 — Lichess and Chess.com daily for five months, beat my father for the first time, became the chess person of the grade, won two gold medals representing school. I run a personal NAS and maintain a digital library at home because I want to understand infrastructure by actually running it. I have completed Harvard CS50 and The Complete JavaScript Course. I do not start things to have started them.</p>
   <div class="qblock">
     <blockquote>"The best time to build something that matters is before you are given permission to."</blockquote>
@@ -681,75 +692,6 @@ body{
   </div>
   <hr class="sep"/>
   <h3 class="heading" style="font-size:1.5rem">What drives me</h3>
-  <div class="cards">
-    <div class="card"><div class="card-top"><div class="card-ico ci-g">🔍</div></div><h4>Curiosity that does not turn off</h4><p>I ran a phishing analysis before building PhishSentinel. I set up a NAS before I strictly needed one. I joined the AI Club in Grade 9 when AI was barely part of my world — just to understand what was coming. The question always arrives before the project.</p></div>
-    <div class="card"><div class="card-top"><div class="card-ico ci-b">🌱</div></div><h4>Impact over polish</h4><p>Battery Bin is a collection bin and a spreadsheet. But 75+ kg of toxic batteries are not in a landfill because of it. I care far more about that number than how any of this looks on paper.</p></div>
-    <div class="card"><div class="card-top"><div class="card-ico ci-a">🎵</div></div><h4>Long-term commitment</h4><p>I have played flute for over a decade. I have run Hardware Decoded for years — rebuilt it twice after raids without quitting. The same patience shows up everywhere: instruments, servers, recycling initiatives. Things that last require someone willing to stay.</p></div>
-    <div class="card"><div class="card-top"><div class="card-ico ci-p">⚡</div></div><h4>Bias toward action</h4><p>Most of what I have built was not assigned, not required, not expected. It just seemed worth doing. I do not wait for the right conditions or for someone else to prove it is possible first.</p></div>
-  </div>
-  <hr class="sep"/>
-  <h3 class="heading" style="font-size:1.5rem">Full timeline — every milestone</h3>
-  <div class="tl">
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-yr">Grade 2 · ~2017</div>
-      <h4>School Robotics begins</h4>
-      <p>Robotics as a regular school activity — the earliest, most consistent introduction to how machines move and respond. The origin of everything engineering that followed.</p>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-yr">Grade 3 · ~2018</div>
-      <h4>Started learning Indian classical flute</h4>
-      <p>The longest running commitment in this timeline. Still playing. Received a school award for flute performance in Grade 9. Performed at Jashn in Grades 9, 10, and 11.</p>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-yr">Grade 4 · 2019</div>
-      <h4>First Lego League Nationals — Rising Star Award</h4>
-      <p>National-level engineering competition at age 9. Won the Rising Star Award. First proof that engineering under competitive pressure was home.</p>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-yr">Grade 5 onwards</div>
-      <h4>Asset Outstanding Performance — all three subjects, every year</h4>
-      <p>Outstanding Performance in English, Science, and Mathematics in the Asset assessment — consistently, every year from Grade 5 onwards. Academic breadth as a constant.</p>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-yr">Grade 7 · COVID lockdowns</div>
-      <h4>Joined Helios Tech Club · Chess obsession begins · Hardware Decoded seeds planted</h4>
-      <p>Joined Helios Tech Club and discovered coding — the direct origin of every technical project since. Simultaneously discovered Lichess and Chess.com during lockdown. Five months of daily practice. Beat his father for the first time. Never looked back. Helios connections became the first trusted members of what would become Hardware Decoded.</p>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-yr">Grade 8</div>
-      <h4>Hardware Decoded founded · NCO Gold Medal · Asset Outstanding · EV3 Robotics · HPAIR · Guitar Trinity Grade 2</h4>
-      <p>Founded Hardware Decoded Discord — raided twice, rebuilt three times, now 300+ members. Won National Cyber Olympiad Gold Medal. Continued Asset Outstanding across all subjects. Attended EV3 Robotics Summer Camp (Robo Club) and HPAIR Summer Leadership Workshop. Completed Guitar to Trinity Grade 2.</p>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-yr">Grade 9</div>
-      <h4>Waterloo Math Distinction · JavaScript at Mindbox · Jabberwocky Debate · AI Club · Flute Award · Painting at Jashn</h4>
-      <p>International Waterloo Math Distinction. Formal coding at Mindbox. Structured debate training at Jabberwocky. Joined AI Club — first exposure to how machine learning works. Received school flute award. Painting framed and displayed at Jashn.</p>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-yr">Grade 10</div>
-      <h4>Battery Bin · SOF Science Gold · English #5 · IT Wizard · Rancho Labs · Jashn pottery &amp; art</h4>
-      <p>Founded Battery Bin — 75+ kg recycled to date. Spoke to a full school auditorium about it after the first 25 kg milestone. Won SOF Science Gold Medal and English School Rank 5. IT Wizard award. Rancho Labs Python and AI Summer Camp. Multiple pottery pieces at Jashn (~40% of display). Art piece also displayed.</p>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-yr">Grade 11</div>
-      <h4>Growth internship · Pickle.AI · Plaksha YDS (7-day residential) · BrandSnap · PhishSentinel · Drone Race 3rd · SOF Gold · Ramanujan · SecuroSphere · IT Wizard · Roundsquare backend · Jashn designer</h4>
-      <p>Co-managed a live $500 trading portfolio at Growth, Chandni Chowk (March 2025). Interned at Pickle.AI. Attended Plaksha YDS — 7-day residential camp, led group, built real friendships, developed leadership and communication under pressure. Launched BrandSnap (7 websites). Built PhishSentinel web app and Chrome extension. Placed 3rd in drone race. Won second SOF Science Gold and English School Rank 5. IT Wizard again. Rank 1114 Ramanujan Math nationally. Team SecuroSphere at Xavier Cybersecurity Challenge. Ran the backend at Roundsquare Projections. Designed the official Jashn invite. Performed flute and ran SEVA CAS pottery stall at Jashn.</p>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-yr">Grade 12 · Now</div>
-      <h4>E-Chargeup internship · Perfect ID internship · CS50 ✓ · JavaScript ✓ · CalTrack · Class Rep · Investiture · 3 OC roles · BST 1st · Science Quiz 2nd · NAS</h4>
-      <p>Interned at E-Chargeup Solutions Pvt. Ltd. (Feb–May, app design for e-rickshaw drivers). Interned at Perfect ID India / Syrma SGS (Jun–Jul, database verification system). Completed Harvard CS50. Completed The Complete JavaScript Course 2025. Built CalTrack — a personal nutrition tracker using Google AI Studio and Gemini, running on my laptop. Elected Class Representative — invested at Investiture Ceremony with badge. Leading Environmental, Math Contour, and Helios Tech clubs as Organising Committee. Won BST Quiz 1st and Interhouse Science Quiz 2nd. Running a personal NAS and digital library at home.</p>
-    </div>
   </div>
 </div>
 <footer class="foot">
@@ -757,5 +699,14 @@ body{
   <a href="contact.html">Get in touch →</a>
 </footer>
 </main>
+<script>
+(function(){
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity="1";e.target.style.transform="translateY(0)";obs.unobserve(e.target);}});},{threshold:0.07});
+  document.querySelectorAll(".card,.row,.tl-item,.medal,.imp,.stat,.callout").forEach(function(el,i){el.style.opacity="0";el.style.transform="translateY(20px)";el.style.transition="opacity .5s ease "+(i*0.05)+"s, transform .5s ease "+(i*0.05)+"s";obs.observe(el);});
+  function animCount(el){var t=parseInt(el.dataset.t),sx=el.dataset.suffix||"+",d=1600,s=performance.now();(function r(ts){var p=Math.min((ts-s)/d,1),v=1-Math.pow(1-p,3);el.textContent=Math.round(v*t)+sx;if(p<1)requestAnimationFrame(r);})(s);}
+  var cio=new IntersectionObserver(function(e){e.forEach(function(x){if(!x.isIntersecting)return;animCount(x.target);cio.unobserve(x.target);});},{threshold:.5});
+  document.querySelectorAll("[data-t]").forEach(function(el){cio.observe(el);});
+})();
+</script>
 </body>
 </html>

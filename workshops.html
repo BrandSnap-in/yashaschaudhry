@@ -521,10 +521,7 @@ body{
 </style>
 </head>
 <body>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700;1,9..144,900&display=swap" rel="stylesheet"/>
-
-<!-- MOBILE HEADER - always visible on small screens -->
+<!-- MOBILE HEADER -->
 <header class="mob-bar" id="mobBar">
   <a href="index.html" class="mob-bar-logo">Yashas Chaudhry</a>
   <div class="mob-bar-right">
@@ -535,7 +532,7 @@ body{
   </div>
 </header>
 
-<!-- OVERLAY - closes nav on tap -->
+<!-- VEIL -->
 <div class="mob-veil" id="veil"></div>
 
 <!-- SIDEBAR NAV -->
@@ -546,16 +543,17 @@ body{
       <span class="nav-role">Builder · Founder · Innovator</span>
     </a>
   </div>
-  <div class="nav-body">
+  <div class="nav-body" id="navBody">
     <a class="nav-link" href="index.html" onclick="closeNav()"><span class="ni">🏠</span>Home</a>
     <a class="nav-link" href="about.html" onclick="closeNav()"><span class="ni">👤</span>About Me</a>
     <div class="nav-divider"></div>
     <span class="nav-section-label">Projects</span>
     <a class="nav-link" href="battery-bin.html" onclick="closeNav()"><span class="ni">♻️</span>Battery Bin</a>
+    <a class="nav-link" href="threco.html" onclick="closeNav()"><span class="ni">🏭</span>Threco (North India)</a>
+    <a class="nav-link" href="research.html" onclick="closeNav()"><span class="ni">🔬</span>Research Paper</a>
     <a class="nav-link" href="phishsentinel.html" onclick="closeNav()"><span class="ni">🛡️</span>PhishSentinel</a>
     <a class="nav-link" href="brandsnap.html" onclick="closeNav()"><span class="ni">⚡</span>BrandSnap</a>
     <a class="nav-link" href="hardware-decoded.html" onclick="closeNav()"><span class="ni">💻</span>Hardware Decoded</a>
-    <a class="nav-link" href="caltrack.html" onclick="closeNav()"><span class="ni">🤖</span>CalTrack</a>
     <a class="nav-link" href="drone.html" onclick="closeNav()"><span class="ni">🚁</span>Robotics &amp; Eng.</a>
     <a class="nav-link" href="nas.html" onclick="closeNav()"><span class="ni">🖥️</span>Personal NAS</a>
     <div class="nav-divider"></div>
@@ -592,64 +590,77 @@ body{
 </nav>
 
 <script>
-(function() {
+(function () {
   'use strict';
-
-  var nav = document.getElementById('nav');
+  var NAV_SCROLL_KEY = 'navScrollTop';
+  var nav  = document.getElementById('nav');
+  var body_el = document.getElementById('navBody');
   var veil = document.getElementById('veil');
-  var btn = document.getElementById('hamburger');
+  var btn  = document.getElementById('hamburger');
   var isOpen = false;
 
+  /* ── Restore nav scroll position ── */
+  try {
+    var saved = sessionStorage.getItem(NAV_SCROLL_KEY);
+    if (saved !== null && body_el) body_el.scrollTop = parseInt(saved, 10);
+  } catch (e) {}
+
+  /* Save nav scroll on every scroll + before page unload */
+  function saveScroll() {
+    try { if (body_el) sessionStorage.setItem(NAV_SCROLL_KEY, body_el.scrollTop); } catch (e) {}
+  }
+  if (body_el) body_el.addEventListener('scroll', saveScroll, { passive: true });
+  window.addEventListener('pagehide', saveScroll);
+  window.addEventListener('beforeunload', saveScroll);
+
+  /* ── Save scroll on nav link click (before navigation) ── */
+  document.querySelectorAll('.nav-link').forEach(function (a) {
+    a.addEventListener('click', saveScroll);
+  });
+
+  /* ── Open / close ── */
   function openNav() {
     isOpen = true;
     nav.classList.add('open');
     veil.classList.add('open');
-    btn.setAttribute('aria-expanded', 'true');
+    if (btn) btn.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
   }
-
   function closeNav() {
     isOpen = false;
     nav.classList.remove('open');
     veil.classList.remove('open');
-    btn.setAttribute('aria-expanded', 'false');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+    saveScroll();
   }
-
   window.closeNav = closeNav;
 
-  function toggleNav() {
-    if (isOpen) { closeNav(); } else { openNav(); }
-  }
-
-  // Hamburger button
-  if (btn) btn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    toggleNav();
-  });
-
-  // Veil tap closes nav
+  if (btn) btn.addEventListener('click', function (e) { e.stopPropagation(); isOpen ? closeNav() : openNav(); });
   if (veil) veil.addEventListener('click', closeNav);
 
-  // Swipe left to close nav
-  var touchStartX = 0;
-  nav.addEventListener('touchstart', function(e) {
-    touchStartX = e.touches[0].clientX;
-  }, { passive: true });
-  nav.addEventListener('touchend', function(e) {
-    var dx = e.changedTouches[0].clientX - touchStartX;
-    if (dx < -60) closeNav();
-  }, { passive: true });
+  /* ── Swipe left to close ── */
+  var tx = 0;
+  nav.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; }, { passive: true });
+  nav.addEventListener('touchend',   function (e) { if (e.changedTouches[0].clientX - tx < -60) closeNav(); }, { passive: true });
 
-  // Close on Escape
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && isOpen) closeNav();
-  });
+  /* ── Escape key ── */
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && isOpen) closeNav(); });
 
-  // Highlight active page
+  /* ── Active link highlight ── */
   var p = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-link').forEach(function(a) {
-    if (a.getAttribute('href') === p) a.classList.add('active');
+  document.querySelectorAll('.nav-link').forEach(function (a) {
+    if (a.getAttribute('href') === p) {
+      a.classList.add('active');
+      /* Scroll active link into view inside nav body */
+      try {
+        if (saved === null && body_el) {
+          var linkTop = a.offsetTop - body_el.offsetTop;
+          var center  = linkTop - body_el.clientHeight / 2 + a.clientHeight / 2;
+          body_el.scrollTop = Math.max(0, center);
+        }
+      } catch (e) {}
+    }
   });
 })();
 </script>
@@ -667,19 +678,7 @@ body{
   <div class="rule"></div>
   <p class="body-text">Yashas&#39;s engineering roots go back to Grade 2, when robotics became a regular school activity. That foundation shaped every camp, workshop, and intensive programme that followed. Each entry here represents time taken deliberately — to learn something the school curriculum did not offer, in a setting that demanded real engagement.</p>
 
-  <div class="cards">
-    <div class="card">
-      <div class="card-top"><div class="card-ico ci-b">🏛️</div><div class="card-yr">Grade 11 · 7-day residential</div></div>
-      <h4>Plaksha Young Developer Summit (YDS) — Leadership, Communication, and Real Collaboration</h4>
-      <p>A 7-day offline residential programme at Plaksha University — a selective camp for high-school technology students from across India. Yashas stayed on campus, made genuine friendships with students from different cities and backgrounds, and led his group through real collaborative challenges. The YDS was not just a coding camp: it was a concentrated test of communication under unfamiliar conditions, group leadership when the team does not know each other, and the ability to work across different thinking styles. It taught skills that no online course can replicate — how to hold a room, how to listen properly, and how to build trust with strangers over seven days.</p>
-      <div class="tags"><span class="tag">Plaksha University</span><span class="tag">7-day residential</span><span class="tag">Group leadership</span><span class="tag">Communication</span><span class="tag">Peer networking</span><span class="tag">Grade 11</span></div>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="card-ico ci-g">🐍</div><div class="card-yr">Grade 10</div></div>
-      <h4>Python &amp; AI Summer Camp — Rancho Labs</h4>
-      <p>Intensive camp at Rancho Labs focused on Python and applied artificial intelligence. First serious exposure to machine learning: what training data means, how models learn, what a neural network actually does in practice. The technical foundation that led directly to the Pickle.AI internship and the CalTrack build with Gemini API.</p>
-      <div class="tags"><span class="tag">Rancho Labs</span><span class="tag">Python</span><span class="tag">AI/ML</span><span class="tag">Neural networks</span><span class="tag">Grade 10</span></div>
-    </div>
+  </div>
     <div class="card">
       <div class="card-top"><div class="card-ico ci-r">🚁</div><div class="card-yr">Grade 11</div></div>
       <h4>Drone Building Workshop</h4>
@@ -717,5 +716,14 @@ body{
   <a href="contact.html">Get in touch →</a>
 </footer>
 </main>
+<script>
+(function(){
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity="1";e.target.style.transform="translateY(0)";obs.unobserve(e.target);}});},{threshold:0.07});
+  document.querySelectorAll(".card,.row,.tl-item,.medal,.imp,.stat,.callout").forEach(function(el,i){el.style.opacity="0";el.style.transform="translateY(20px)";el.style.transition="opacity .5s ease "+(i*0.05)+"s, transform .5s ease "+(i*0.05)+"s";obs.observe(el);});
+  function animCount(el){var t=parseInt(el.dataset.t),sx=el.dataset.suffix||"+",d=1600,s=performance.now();(function r(ts){var p=Math.min((ts-s)/d,1),v=1-Math.pow(1-p,3);el.textContent=Math.round(v*t)+sx;if(p<1)requestAnimationFrame(r);})(s);}
+  var cio=new IntersectionObserver(function(e){e.forEach(function(x){if(!x.isIntersecting)return;animCount(x.target);cio.unobserve(x.target);});},{threshold:.5});
+  document.querySelectorAll("[data-t]").forEach(function(el){cio.observe(el);});
+})();
+</script>
 </body>
 </html>

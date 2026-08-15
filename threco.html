@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
-<title>CalTrack — Yashas Chaudhry</title>
-<meta name="description" content="Yashas Chaudhry built CalTrack — a personal AI nutrition tracker built and used on Google AI Studio, running locally on his laptop. Not a deployed app — a personal tool that taught him LLM API integration."/>
+<title>Threco — Head of Operations, North India — Yashas Chaudhry</title>
+<meta name="description" content="Yashas Chaudhry expanded Threco (The Recycling Company) from West India to North India — alone, using his Battery Bin network. Head of Operations for North India at a CPCB-authorised national e-waste company."/>
 <meta name="theme-color" content="#ffffff"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700;1,9..144,900&display=swap" rel="stylesheet"/>
 <style>/* ═══════════════════════════════════════════════════════
    YASHAS CHAUDHRY PORTFOLIO — Premium CSS v2
    Mobile-first, professional grade, admissions-ready
@@ -521,10 +519,7 @@ body{
 </style>
 </head>
 <body>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700;1,9..144,900&display=swap" rel="stylesheet"/>
-
-<!-- MOBILE HEADER - always visible on small screens -->
+<!-- MOBILE HEADER -->
 <header class="mob-bar" id="mobBar">
   <a href="index.html" class="mob-bar-logo">Yashas Chaudhry</a>
   <div class="mob-bar-right">
@@ -535,7 +530,7 @@ body{
   </div>
 </header>
 
-<!-- OVERLAY - closes nav on tap -->
+<!-- VEIL -->
 <div class="mob-veil" id="veil"></div>
 
 <!-- SIDEBAR NAV -->
@@ -546,16 +541,17 @@ body{
       <span class="nav-role">Builder · Founder · Innovator</span>
     </a>
   </div>
-  <div class="nav-body">
+  <div class="nav-body" id="navBody">
     <a class="nav-link" href="index.html" onclick="closeNav()"><span class="ni">🏠</span>Home</a>
     <a class="nav-link" href="about.html" onclick="closeNav()"><span class="ni">👤</span>About Me</a>
     <div class="nav-divider"></div>
     <span class="nav-section-label">Projects</span>
     <a class="nav-link" href="battery-bin.html" onclick="closeNav()"><span class="ni">♻️</span>Battery Bin</a>
+    <a class="nav-link" href="threco.html" onclick="closeNav()"><span class="ni">🏭</span>Threco (North India)</a>
+    <a class="nav-link" href="research.html" onclick="closeNav()"><span class="ni">🔬</span>Research Paper</a>
     <a class="nav-link" href="phishsentinel.html" onclick="closeNav()"><span class="ni">🛡️</span>PhishSentinel</a>
     <a class="nav-link" href="brandsnap.html" onclick="closeNav()"><span class="ni">⚡</span>BrandSnap</a>
     <a class="nav-link" href="hardware-decoded.html" onclick="closeNav()"><span class="ni">💻</span>Hardware Decoded</a>
-    <a class="nav-link" href="caltrack.html" onclick="closeNav()"><span class="ni">🤖</span>CalTrack</a>
     <a class="nav-link" href="drone.html" onclick="closeNav()"><span class="ni">🚁</span>Robotics &amp; Eng.</a>
     <a class="nav-link" href="nas.html" onclick="closeNav()"><span class="ni">🖥️</span>Personal NAS</a>
     <div class="nav-divider"></div>
@@ -592,130 +588,155 @@ body{
 </nav>
 
 <script>
-(function() {
+(function () {
   'use strict';
-
-  var nav = document.getElementById('nav');
+  var NAV_SCROLL_KEY = 'navScrollTop';
+  var nav  = document.getElementById('nav');
+  var body_el = document.getElementById('navBody');
   var veil = document.getElementById('veil');
-  var btn = document.getElementById('hamburger');
+  var btn  = document.getElementById('hamburger');
   var isOpen = false;
 
+  /* ── Restore nav scroll position ── */
+  try {
+    var saved = sessionStorage.getItem(NAV_SCROLL_KEY);
+    if (saved !== null && body_el) body_el.scrollTop = parseInt(saved, 10);
+  } catch (e) {}
+
+  /* Save nav scroll on every scroll + before page unload */
+  function saveScroll() {
+    try { if (body_el) sessionStorage.setItem(NAV_SCROLL_KEY, body_el.scrollTop); } catch (e) {}
+  }
+  if (body_el) body_el.addEventListener('scroll', saveScroll, { passive: true });
+  window.addEventListener('pagehide', saveScroll);
+  window.addEventListener('beforeunload', saveScroll);
+
+  /* ── Save scroll on nav link click (before navigation) ── */
+  document.querySelectorAll('.nav-link').forEach(function (a) {
+    a.addEventListener('click', saveScroll);
+  });
+
+  /* ── Open / close ── */
   function openNav() {
     isOpen = true;
     nav.classList.add('open');
     veil.classList.add('open');
-    btn.setAttribute('aria-expanded', 'true');
+    if (btn) btn.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
   }
-
   function closeNav() {
     isOpen = false;
     nav.classList.remove('open');
     veil.classList.remove('open');
-    btn.setAttribute('aria-expanded', 'false');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+    saveScroll();
   }
-
   window.closeNav = closeNav;
 
-  function toggleNav() {
-    if (isOpen) { closeNav(); } else { openNav(); }
-  }
-
-  // Hamburger button
-  if (btn) btn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    toggleNav();
-  });
-
-  // Veil tap closes nav
+  if (btn) btn.addEventListener('click', function (e) { e.stopPropagation(); isOpen ? closeNav() : openNav(); });
   if (veil) veil.addEventListener('click', closeNav);
 
-  // Swipe left to close nav
-  var touchStartX = 0;
-  nav.addEventListener('touchstart', function(e) {
-    touchStartX = e.touches[0].clientX;
-  }, { passive: true });
-  nav.addEventListener('touchend', function(e) {
-    var dx = e.changedTouches[0].clientX - touchStartX;
-    if (dx < -60) closeNav();
-  }, { passive: true });
+  /* ── Swipe left to close ── */
+  var tx = 0;
+  nav.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; }, { passive: true });
+  nav.addEventListener('touchend',   function (e) { if (e.changedTouches[0].clientX - tx < -60) closeNav(); }, { passive: true });
 
-  // Close on Escape
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && isOpen) closeNav();
-  });
+  /* ── Escape key ── */
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && isOpen) closeNav(); });
 
-  // Highlight active page
+  /* ── Active link highlight ── */
   var p = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-link').forEach(function(a) {
-    if (a.getAttribute('href') === p) a.classList.add('active');
+  document.querySelectorAll('.nav-link').forEach(function (a) {
+    if (a.getAttribute('href') === p) {
+      a.classList.add('active');
+      /* Scroll active link into view inside nav body */
+      try {
+        if (saved === null && body_el) {
+          var linkTop = a.offsetTop - body_el.offsetTop;
+          var center  = linkTop - body_el.clientHeight / 2 + a.clientHeight / 2;
+          body_el.scrollTop = Math.max(0, center);
+        }
+      } catch (e) {}
+    }
   });
 })();
 </script>
 
 <main id="main">
-<div class="banner banner-teal">
-  <div class="banner-watermark">CalTrack</div>
-  <div class="banner-eyebrow">Projects · AI / Personal Tool</div>
-  <div class="banner-title">Cal<em>Track</em></div>
-  <div class="banner-desc">Personal project · Grade 12 · Built on Google AI Studio · Runs on my laptop</div>
+
+<div class="banner banner-green">
+  <div class="banner-watermark">Threco</div>
+  <div class="banner-eyebrow">Environmental Work · External Organisation</div>
+  <div class="banner-title">Threco — <em>Head of Operations,<br>North India</em></div>
+  <div class="banner-desc">Expanded a national e-waste company into North India — using Battery Bin's existing network, alone.</div>
 </div>
 <div class="content">
-  <span class="eyebrow">The project</span>
-  <h2 class="heading">Built for myself.<br><em>Runs on my laptop.</em></h2>
+  <span class="eyebrow">Beyond school</span>
+  <h2 class="heading">I took a company<br><em>from West India<br>to North India.</em></h2>
   <div class="rule"></div>
-  <p class="body-text">CalTrack is not a deployed app, and it was never meant to be. It is a personal nutrition tracking tool I built for my own use in Grade 12 — something I actually wanted to exist, so I built it myself using <strong>Google AI Studio</strong> and ran it directly from there on my laptop.</p>
-  <p class="body-text">Calorie tracking apps have always frustrated me — too much manual searching, too many database entries that do not match what you actually ate, too much friction for something that should be simple. I wanted to describe a meal in plain English and get a nutritional breakdown instantly. So I built that. I prompt the <strong>Gemini model</strong> through Google AI Studio with what I ate — "two rotis, a bowl of dal, a small cup of rice" — and it returns a structured breakdown of calories, protein, carbohydrates, and fat. No database. No searching. Just describe, read, move on.</p>
-  <p class="body-text">The reason CalTrack matters in the context of this portfolio is not what it does — it is what building it taught me. It was my <strong>first time working directly with a large language model API</strong>: understanding how to prompt a model for structured output, how to parse and use that output in a real workflow, and how different the architecture is from the rule-based detection logic I had built for PhishSentinel. That shift in thinking — from telling a system exactly what rules to follow, to specifying what outcome you want and letting the model figure out the path — is a genuinely different way of building software. CalTrack is where I first understood it in practice.</p>
-  <ul class="blist">
-    <li><span class="bdot"></span><span>Built in Grade 12 using Google AI Studio and the Gemini model — for personal use, not deployment</span></li>
-    <li><span class="bdot"></span><span>Runs locally on my laptop through Google AI Studio — no live server, no hosted app</span></li>
-    <li><span class="bdot"></span><span>Natural language food input: describe a meal in plain English, receive instant calorie and macro breakdown</span></li>
-    <li><span class="bdot"></span><span>Outputs calories, protein, carbohydrates, fat — structured from completely unstructured input</span></li>
-    <li><span class="bdot"></span><span>First personal project using a large language model API — taught structured prompting and output parsing</span></li>
-    <li><span class="bdot"></span><span>Represents the architectural shift from rule-based logic (PhishSentinel) to LLM-powered reasoning</span></li>
-  </ul>
+  <p class="body-text"><strong>Threco — The Recycling Company</strong> is one of India&#39;s leading CPCB-authorised e-waste management companies. Established in 2019, headquartered in Mumbai, Maharashtra, Threco operates an 18,000 MT capacity recycling plant authorised by the Central Pollution Control Board and Ministry of Environment &amp; Forest. They specialise in e-waste recycling, battery recycling, solar panel recycling, and Extended Producer Responsibility compliance — working with corporates, educational institutions, and bulk consumers across India through a pan-India reverse logistics network. Their "Bin The Battery" campaign runs specifically to address battery e-waste at the institutional level.</p>
+  <p class="body-text">When Threco wanted to expand their operations from West India into North India, they needed someone who already had a real network on the ground — collection points, institutional relationships, and a community of people who trusted the initiative. That person was Yashas.</p>
+  <p class="body-text">He took the Battery Bin network he had built entirely himself at the school level — the collection bins, the certified recycling partnerships, the volunteer base, the institutional trust — and used it as the foundation to expand Threco&#39;s operations into North India. <strong>He did this alone.</strong> Not as part of a team programme or a school project. He identified that the work he was already doing for Battery Bin aligned directly with what Threco needed geographically, made the connection, and executed the expansion.</p>
+  <p class="body-text">His role is <strong>Head of Operations for North India</strong> — responsible for running and growing Threco&#39;s North India operations, managing collection partnerships, and expanding the network of institutions and individuals participating in certified e-waste and battery recycling in the region.</p>
+
+  <div class="stats">
+    <div class="stat"><span class="stat-n">West→</span><div class="stat-l">North India expansion</div></div>
+    <div class="stat"><span class="stat-n">Solo</span><div class="stat-l">Executed alone</div></div>
+    <div class="stat"><span class="stat-n">CPCB</span><div class="stat-l">Govt-authorised company</div></div>
+    <div class="stat"><span class="stat-n">18K</span><div class="stat-l">MT recycling capacity (Threco)</div></div>
+  </div>
+
   <div class="callout">
-    <span class="callout-ico">🤖</span>
+    <span class="callout-ico">🔗</span>
     <div>
-      <h3>Why a personal tool counts as a real project</h3>
-      <p>CalTrack is not on a server somewhere. It runs on a laptop through Google AI Studio. But the skill it taught — how to integrate and reason with a large language model, how to prompt for structured output, how to think about AI as an architectural choice rather than a library — is the same skill that underpins every serious AI product being built right now. Understanding it in practice, even in a personal context, is far more valuable than reading about it.</p>
-      <span class="callout-tag">Google AI Studio · Gemini · Personal use · Laptop · LLM API · Grade 12</span>
+      <h3>Why Battery Bin made this possible</h3>
+      <p>Battery Bin was never just about the bins. It was about building real institutional trust — with schools, with teachers, with students who keep bringing batteries back. That network, built over years, is exactly what Threco needed to enter North India. Yashas did not join an existing operation. He built the North India operation using what he had already created independently.</p>
+      <span class="callout-tag">Battery Bin network · Threco The Recycling Company · CPCB-authorised · North India expansion · Head of Operations</span>
     </div>
   </div>
   <hr class="sep"/>
   <div class="cards">
     <div class="card">
-      <div class="card-top"><div class="card-ico ci-g">🗣️</div><div class="card-yr">How it works</div></div>
-      <h4>Describe your meal. Get the numbers.</h4>
-      <p>Open Google AI Studio, run the prompt with what you ate, read the structured breakdown. No app to install, no account to create, no database to search. Just a prompt and an answer. Built because it was faster and more accurate than any existing option I tried.</p>
-      <div class="tags"><span class="tag">Gemini API</span><span class="tag">Google AI Studio</span><span class="tag">Natural language</span><span class="tag">Personal use</span></div>
+      <div class="card-top"><div class="card-ico ci-g">🏭</div><div class="card-yr">The company</div></div>
+      <h4>Threco — The Recycling Company</h4>
+      <p>CPCB and MoEF-authorised e-waste management company. 18,000 MT annual recycling capacity in Maharashtra. Serves corporates, educational institutions, and bulk consumers pan-India. Specialises in e-waste, battery recycling, solar panel recycling, and EPR compliance.</p>
+      <div class="tags"><span class="tag">CPCB-authorised</span><span class="tag">MoEF-authorised</span><span class="tag">18,000 MT capacity</span><span class="tag">Mumbai HQ</span><span class="tag">Pan-India network</span></div>
     </div>
     <div class="card">
-      <div class="card-top"><div class="card-ico ci-b">🧠</div><div class="card-yr">What it taught</div></div>
-      <h4>First contact with LLM API integration</h4>
-      <p>Working with the Gemini model through AI Studio taught structured prompting — how to ask a model for output in a specific format and parse it reliably. A genuinely different skill from writing traditional logic. This is the foundation for every AI project that comes after it.</p>
-      <div class="tags"><span class="tag">Structured prompting</span><span class="tag">LLM integration</span><span class="tag">Output parsing</span><span class="tag">AI architecture</span></div>
+      <div class="card-top"><div class="card-ico ci-a">📍</div><div class="card-yr">The role</div></div>
+      <h4>Head of Operations — North India</h4>
+      <p>Responsible for Threco&#39;s entire North India operations — collection partnerships, institutional outreach, network expansion, and logistics coordination. Built using the Battery Bin infrastructure already in place. The role is operational leadership, not ceremonial: Yashas runs the region.</p>
+      <div class="tags"><span class="tag">Head of Operations</span><span class="tag">North India region</span><span class="tag">Operational leadership</span><span class="tag">Network expansion</span></div>
     </div>
     <div class="card">
-      <div class="card-top"><div class="card-ico ci-a">📊</div><div class="card-yr">Output</div></div>
-      <h4>Calories, protein, carbs, fat — instantly</h4>
-      <p>The model returns a structured nutritional breakdown from a plain-English meal description. Accurate enough to be useful, fast enough to actually use every day. Does exactly what I needed it to do.</p>
-      <div class="tags"><span class="tag">Calorie tracking</span><span class="tag">Macronutrients</span><span class="tag">Structured output</span></div>
+      <div class="card-top"><div class="card-ico ci-b">🔌</div><div class="card-yr">The connection</div></div>
+      <h4>Battery Bin → Threco: same mission, national scale</h4>
+      <p>Battery Bin operates at the school level — grassroots, student-led, building awareness and trust. Threco operates nationally with certified infrastructure and downstream processing capacity. The expansion connected both ends: Yashas&#39;s North India network feeding into Threco&#39;s certified recycling chain.</p>
+      <div class="tags"><span class="tag">Battery Bin network</span><span class="tag">National certified chain</span><span class="tag">Grassroots to institutional</span></div>
     </div>
     <div class="card">
-      <div class="card-top"><div class="card-ico ci-p">🔄</div><div class="card-yr">Context</div></div>
-      <h4>PhishSentinel → CalTrack: two different paradigms</h4>
-      <p>PhishSentinel uses rule-based heuristics — explicit logic I wrote and control entirely. CalTrack uses a language model — I specify the outcome, the model determines the path. Understanding both paradigms, and when each is appropriate, is the real takeaway from building both.</p>
-      <div class="tags"><span class="tag">Rule-based vs LLM</span><span class="tag">Architectural thinking</span><span class="tag">Two paradigms</span></div>
+      <div class="card-top"><div class="card-ico ci-p">⚡</div><div class="card-yr">The method</div></div>
+      <h4>Executed alone — no team, no programme</h4>
+      <p>This was not a school assignment or a group project. Yashas identified the opportunity, made the connection with Threco, and expanded their operations into North India using only the network he had built himself through Battery Bin. Sole execution of a real business expansion.</p>
+      <div class="tags"><span class="tag">Solo execution</span><span class="tag">Self-initiated</span><span class="tag">Real business impact</span></div>
     </div>
   </div>
 </div>
+
 <footer class="foot">
   <p>© 2025 Yashas Chaudhry · yashaschaudhry.com</p>
   <a href="contact.html">Get in touch →</a>
 </footer>
 </main>
+<script>
+(function(){
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity="1";e.target.style.transform="translateY(0)";obs.unobserve(e.target);}});},{threshold:0.07});
+  document.querySelectorAll(".card,.row,.tl-item,.medal,.imp,.stat,.callout").forEach(function(el,i){el.style.opacity="0";el.style.transform="translateY(20px)";el.style.transition="opacity .5s ease "+(i*0.05)+"s, transform .5s ease "+(i*0.05)+"s";obs.observe(el);});
+  function animCount(el){var t=parseInt(el.dataset.t),sx=el.dataset.suffix||"+",d=1600,s=performance.now();(function r(ts){var p=Math.min((ts-s)/d,1),v=1-Math.pow(1-p,3);el.textContent=Math.round(v*t)+sx;if(p<1)requestAnimationFrame(r);})(s);}
+  var cio=new IntersectionObserver(function(e){e.forEach(function(x){if(!x.isIntersecting)return;animCount(x.target);cio.unobserve(x.target);});},{threshold:.5});
+  document.querySelectorAll("[data-t]").forEach(function(el){cio.observe(el);});
+})();
+</script>
 </body>
 </html>

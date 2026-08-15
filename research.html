@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
-<title>BrandSnap — Yashas Chaudhry</title>
-<meta name="description" content="Yashas Chaudhry founded BrandSnap after building a website for a family friend led to a realisation: he could do this for everyone. Started with tuition teachers and local restaurants. Now 7 paying clients."/>
+<title>E-Waste Forecasting Research Paper — Yashas Chaudhry</title>
+<meta name="description" content="Yashas Chaudhry — research paper: Comparative Analysis of Regression-Based Forecasting Models for State-Level E-Waste Generation Prediction in India. CPCB data, 13 states, Python, scikit-learn."/>
 <meta name="theme-color" content="#ffffff"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700;1,9..144,900&display=swap" rel="stylesheet"/>
 <style>/* ═══════════════════════════════════════════════════════
    YASHAS CHAUDHRY PORTFOLIO — Premium CSS v2
    Mobile-first, professional grade, admissions-ready
@@ -518,6 +516,30 @@ body{
   /* Close nav when link tapped */
   .nav-link:active{background:var(--g2)}
 }
+
+/* Page-specific interactive styles */
+.photo-upload-zone{border:2px dashed var(--border2);border-radius:var(--rl);padding:2.5rem;text-align:center;background:var(--off);cursor:pointer;transition:border-color .2s,background .2s;position:relative;overflow:hidden}
+.photo-upload-zone:hover{border-color:var(--gl);background:var(--g2)}
+.photo-upload-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.photo-upload-zone p{font-size:.85rem;color:var(--mid);pointer-events:none}
+.photo-upload-zone .upload-ico{font-size:2rem;display:block;margin-bottom:.5rem;pointer-events:none}
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.875rem;margin-top:1rem}
+.photo-item{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:var(--off2);border:1px solid var(--border)}
+.photo-item img{width:100%;height:100%;object-fit:cover}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;margin-top:1rem}
+.cert-card{background:var(--off);border:1px solid var(--border);border-radius:var(--rl);padding:1.25rem;display:flex;flex-direction:column;gap:.75rem}
+.cert-card h4{font-size:.9rem;font-weight:700;color:var(--ink);line-height:1.3}
+.cert-card p{font-size:.78rem;color:var(--mid)}
+.cert-upload{border:1.5px dashed var(--border2);border-radius:var(--r);padding:.75rem;text-align:center;cursor:pointer;position:relative;transition:border-color .2s}
+.cert-upload:hover{border-color:var(--gl)}
+.cert-upload input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.cert-upload span{font-size:.72rem;color:var(--muted);pointer-events:none}
+.resume-btn-wrap{background:var(--ink);border-radius:var(--rl);padding:2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;margin:2rem 0;flex-wrap:wrap}
+.resume-btn-wrap h3{font-family:'Fraunces',serif;font-size:1.25rem;font-weight:900;color:var(--white)}
+.resume-btn-wrap p{font-size:.8rem;color:rgba(255,255,255,.45);margin-top:.25rem}
+.resume-upload-btn{position:relative;overflow:hidden}
+.resume-upload-btn input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+@media(max-width:600px){.photo-grid{grid-template-columns:1fr 1fr}.cert-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -666,72 +688,249 @@ body{
 </script>
 
 <main id="main">
-<div class="banner banner-amber">
-  <div class="banner-watermark">BrandSnap</div>
-  <div class="banner-eyebrow">Projects · Entrepreneurship</div>
-  <div class="banner-title">Brand<em>Snap</em></div>
-  <div class="banner-desc">Founder · Grade 11 to Present · Started with one favour. Became a business.</div>
+
+<div class="banner banner-blue">
+  <div class="banner-watermark">Research</div>
+  <div class="banner-eyebrow">Research · Published Work</div>
+  <div class="banner-title">E-Waste Forecasting<br><em>Research Paper</em></div>
+  <div class="banner-desc">Comparative Analysis of Regression-Based Forecasting Models for State-Level E-Waste Generation Prediction in India</div>
 </div>
-<div class="content">
-  <span class="eyebrow">The real origin story</span>
-  <h2 class="heading">One family friend.<br><em>Seven paying clients.</em></h2>
+<div class="content" style="max-width:880px">
+  <span class="eyebrow">Independent Research</span>
+  <h2 class="heading">I built the models.<br><em>I ran the data. I wrote the paper.</em></h2>
   <div class="rule"></div>
-  <p class="body-text">BrandSnap did not start as a business idea. It started as a favour.</p>
-  <p class="body-text">A family friend saw the website I had built for Battery Bin and asked if I could make one for their project. I said yes. I made it. When it was done, something shifted — I realised I had just done something genuinely useful for someone, something they needed, and I had the skills to deliver it. That project gave me a quiet but real confidence. And it planted an obvious question: if I can do this for a family friend, why not do it for others?</p>
-  <p class="body-text">That question became BrandSnap. I started with a pilot — building websites for my tuition teachers and a few local restaurants. Low stakes, real clients, real feedback. Each one worked. Each one gave me more confidence than the last. The tuition teachers were happy. The restaurants got something they actually used. And with each delivery I got a little better at understanding what clients actually needed, not just what they said they wanted.</p>
-  <p class="body-text">That is when I started charging. The first payment I received under the official BrandSnap name was a genuinely different feeling. Not because of the money — but because it meant someone had decided my work was worth paying for. That is a different kind of validation than a grade or an award. It meant I could be independent. It meant I could build something that supported itself. It made me believe in myself in a way that no certificate had.</p>
-  <p class="body-text">Seven websites delivered since. Every single client has come through word of mouth — no paid advertising, no cold outreach, no marketing. Just people seeing work and telling other people. That is the feedback loop I am most proud of.</p>
-  <div class="stats">
-    <div class="stat"><span class="stat-n">7</span><div class="stat-l">websites delivered</div></div>
-    <div class="stat"><span class="stat-n">£0</span><div class="stat-l">advertising spend</div></div>
-    <div class="stat"><span class="stat-n">Gr 11</span><div class="stat-l">Founded</div></div>
-    <div class="stat"><span class="stat-n">100%</span><div class="stat-l">Word of mouth growth</div></div>
+
+  <div style="background:var(--off);border:1px solid var(--border);border-radius:var(--rl);padding:1.5rem 1.75rem;margin-bottom:2rem">
+    <div style="font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem">Paper details</div>
+    <h3 style="font-family:'Fraunces',serif;font-size:1.125rem;font-weight:900;color:var(--ink);line-height:1.35;margin-bottom:.75rem">Comparative Analysis of Regression-Based Forecasting Models for State-Level E-Waste Generation Prediction in India</h3>
+    <div style="display:flex;flex-wrap:wrap;gap:.5rem .875rem;font-size:.78rem;color:var(--mid)">
+      <span><strong style="color:var(--ink)">Author:</strong> Yashas Chaudhry</span>
+      <span><strong style="color:var(--ink)">Domain:</strong> Environmental Data Science</span>
+      <span><strong style="color:var(--ink)">Models:</strong> Linear &amp; Polynomial Regression</span>
+      <span><strong style="color:var(--ink)">Data:</strong> CPCB Annual Reports 2016–2024</span>
+      <span><strong style="color:var(--ink)">States analysed:</strong> 13 Indian states</span>
+      <span><strong style="color:var(--ink)">Tools:</strong> Python 3.11 · scikit-learn 1.5 · pandas 2.2</span>
+    </div>
   </div>
-  <div class="callout">
-    <span class="callout-ico">⚡</span>
+
+  <!-- Tab navigation -->
+  <div style="display:flex;gap:.375rem;flex-wrap:wrap;margin-bottom:1.5rem">
+    <button class="tab-btn" onclick="showTab('tab-abstract',this)" style="padding:.5rem 1rem;border:1.5px solid var(--border);border-radius:100px;font-size:.78rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s">Abstract</button>
+    <button class="tab-btn" onclick="showTab('tab-intro',this)" style="padding:.5rem 1rem;border:1.5px solid var(--border);border-radius:100px;font-size:.78rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s">Introduction</button>
+    <button class="tab-btn" onclick="showTab('tab-method',this)" style="padding:.5rem 1rem;border:1.5px solid var(--border);border-radius:100px;font-size:.78rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s">Methodology</button>
+    <button class="tab-btn" onclick="showTab('tab-findings',this)" style="padding:.5rem 1rem;border:1.5px solid var(--border);border-radius:100px;font-size:.78rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s">Key Findings</button>
+    <button class="tab-btn" onclick="showTab('tab-conclusion',this)" style="padding:.5rem 1rem;border:1.5px solid var(--border);border-radius:100px;font-size:.78rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s">Conclusion</button>
+  </div>
+
+  <div id="tab-abstract" class="tab-panel" style="display:none">
+    <div class="callout">
+      <span class="callout-ico">📄</span>
+      <div>
+        <h3>Abstract</h3>
+        <p>Electrical and electronic waste constitutes one of the most rapidly growing waste streams in India — yet state-level forecasting of e-waste generation has received very little attention. I apply two independent regression models — ordinary least-squares linear regression and second-degree polynomial regression — to CPCB state-level data from 2016 to 2023, then validate predictions against real 2024 values for 13 Indian states. The core finding is that forecasting accuracy depends more on the consistency of a state's reporting record than on which model is used. States with stable historical data (Tamil Nadu, Maharashtra, Uttarakhand) achieved prediction errors as low as 2.37%. States with erratic or imputed data produced errors exceeding 1,000%. The research demonstrates that model complexity is the wrong lever to pull when trying to improve e-waste forecasting — data quality is.</p>
+        <span class="callout-tag">Keywords: e-waste forecasting · regression analysis · India · state-level waste management · CPCB · validation study · data quality</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-intro" class="tab-panel" style="display:none">
+    <h3 class="heading-sm">Introduction</h3>
+    <p class="body-text">E-waste — the category of discarded electronics including computers, mobile phones, televisions, and household gadgets — is among the fastest-growing waste streams globally. India is one of the world's largest producers of e-waste, and the problem is accelerating as consumer electronics penetration deepens across the country.</p>
+    <p class="body-text">The Indian government has responded with regulatory frameworks including the E-Waste (Management) Rules 2022, and the Central Pollution Control Board (CPCB) publishes annual state-level data on e-waste collection and processing. Yet despite the policy significance of these numbers, relatively little work has been done to forecast state-level e-waste generation and then actually test those forecasts against real observed data.</p>
+    <p class="body-text">This is the gap this research addresses. I apply two regression specifications — linear and polynomial — to CPCB data from 2016 to 2023, hold out 2024 as a test year (decided before any model was fitted), and compare predicted values against actual 2024 CPCB figures. The research asks five core questions:</p>
+    <ul class="blist">
+      <li><span class="bdot"></span><span>Can regression-based models predict state-level e-waste generation accurately?</span></li>
+      <li><span class="bdot"></span><span>Does linear or polynomial regression perform better — and does the answer vary by state?</span></li>
+      <li><span class="bdot"></span><span>What structural features of a state's historical data predict whether forecasts will be accurate?</span></li>
+      <li><span class="bdot"></span><span>What does this imply for policy investment — better models, or better data collection?</span></li>
+      <li><span class="bdot"></span><span>How do these findings compare with the existing waste forecasting literature?</span></li>
+    </ul>
+  </div>
+
+  <div id="tab-method" class="tab-panel" style="display:none">
+    <h3 class="heading-sm">Methodology</h3>
+    <p class="body-text"><strong>Data:</strong> State-level e-waste collection and processing figures from CPCB annual reports, 2016–2024. 13 states with sufficient coverage for modelling. Data up to 2023 used for training; 2024 held out strictly for validation, decided before any fitting.</p>
+    <p class="body-text"><strong>Data preprocessing:</strong> Many CPCB entries have missing values — states where registered recyclers did not file separate annual figures. Missing values were imputed using carry-forward or linear interpolation to preserve the time-series structure, and imputed values were tracked separately in the analysis.</p>
+    <p class="body-text"><strong>Model 1 — Linear Regression:</strong></p>
+    <div style="background:var(--off);border-radius:var(--r);padding:1rem 1.5rem;font-family:monospace;font-size:.9rem;margin:1rem 0;border:1px solid var(--border)">ŷ = β₀ + β₁·t</div>
+    <p class="body-text">Where ŷ is estimated e-waste generation, t is the reporting year, and coefficients are estimated using ordinary least squares.</p>
+    <p class="body-text"><strong>Model 2 — Polynomial Regression (degree 2):</strong></p>
+    <div style="background:var(--off);border-radius:var(--r);padding:1rem 1.5rem;font-family:monospace;font-size:.9rem;margin:1rem 0;border:1px solid var(--border)">ŷ = β₀ + β₁·t + β₂·t²</div>
+    <p class="body-text">The squared term captures non-linear growth trajectories. Both models were implemented using scikit-learn 1.5 in Python 3.11.</p>
+    <p class="body-text"><strong>Performance metrics:</strong> Five statistics computed for each model — Mean Absolute Error (MAE), Root Mean Square Error (RMSE), Percentage Error per state, R² (calculated on the out-of-sample 2024 forecast), and Pearson's r. This out-of-sample application of R² and RMSE — rather than the common in-sample fitting — is a methodological distinction from most prior work in this field.</p>
+  </div>
+
+  <div id="tab-findings" class="tab-panel" style="display:none">
+    <h3 class="heading-sm">Key Findings</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="card-top"><div class="card-ico ci-g">📊</div><div class="card-yr">Aggregate result</div></div>
+        <h4>Polynomial wins on MAE; linear wins on RMSE and R²</h4>
+        <p>Polynomial regression achieved lower mean absolute error across the 13 states. Linear regression outperformed on RMSE and R². The divergence is explained by RMSE's sensitivity to single large errors — polynomial regression's accuracy on most states is offset by a handful of extreme outlier predictions.</p>
+      </div>
+      <div class="card">
+        <div class="card-top"><div class="card-ico ci-a">🎯</div><div class="card-yr">Best performers</div></div>
+        <h4>Excellent accuracy in data-consistent states</h4>
+        <p>Tamil Nadu (2.37% error), Maharashtra, and Uttarakhand all achieved excellent validation. Common factor: stable, consistent historical reporting with low coefficient of variation in their training-period series. The models worked because the data was trustworthy.</p>
+      </div>
+      <div class="card">
+        <div class="card-top"><div class="card-ico ci-r">⚠️</div><div class="card-yr">Worst performers</div></div>
+        <h4>Errors exceeding 1,000% in erratic states</h4>
+        <p>Four states produced very high errors (&gt;200%). Two causes: (1) extreme year-to-year variability making any trend line unreliable, and (2) extrapolation error where later data showed sharp discontinuities from earlier trends — caused by regulatory changes or sudden reporting shifts, not forecasting model failure.</p>
+      </div>
+      <div class="card">
+        <div class="card-top"><div class="card-ico ci-b">🔑</div><div class="card-yr">Core finding</div></div>
+        <h4>Data quality predicts accuracy better than model choice</h4>
+        <p>Tamil Nadu (training CV = 0.34, error = 2.37%) vs Andhra Pradesh (high CV, error &gt;200%). The coefficient of variation of a state's historical series is a strong predictor of whether any model will validate well — more predictive than which regression type is used.</p>
+      </div>
+      <div class="card">
+        <div class="card-top"><div class="card-ico ci-p">🗺️</div><div class="card-yr">Model distribution</div></div>
+        <h4>Polynomial better for 9 of 13 states</h4>
+        <p>Polynomial regression was the better-performing model for Tamil Nadu, Maharashtra, Punjab, Telangana, Kerala, Rajasthan, Karnataka, Chhattisgarh, and Andhra Pradesh. Linear regression performed better for the remaining four states — no single model dominates across all geographies.</p>
+      </div>
+      <div class="card">
+        <div class="card-top"><div class="card-ico ci-g">🌐</div><div class="card-yr">Literature contribution</div></div>
+        <h4>First out-of-sample validation of this kind</h4>
+        <p>Most waste forecasting papers in the literature use in-sample fit statistics (R² on training data). This study uses a strictly held-out 2024 test year — a methodological distinction that makes the accuracy estimates genuinely informative rather than circular.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-conclusion" class="tab-panel" style="display:none">
+    <h3 class="heading-sm">Conclusion</h3>
+    <p class="body-text">This research asked whether regression models can forecast state-level e-waste generation in India accurately. The answer is: yes, but only for states where historical reporting is consistent. For states with erratic data, even the most carefully constructed model cannot compensate for the underlying information problem.</p>
+    <div class="callout">
+      <span class="callout-ico">💡</span>
+      <div>
+        <h3>The main finding in one sentence</h3>
+        <p>Forecasting accuracy in this domain depends not on the complexity of the model, but on the coherence and consistency of the reporting data that feeds it — and this dependency is measurable in advance using the coefficient of variation of the historical series.</p>
+      </div>
+    </div>
+    <p class="body-text">The policy implication is concrete: investment aimed at improving e-waste management forecasting should go first into improving state-level CPCB reporting infrastructure — not into more sophisticated modelling. Only after reporting records become consistent does the choice of model begin to matter.</p>
+    <p class="body-text">Limitations of the study include: 13 states rather than all Indian states, only two regression specifications tested, and a single held-out validation year. Future work could extend to more states, apply time-series models (ARIMA, grey models), and incorporate socioeconomic predictors such as GDP per capita and internet penetration as covariates.</p>
+    <p class="body-text">The study contributes a replicable validation framework — train on 2016–2023, test on 2024 actuals — that can be reused as new CPCB data becomes available annually, making it a living benchmark for state-level e-waste forecasting in India.</p>
+  </div>
+
+  <div class="callout" style="margin-top:2rem">
+    <span class="callout-ico">🔗</span>
     <div>
-      <h3>What the first payment actually meant</h3>
-      <p>There is a specific feeling that comes from someone handing you money for work you did — not as a gift, not as a grade, but as a judgment that your work was worth the exchange. That feeling, when it arrived, confirmed something Yashas had been building toward for years: the ability to create something of real value for real people, independently. BrandSnap is proof of that.</p>
-      <span class="callout-tag">Entrepreneurship · Self-belief · 7 Websites · Grade 11 Onwards · Word of Mouth</span>
-    </div>
-  </div>
-  <hr class="sep"/>
-  <div class="cards">
-    <div class="card"><div class="card-top"><div class="card-ico ci-a">🎨</div><div class="card-yr">Design</div></div>
-      <h4>Custom websites — hand-coded, not templated</h4>
-      <p>Every site built from scratch. Real HTML, CSS, and JavaScript — maintainable, fast, and actually owned by the client. Not a drag-and-drop builder with a custom colour scheme.</p>
-      <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Responsive</span><span class="tag">No page builders</span></div>
-    </div>
-    <div class="card"><div class="card-top"><div class="card-ico ci-g">📍</div><div class="card-yr">Branding</div></div>
-      <h4>Brand identity</h4>
-      <p>Logo, colour palette, typography, and visual language — the full identity package that gives a small business something to build on, not just a website to exist on.</p>
-      <div class="tags"><span class="tag">Logo design</span><span class="tag">Visual identity</span><span class="tag">Canva</span><span class="tag">Brand guidelines</span></div>
-    </div>
-    <div class="card"><div class="card-top"><div class="card-ico ci-b">📈</div><div class="card-yr">Visibility</div></div>
-      <h4>SEO and digital presence</h4>
-      <p>On-page SEO, structured metadata, and Google Business setup for every client — the basics that ensure they actually show up when someone searches for them.</p>
-      <div class="tags"><span class="tag">SEO</span><span class="tag">Google Business</span><span class="tag">Meta tags</span></div>
-    </div>
-    <div class="card"><div class="card-top"><div class="card-ico ci-p">🤝</div><div class="card-yr">Delivery</div></div>
-      <h4>Full end-to-end client management</h4>
-      <p>Discovery calls, proposals, design iterations, revision rounds, sign-off, and post-launch. Every stage handled independently — including the hard parts: scope changes, late feedback, and clients who change their minds after approval.</p>
-      <div class="tags"><span class="tag">Client comms</span><span class="tag">Project delivery</span><span class="tag">Sales</span></div>
+      <h3>Why this research and Battery Bin connect</h3>
+      <p>Battery Bin collects batteries at the school level. Threco processes them at the national certified level. This research provides the quantitative backdrop to both — understanding at a data-science level exactly how big the e-waste problem is state by state, how it is growing, and where current forecasting methods succeed or fail. The practitioner and the researcher are the same person.</p>
+      <span class="callout-tag">CPCB Data · Python · scikit-learn · State-level India · Out-of-sample validation · 13 states</span>
     </div>
   </div>
 </div>
+
 <footer class="foot">
   <p>© 2025 Yashas Chaudhry · yashaschaudhry.com</p>
   <a href="contact.html">Get in touch →</a>
 </footer>
 </main>
 <script>
-(function(){
-  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity="1";e.target.style.transform="translateY(0)";obs.unobserve(e.target);}});},{threshold:0.07});
-  document.querySelectorAll(".card,.row,.tl-item,.medal,.imp,.stat,.callout").forEach(function(el,i){el.style.opacity="0";el.style.transform="translateY(20px)";el.style.transition="opacity .5s ease "+(i*0.05)+"s, transform .5s ease "+(i*0.05)+"s";obs.observe(el);});
-  function animCount(el){var t=parseInt(el.dataset.t),sx=el.dataset.suffix||"+",d=1600,s=performance.now();(function r(ts){var p=Math.min((ts-s)/d,1),v=1-Math.pow(1-p,3);el.textContent=Math.round(v*t)+sx;if(p<1)requestAnimationFrame(r);})(s);}
-  var cio=new IntersectionObserver(function(e){e.forEach(function(x){if(!x.isIntersecting)return;animCount(x.target);cio.unobserve(x.target);});},{threshold:.5});
-  document.querySelectorAll("[data-t]").forEach(function(el){cio.observe(el);});
-})();
+// ── Photo upload handler ──────────────────────────
+function handlePhotoUpload(input, gridId) {
+  var grid = document.getElementById(gridId);
+  if (!grid) return;
+  Array.from(input.files).forEach(function(file) {
+    if (!file.type.startsWith('image/')) return;
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var div = document.createElement('div');
+      div.className = 'photo-item';
+      var img = document.createElement('img');
+      img.src = e.target.result;
+      img.alt = file.name;
+      div.appendChild(img);
+      grid.appendChild(div);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+// ── Certificate upload handler ────────────────────
+function handleCertUpload(input, previewId) {
+  var preview = document.getElementById(previewId);
+  if (!preview || !input.files[0]) return;
+  var file = input.files[0];
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    preview.innerHTML = '';
+    if (file.type === 'application/pdf') {
+      preview.innerHTML = '<p style="font-size:.72rem;color:var(--g);font-weight:600">✓ ' + file.name + ' uploaded</p>';
+    } else {
+      var img = document.createElement('img');
+      img.src = e.target.result;
+      img.style.cssText = 'width:100%;border-radius:6px;margin-top:.5rem';
+      preview.appendChild(img);
+    }
+  };
+  reader.readAsDataURL(file);
+}
+// ── Resume upload ─────────────────────────────────
+function handleResumeUpload(input) {
+  if (!input.files[0]) return;
+  var btn = document.getElementById('resumeDownloadBtn');
+  if (!btn) return;
+  var url = URL.createObjectURL(input.files[0]);
+  btn.href = url;
+  btn.download = 'Yashas_Chaudhry_Resume.pdf';
+  btn.textContent = '✓ Download Resume →';
+  btn.style.background = 'var(--gl)';
+  btn.style.color = '#061410';
+  document.getElementById('resumeStatus').textContent = 'Resume uploaded — visitors can now download it.';
+}
+// ── Scroll reveal ────────────────────────────────
+var revealObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+      revealObs.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.08});
+document.querySelectorAll('.card, .row, .tl-item, .medal, .imp, .stat').forEach(function(el) {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(18px)';
+  el.style.transition = 'opacity .5s ease, transform .5s ease';
+  revealObs.observe(el);
+});
+// ── Animated counters (stats bar) ────────────────
+function animCount(el, target) {
+  var suffix = el.dataset.suffix || '+';
+  var dur = 1600, s = performance.now();
+  var r = function(ts) {
+    var p = Math.min((ts-s)/dur, 1), v = 1 - Math.pow(1-p, 3);
+    el.textContent = Math.round(v * target) + suffix;
+    if (p < 1) requestAnimationFrame(r);
+  };
+  requestAnimationFrame(r);
+}
+var cio = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (!e.isIntersecting) return;
+    animCount(e.target, parseInt(e.target.dataset.t));
+    cio.unobserve(e.target);
+  });
+}, {threshold: .6});
+document.querySelectorAll('[data-t]').forEach(function(el) { cio.observe(el); });
+// ── Tab switcher (for research paper) ────────────
+function showTab(tabId, btn) {
+  document.querySelectorAll('.tab-panel').forEach(function(p) { p.style.display = 'none'; });
+  document.querySelectorAll('.tab-btn').forEach(function(b) {
+    b.classList.remove('active');
+    b.style.background = '';
+    b.style.color = '';
+  });
+  var panel = document.getElementById(tabId);
+  if (panel) { panel.style.display = 'block'; }
+  if (btn) { btn.classList.add('active'); btn.style.background = 'var(--ink)'; btn.style.color = 'var(--white)'; }
+}
+// Show first tab on load
+window.addEventListener('DOMContentLoaded', function() {
+  var firstTab = document.querySelector('.tab-btn');
+  var firstPanel = document.querySelector('.tab-panel');
+  if (firstTab && firstPanel) { showTab(firstPanel.id, firstTab); }
+});
 </script>
 </body>
 </html>
