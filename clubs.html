@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
 <title>School Clubs — Yashas Chaudhry</title>
-<meta name="description" content="Yashas Chaudhry school clubs — Helios Tech (6 years, HoD Web Dev Gr12), Chess (5+ years, 2 gold medals individual), Environmental Club (OC earned through Urja science fest), Math Contour OC (Gr11–12), AI Club, Antariksh OC."/>
+<meta name="description" content="My school clubs — Helios Tech (6 years, HoD Web Dev Gr12), Chess (5+ years, 2 gold medals), Environmental OC (earned through Urja), Math Contour OC (Gr11–12), AI Club, Antariksh OC, Threco."/>
 <meta name="theme-color" content="#ffffff"/>
 <style>/* ═══════════════════════════════════════════════════════
    YASHAS CHAUDHRY PORTFOLIO — Premium CSS v2
@@ -516,6 +516,166 @@ body{
   /* Close nav when link tapped */
   .nav-link:active{background:var(--g2)}
 }
+
+
+/* ═══════════════════════════════════════════════
+   SPACING & LAYOUT CONSISTENCY FIXES v12
+═══════════════════════════════════════════════ */
+
+/* Content wrapper — consistent inner rhythm */
+.content > * + * { margin-top: 0; }
+.content > p.body-text + p.body-text { margin-top: 0; }
+
+/* Section spacing within content */
+.section-gap { margin-top: 2.5rem; }
+.section-gap-sm { margin-top: 1.5rem; }
+
+/* Cards grid — always has a top margin when following text */
+.cards { margin-top: 1.75rem; }
+.cards + .cards { margin-top: 1rem; }
+
+/* Rows list */
+.rows { margin-top: 1.25rem; }
+.rows + .callout { margin-top: 1.75rem; }
+
+/* Callout spacing */
+.callout + .callout { margin-top: 1rem; }
+.callout + .cards { margin-top: 1.75rem; }
+.callout + .rows { margin-top: 1.5rem; }
+
+/* Timeline items — consistent vertical rhythm */
+.tl-item + .tl-item { /* already has padding-bottom */ }
+.tl-item h4 { margin-bottom: .375rem; }
+.tl-item p { margin-top: 0; }
+
+/* Cert row items */
+.cert-row-item + .cert-row-item { margin-top: 0; }  /* gap handles this in flex */
+
+/* Headings inside content */
+.content h3.heading-sm { margin-top: 2.25rem; margin-bottom: .875rem; }
+.content h3.heading-sm:first-child { margin-top: 0; }
+
+/* Sub-labels */
+.sub-label { margin-top: 2rem; margin-bottom: .875rem; }
+.sub-label:first-child { margin-top: 0; }
+
+/* Separators */
+.sep { margin: 2.25rem 0; }
+
+/* Stats — even grid */
+.stats { margin-top: 1.75rem; margin-bottom: 0; }
+.stats + .callout { margin-top: 1.75rem; }
+.stats + .blist { margin-top: 1.75rem; }
+
+/* Bullet list */
+.blist { margin-top: 1.25rem; margin-bottom: 0; }
+.blist + .callout { margin-top: 1.75rem; }
+
+/* Fix orphaned cards — wrap them in a single-column flow */
+.card-stack { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.75rem; }
+
+/* Workshop/camp card — full-width single column */
+.card-workshop {
+  background: var(--off);
+  border: 1px solid var(--border);
+  border-radius: var(--rl);
+  padding: 1.625rem 1.75rem;
+  transition: border-color .2s, transform .2s;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+.card-workshop:hover { border-color: var(--gl); transform: translateY(-2px); }
+.card-workshop-header { display: flex; align-items: flex-start; gap: 1rem; }
+.card-workshop-ico {
+  width: 40px; height: 40px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; flex-shrink: 0;
+}
+.card-workshop-meta h4 { font-size: .9375rem; font-weight: 700; color: var(--ink); margin-bottom: .2rem; line-height: 1.3; }
+.card-workshop-meta .yr { font-size: .68rem; font-weight: 700; color: var(--gl); letter-spacing: .04em; }
+.card-workshop p { font-size: .8375rem; color: var(--mid); line-height: 1.7; margin: 0; }
+
+/* Photo placeholders — consistent sizing */
+.photo-grid-placeholder { margin-top: .875rem; }
+.photo-grid-placeholder + .sep { margin-top: 1.75rem; }
+
+/* Cert img placeholder */
+.cert-img-placeholder { flex-shrink: 0; }
+
+/* Banner — mobile breathing room */
+@media(max-width:860px) {
+  .banner { padding: 1.75rem 1.25rem 2rem; }
+  .content { padding: 2rem 1.25rem 4rem; }
+  .cards { grid-template-columns: 1fr; }
+  .card-full { grid-column: 1; }
+}
+@media(max-width:480px) {
+  .banner { padding: 1.5rem 1rem 1.75rem; }
+  .content { padding: 1.625rem 1rem 3.5rem; }
+  .stats { grid-template-columns: 1fr 1fr; }
+}
+
+/* Impact grid — consistent on mobile */
+@media(max-width:700px) {
+  .imp-grid { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width:400px) {
+  .imp-grid { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr; }
+}
+
+/* Medals grid — responsive */
+@media(max-width:600px) {
+  .medals { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width:380px) {
+  .medals { grid-template-columns: 1fr; }
+}
+
+/* Duration bars in clubs */
+.duration-bar { margin-bottom: 1rem; }
+
+/* Fix: body-text paragraphs get consistent spacing */
+.body-text { margin-bottom: 1.125rem; }
+.body-text:last-child { margin-bottom: 0; }
+
+/* Fix: card p elements */
+.card p { margin: 0; }
+.card p + p { margin-top: .625rem; }
+
+/* Rows on mobile — wrap badge below text */
+@media(max-width:540px) {
+  .row { flex-wrap: wrap; }
+  .row .badge { margin-left: auto; margin-top: .25rem; }
+}
+
+/* Orphaned cards directly in .content get proper spacing */
+.content > .card,
+.tab-panel > .card {
+  margin-top: 1rem;
+}
+.content > .card:first-of-type,
+.tab-panel > .card:first-of-type {
+  margin-top: 1.75rem;
+}
+/* Tab panel cards use grid */
+.tab-panel .cards {
+  margin-top: 1rem;
+}
+</style>
+<style>
+.club-card{background:var(--off);border:1px solid var(--border);border-radius:var(--rl);padding:1.75rem;transition:border-color .2s,transform .2s}
+.club-card:hover{border-color:var(--gl);transform:translateY(-2px)}
+.club-header{display:flex;align-items:flex-start;gap:1rem;margin-bottom:.875rem}
+.club-ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.125rem;flex-shrink:0}
+.club-meta{flex:1;min-width:0}
+.club-meta h4{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:.2rem;line-height:1.3}
+.club-meta .dur{font-size:.68rem;font-weight:700;color:var(--gl);letter-spacing:.04em}
+.club-body p{font-size:.8375rem;color:var(--mid);line-height:1.7;margin:0}
+.club-body p+p{margin-top:.75rem}
+.two-col-clubs{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
+@media(max-width:700px){.two-col-clubs{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -529,11 +689,7 @@ body{
     </button>
   </div>
 </header>
-
-<!-- VEIL -->
 <div class="mob-veil" id="veil"></div>
-
-<!-- SIDEBAR NAV -->
 <nav id="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-brand">
     <a href="index.html" onclick="closeNav()">
@@ -556,8 +712,9 @@ body{
     <a class="nav-link" href="nas.html" onclick="closeNav()"><span class="ni">🖥️</span>Personal NAS</a>
     <div class="nav-divider"></div>
     <span class="nav-section-label">Awards</span>
-    <a class="nav-link" href="olympiad-medals.html" onclick="closeNav()"><span class="ni">🥇</span>Olympiad Medals</a>
-    <a class="nav-link" href="competitions.html" onclick="closeNav()"><span class="ni">🏆</span>Competitions</a>
+    <a class="nav-link" href="school-awards.html" onclick="closeNav()"><span class="ni">🏆</span>School Awards</a>
+    <a class="nav-link" href="olympiad-medals.html" onclick="closeNav()"><span class="ni">🏅</span>Olympiad Medals</a>
+    <a class="nav-link" href="competitions.html" onclick="closeNav()"><span class="ni">🎯</span>Competitions</a>
     <a class="nav-link" href="other-awards.html" onclick="closeNav()"><span class="ni">⭐</span>Other Recognition</a>
     <div class="nav-divider"></div>
     <span class="nav-section-label">Academics</span>
@@ -568,10 +725,12 @@ body{
     <a class="nav-link" href="clubs.html" onclick="closeNav()"><span class="ni">🎯</span>School Clubs</a>
     <a class="nav-link" href="events.html" onclick="closeNav()"><span class="ni">🎭</span>School Events</a>
     <a class="nav-link" href="council.html" onclick="closeNav()"><span class="ni">🏛️</span>Student Council</a>
-    <a class="nav-link" href="arts.html" onclick="closeNav()"><span class="ni">🎵</span>Arts &amp; Music</a>
+    <a class="nav-link" href="music.html" onclick="closeNav()"><span class="ni">🎵</span>Music</a>
+    <a class="nav-link" href="art.html" onclick="closeNav()"><span class="ni">🎨</span>Art &amp; Design</a>
     <div class="nav-divider"></div>
-    <span class="nav-section-label">Programs</span>
+    <span class="nav-section-label">Programmes</span>
     <a class="nav-link" href="internships.html" onclick="closeNav()"><span class="ni">💼</span>Internships</a>
+    <a class="nav-link" href="summer-schools.html" onclick="closeNav()"><span class="ni">🏕️</span>Summer Schools</a>
     <a class="nav-link" href="workshops.html" onclick="closeNav()"><span class="ni">🛠️</span>Workshops &amp; Camps</a>
     <div class="nav-divider"></div>
     <a class="nav-link" href="impact.html" onclick="closeNav()"><span class="ni">📈</span>Impact</a>
@@ -586,125 +745,186 @@ body{
     </div>
   </div>
 </nav>
-
 <script>
-(function () {
+(function(){
   'use strict';
-  var NAV_SCROLL_KEY = 'navScrollTop';
-  var nav  = document.getElementById('nav');
-  var body_el = document.getElementById('navBody');
-  var veil = document.getElementById('veil');
-  var btn  = document.getElementById('hamburger');
-  var isOpen = false;
-
-  /* ── Restore nav scroll position ── */
-  try {
-    var saved = sessionStorage.getItem(NAV_SCROLL_KEY);
-    if (saved !== null && body_el) body_el.scrollTop = parseInt(saved, 10);
-  } catch (e) {}
-
-  /* Save nav scroll on every scroll + before page unload */
-  function saveScroll() {
-    try { if (body_el) sessionStorage.setItem(NAV_SCROLL_KEY, body_el.scrollTop); } catch (e) {}
-  }
-  if (body_el) body_el.addEventListener('scroll', saveScroll, { passive: true });
-  window.addEventListener('pagehide', saveScroll);
-  window.addEventListener('beforeunload', saveScroll);
-
-  /* ── Save scroll on nav link click (before navigation) ── */
-  document.querySelectorAll('.nav-link').forEach(function (a) {
-    a.addEventListener('click', saveScroll);
-  });
-
-  /* ── Open / close ── */
-  function openNav() {
-    isOpen = true;
-    nav.classList.add('open');
-    veil.classList.add('open');
-    if (btn) btn.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeNav() {
-    isOpen = false;
-    nav.classList.remove('open');
-    veil.classList.remove('open');
-    if (btn) btn.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-    saveScroll();
-  }
-  window.closeNav = closeNav;
-
-  if (btn) btn.addEventListener('click', function (e) { e.stopPropagation(); isOpen ? closeNav() : openNav(); });
-  if (veil) veil.addEventListener('click', closeNav);
-
-  /* ── Swipe left to close ── */
-  var tx = 0;
-  nav.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; }, { passive: true });
-  nav.addEventListener('touchend',   function (e) { if (e.changedTouches[0].clientX - tx < -60) closeNav(); }, { passive: true });
-
-  /* ── Escape key ── */
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && isOpen) closeNav(); });
-
-  /* ── Active link highlight ── */
-  var p = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-link').forEach(function (a) {
-    if (a.getAttribute('href') === p) {
+  var NAV_SCROLL_KEY='navScrollTop';
+  var nav=document.getElementById('nav');
+  var bodyEl=document.getElementById('navBody');
+  var veil=document.getElementById('veil');
+  var btn=document.getElementById('hamburger');
+  var isOpen=false;
+  try{var saved=sessionStorage.getItem(NAV_SCROLL_KEY);if(saved!==null&&bodyEl)bodyEl.scrollTop=parseInt(saved,10);}catch(e){}
+  function saveScroll(){try{if(bodyEl)sessionStorage.setItem(NAV_SCROLL_KEY,bodyEl.scrollTop);}catch(e){}}
+  if(bodyEl)bodyEl.addEventListener('scroll',saveScroll,{passive:true});
+  window.addEventListener('pagehide',saveScroll);
+  window.addEventListener('beforeunload',saveScroll);
+  document.querySelectorAll('.nav-link').forEach(function(a){a.addEventListener('click',saveScroll);});
+  function openNav(){isOpen=true;nav.classList.add('open');veil.classList.add('open');if(btn)btn.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
+  function closeNav(){isOpen=false;nav.classList.remove('open');veil.classList.remove('open');if(btn)btn.setAttribute('aria-expanded','false');document.body.style.overflow='';saveScroll();}
+  window.closeNav=closeNav;
+  if(btn)btn.addEventListener('click',function(e){e.stopPropagation();isOpen?closeNav():openNav();});
+  if(veil)veil.addEventListener('click',closeNav);
+  var tx=0;
+  nav.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
+  nav.addEventListener('touchend',function(e){if(e.changedTouches[0].clientX-tx<-60)closeNav();},{passive:true});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&isOpen)closeNav();});
+  var p=location.pathname.split('/').pop()||'index.html';
+  document.querySelectorAll('.nav-link').forEach(function(a){
+    if(a.getAttribute('href')===p){
       a.classList.add('active');
-      /* Scroll active link into view inside nav body */
-      try {
-        if (saved === null && body_el) {
-          var linkTop = a.offsetTop - body_el.offsetTop;
-          var center  = linkTop - body_el.clientHeight / 2 + a.clientHeight / 2;
-          body_el.scrollTop = Math.max(0, center);
-        }
-      } catch (e) {}
+      try{if(saved===null&&bodyEl){var lt=a.offsetTop-bodyEl.offsetTop;bodyEl.scrollTop=Math.max(0,lt-bodyEl.clientHeight/2+a.clientHeight/2);}}catch(e){}
     }
   });
 })();
 </script>
 
 <main id="main">
-
 <div class="banner banner-green">
   <div class="banner-watermark">Clubs</div>
   <div class="banner-eyebrow">Activities · School Clubs</div>
   <div class="banner-title">School <em>Clubs</em></div>
-  <div class="banner-desc">Seven clubs. Head of Department. Four OC roles. Spanning six years.</div>
+  <div class="banner-desc">Seven clubs. Head of Department. Four OC roles. Six years of showing up.</div>
 </div>
 <div class="content">
   <span class="eyebrow">Extracurricular commitment</span>
   <h2 class="heading">Not just joined.<br><em>Led.</em></h2>
   <div class="rule"></div>
-  <p class="body-text">The story of these clubs is consistency and real leadership over time — not membership for its own sake. Helios has been part of Yashas&#39;s life since Grade 7, and in Grade 12 he stepped up to Head of Department for Web Development. Chess has been a daily presence since Grade 7. The Environmental Club began in Grade 11 and grew into an OC role in Grade 12 — earned through real impact, not seniority. These are things he has shown up for, year after year, across six years of school.</p>
+  <p class="body-text">The story of these clubs is not membership — it is what I did inside them. Helios has been part of my life since Grade 7, and in Grade 12 I became Head of Department for Web Development. Chess has been a daily part of my routine since Grade 7. The Environmental Club OC role in Grade 12 was earned through the impact I drove in Grade 11 — not because of seniority.</p>
 
-  <!-- ── HELIOS ─────────────────────────── -->
-  <div class="card card-full" style="margin-top:1.75rem">
-    <div class="duration-badge"><span class="dur-dot"></span>6 Years · Grades 7–12 · Member Gr 7–11 · Head of Dept (Web Dev) Gr 12 · OC Gr 12</div>
+  <!-- HELIOS -->
+  <div class="club-card">
+    <div class="duration-badge"><span class="dur-dot"></span>6 Years · Grades 7–12 · Member Gr 7–11 · HoD Web Dev Gr 12 · OC Gr 12</div>
     <div class="duration-bar"><div class="duration-fill" style="width:100%"></div></div>
+    <div class="club-header">
+      <div class="club-ico ci-b">💡</div>
+      <div class="club-meta">
+        <h4>Helios Tech Club — Head of Department, Web Development</h4>
+        <div class="dur">Grades 7–12 · Member → HoD (Gr 12) · OC (Gr 12)</div>
+      </div>
+    </div>
+    <div class="club-body">
+      <p>I joined Helios in Grade 7 not knowing much about coding — just curious about how things worked. Helios is where that curiosity turned into a real skill. Through the club I explored programming seriously for the first time and developed a genuine love for building things. That spark became Hardware Decoded, BrandSnap, PhishSentinel, and every web project since.</p>
+      <p>In Grade 12 I was appointed <strong>Head of Department for Web Development</strong> — organising events, workshops, and sessions on web development for the club. I plan activities, mentor members on front-end and back-end skills, and I'm the person juniors come to when they want to understand how websites are actually built. Helios also gave me the offline connections that seeded Hardware Decoded — people I already trusted before I gave them responsibilities online.</p>
+      <div class="tags"><span class="tag">6 years · Gr 7–12</span><span class="tag">HoD Web Dev · Gr 12</span><span class="tag">OC · Gr 12</span><span class="tag">Web dev events &amp; workshops</span><span class="tag">Mentoring</span></div>
+    </div>
+  </div>
+
+  <!-- CHESS -->
+  <div class="club-card">
+    <div class="duration-badge"><span class="dur-dot"></span>5+ Years · Grade 7 onwards · 2× Gold Medals (individual competitions)</div>
+    <div class="duration-bar"><div class="duration-fill" style="width:83%"></div></div>
+    <div class="club-header">
+      <div class="club-ico ci-y">♟️</div>
+      <div class="club-meta">
+        <h4>Chess Club — Five years, two gold medals, one brother I'm trying to convert</h4>
+        <div class="dur">Grade 7 onwards</div>
+      </div>
+    </div>
+    <div class="club-body">
+      <p>Chess started at age 7, watching my father and sister play. I wanted to join but just wasn't good enough to win. Then COVID arrived. In Grade 7 I discovered Lichess and Chess.com and started practising every day — openings, endgames, tactics puzzles, five or six games daily. After five months of this I beat my father for the first time. That was the moment everything clicked.</p>
+      <p>When school reopened I joined the Chess Club and started carrying a physical board everywhere. I became the chess person of the grade — not a single day passed without a game. I went on to compete in individual chess competitions and win <strong>two gold medals</strong>. Even now, when I need a break from a deadline or a debugging session, I reach for the board — and quietly try to light the same flame in my younger brother.</p>
+      <div class="tags"><span class="tag">5+ years</span><span class="tag">2× Gold medals (individual)</span><span class="tag">Lichess · Chess.com</span><span class="tag">Grade 7 onwards</span></div>
+    </div>
+  </div>
+
+  <!-- ENVIRONMENTAL -->
+  <div class="club-card">
+    <div class="duration-badge"><span class="dur-dot"></span>Gr 11 member → Gr 12 OC · Earned through demonstrated impact</div>
+    <div class="duration-bar"><div class="duration-fill" style="width:33%"></div></div>
+    <div class="club-header">
+      <div class="club-ico ci-g">🌍</div>
+      <div class="club-meta">
+        <h4>Environmental Club — Joined Grade 11. Earned OC in Grade 12.</h4>
+        <div class="dur">Grade 11 member → Grade 12 OC</div>
+      </div>
+    </div>
+    <div class="club-body">
+      <p>I joined the Environmental Club as a member in Grade 11 and immediately used it to expand Battery Bin — finding students who genuinely cared about sustainability and would actually show up to collect batteries and spread the word. I also set up e-waste collection bins and ran awareness sessions on the consequences of incorrect e-waste disposal.</p>
+      <p>The standout moment was the school science festival <strong>Urja</strong>. I showcased Battery Bin — and on event day, <strong>more than 650 students and teachers visited the showcase</strong>. I'd made custom activity sheets on e-waste awareness; <strong>60 people completed them</strong>. I collected <strong>16 batteries</strong> on that single day. Looking at that impact, the club made me part of the Organising Committee in Grade 12 — not because of time served, but because of what I'd actually delivered.</p>
+      <div class="tags"><span class="tag">Member · Gr 11</span><span class="tag">OC · Gr 12</span><span class="tag">Urja science fest — 650+ visitors</span><span class="tag">60 activity sheets</span><span class="tag">16 batteries (single day)</span></div>
+    </div>
+  </div>
+
+  <!-- MATH CONTOUR + AI CLUB (two-col) -->
+  <div class="two-col-clubs">
+    <div class="club-card" style="margin-bottom:0">
+      <div class="duration-badge amber"><span class="dur-dot"></span>OC · Grades 11–12</div>
+      <div class="duration-bar"><div class="duration-fill" style="width:33%;background:linear-gradient(90deg,var(--am),#d97706)"></div></div>
+      <div class="club-header">
+        <div class="club-ico ci-a">🔢</div>
+        <div class="club-meta">
+          <h4>Math Contour Club — OC, Grades 11–12</h4>
+          <div class="dur">Grades 11–12 · OC</div>
+        </div>
+      </div>
+      <div class="club-body">
+        <p>Once I truly understood a maths concept, solving problems became genuinely enjoyable — a puzzle, not a chore. I joined Math Contour as OC in Grade 11 and continue in Grade 12, helping plan competitions and sessions that show younger students what mathematics actually feels like when it clicks: logical, satisfying, and fun.</p>
+        <div class="tags"><span class="tag">OC · Grades 11–12</span><span class="tag">Math competitions</span><span class="tag">Middle school outreach</span></div>
+      </div>
     </div>
 
-    <!-- ── ANTARIKSH ───────────────────────── -->
-    <div class="card">
+    <div class="club-card" style="margin-bottom:0">
+      <div class="duration-badge blue"><span class="dur-dot"></span>2 Years · Grades 9–10</div>
+      <div class="duration-bar"><div class="duration-fill" style="width:33%;background:linear-gradient(90deg,var(--b),var(--bm))"></div></div>
+      <div class="club-header">
+        <div class="club-ico ci-b">🤖</div>
+        <div class="club-meta">
+          <h4>AI Club — When AI was just a curiosity</h4>
+          <div class="dur">Grades 9–10</div>
+        </div>
+      </div>
+      <div class="club-body">
+        <p>I joined the AI Club in Grade 9 when AI wasn't yet the defining technology it is today — I was just curious about how it worked. Two years of foundations: training data, neural networks, how models actually learn. Those two years directly shaped the Pickle.AI internship and everything AI-related since.</p>
+        <div class="tags"><span class="tag">2 years · Grades 9–10</span><span class="tag">AI/ML foundations</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ANTARIKSH + THRECO (two-col) -->
+  <div class="two-col-clubs" style="margin-top:1rem">
+    <div class="club-card" style="margin-bottom:0">
       <div class="duration-badge"><span class="dur-dot"></span>OC Member · Space &amp; Astronomy</div>
       <div class="duration-bar"><div class="duration-fill" style="width:17%"></div></div>
-      <div class="card-top"><div class="card-ico ci-b">🚀</div><div class="card-yr">OC Member</div></div>
-      <h4>Antariksh Club — Organising Committee</h4>
-      <p>Antariksh (the Hindi/Sanskrit word for "space") is the school&#39;s space and astronomy club. As OC, Yashas helps organise events and workshops around space science and exploration. The same instinct that drives him to understand how codebases work shows up here in orbital mechanics and how complex systems beyond Earth operate.</p>
-      <div class="tags"><span class="tag">OC Member</span><span class="tag">Space &amp; astronomy</span><span class="tag">Events &amp; workshops</span></div>
+      <div class="club-header">
+        <div class="club-ico ci-b">🚀</div>
+        <div class="club-meta">
+          <h4>Antariksh Club — Organising Committee</h4>
+          <div class="dur">OC Member</div>
+        </div>
+      </div>
+      <div class="club-body">
+        <p>Antariksh (the Hindi word for "space") is the school's space and astronomy club. As OC I help organise events and workshops around space science and exploration. The same instinct that makes me want to understand how software works shows up here too — I want to understand how the systems beyond Earth work.</p>
+        <div class="tags"><span class="tag">OC Member</span><span class="tag">Space &amp; astronomy</span><span class="tag">Events &amp; workshops</span></div>
+      </div>
     </div>
 
+    <div class="club-card" style="margin-bottom:0">
+      <div class="duration-badge"><span class="dur-dot"></span>Head of Operations · North India · External Organisation</div>
+      <div class="duration-bar"><div class="duration-fill" style="width:100%;background:linear-gradient(90deg,#065f46,#10b981)"></div></div>
+      <div class="club-header">
+        <div class="club-ico ci-g">♻️</div>
+        <div class="club-meta">
+          <h4>Threco — Head of Operations, North India</h4>
+          <div class="dur">External · CPCB-authorised e-waste company</div>
+        </div>
+      </div>
+      <div class="club-body">
+        <p>Threco is a national CPCB-authorised e-waste management company. I used my Battery Bin network — built entirely independently — to expand their operations from West India into North India. I did this alone. I'm now their <strong>Head of Operations for North India</strong>, running e-waste collection and expanding the network to new schools and institutions. <a href="threco.html" style="color:var(--g);font-weight:600">Full story →</a></p>
+        <div class="tags"><span class="tag">Head of Operations</span><span class="tag">North India</span><span class="tag">CPCB-authorised</span><span class="tag">Solo expansion</span></div>
+      </div>
+    </div>
   </div>
 
   <div class="callout" style="margin-top:1.75rem">
     <span class="callout-ico">📋</span>
     <div>
-      <h3>Leadership summary</h3>
-      <p><strong>Helios Tech Club</strong> — Member Gr 7–11, Head of Department Web Dev &amp; OC Gr 12 &nbsp;·&nbsp; <strong>Chess Club</strong> — Gr 7 onwards, 2× individual gold medals &nbsp;·&nbsp; <strong>Environmental Club</strong> — Member Gr 11, OC Gr 12 (earned through Urja science fest, 650+ visitors) &nbsp;·&nbsp; <strong>Math Contour Club</strong> — OC Gr 11–12 &nbsp;·&nbsp; <strong>AI Club</strong> — Member Gr 9–10 &nbsp;·&nbsp; <strong>Antariksh</strong> — OC</p>
-      <span class="callout-tag">7 clubs · Multiple leadership roles · 6-year Helios commitment · OC earned through impact, not time</span>
+      <h3>Leadership at a glance</h3>
+      <p><strong>Helios</strong> — HoD Web Dev &amp; OC (Gr 12) &nbsp;·&nbsp; <strong>Chess</strong> — 2× individual gold medals (Gr 7+) &nbsp;·&nbsp; <strong>Environmental</strong> — OC Gr 12 (earned) &nbsp;·&nbsp; <strong>Math Contour</strong> — OC Gr 11–12 &nbsp;·&nbsp; <strong>AI Club</strong> — member Gr 9–10 &nbsp;·&nbsp; <strong>Antariksh</strong> — OC &nbsp;·&nbsp; <strong>Threco</strong> — Head of Operations, North India</p>
+      <span class="callout-tag">7 clubs · 5 leadership roles · 6-year Helios commitment</span>
     </div>
   </div>
 </div>
-
 <footer class="foot">
   <p>© 2025 Yashas Chaudhry · yashaschaudhry.com</p>
   <a href="contact.html">Get in touch →</a>
@@ -712,11 +932,8 @@ body{
 </main>
 <script>
 (function(){
-  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity="1";e.target.style.transform="translateY(0)";obs.unobserve(e.target);}});},{threshold:0.07});
-  document.querySelectorAll(".card,.row,.tl-item,.medal,.imp,.stat,.callout").forEach(function(el,i){el.style.opacity="0";el.style.transform="translateY(20px)";el.style.transition="opacity .5s ease "+(i*0.05)+"s, transform .5s ease "+(i*0.05)+"s";obs.observe(el);});
-  function animCount(el){var t=parseInt(el.dataset.t),sx=el.dataset.suffix||"+",d=1600,s=performance.now();(function r(ts){var p=Math.min((ts-s)/d,1),v=1-Math.pow(1-p,3);el.textContent=Math.round(v*t)+sx;if(p<1)requestAnimationFrame(r);})(s);}
-  var cio=new IntersectionObserver(function(e){e.forEach(function(x){if(!x.isIntersecting)return;animCount(x.target);cio.unobserve(x.target);});},{threshold:.5});
-  document.querySelectorAll("[data-t]").forEach(function(el){cio.observe(el);});
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity="1";e.target.style.transform="translateY(0)";obs.unobserve(e.target);}});},{threshold:0.06});
+  document.querySelectorAll(".card,.card-workshop,.row,.tl-item,.medal,.imp,.stat,.callout,.cert-row-item,.club-card").forEach(function(el,i){el.style.opacity="0";el.style.transform="translateY(18px)";el.style.transition="opacity .45s ease "+(i*0.04)+"s, transform .45s ease "+(i*0.04)+"s";obs.observe(el);});
 })();
 </script>
 </body>

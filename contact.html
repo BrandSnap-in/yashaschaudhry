@@ -516,33 +516,155 @@ body{
   /* Close nav when link tapped */
   .nav-link:active{background:var(--g2)}
 }
+
+
+/* ═══════════════════════════════════════════════
+   SPACING & LAYOUT CONSISTENCY FIXES v12
+═══════════════════════════════════════════════ */
+
+/* Content wrapper — consistent inner rhythm */
+.content > * + * { margin-top: 0; }
+.content > p.body-text + p.body-text { margin-top: 0; }
+
+/* Section spacing within content */
+.section-gap { margin-top: 2.5rem; }
+.section-gap-sm { margin-top: 1.5rem; }
+
+/* Cards grid — always has a top margin when following text */
+.cards { margin-top: 1.75rem; }
+.cards + .cards { margin-top: 1rem; }
+
+/* Rows list */
+.rows { margin-top: 1.25rem; }
+.rows + .callout { margin-top: 1.75rem; }
+
+/* Callout spacing */
+.callout + .callout { margin-top: 1rem; }
+.callout + .cards { margin-top: 1.75rem; }
+.callout + .rows { margin-top: 1.5rem; }
+
+/* Timeline items — consistent vertical rhythm */
+.tl-item + .tl-item { /* already has padding-bottom */ }
+.tl-item h4 { margin-bottom: .375rem; }
+.tl-item p { margin-top: 0; }
+
+/* Cert row items */
+.cert-row-item + .cert-row-item { margin-top: 0; }  /* gap handles this in flex */
+
+/* Headings inside content */
+.content h3.heading-sm { margin-top: 2.25rem; margin-bottom: .875rem; }
+.content h3.heading-sm:first-child { margin-top: 0; }
+
+/* Sub-labels */
+.sub-label { margin-top: 2rem; margin-bottom: .875rem; }
+.sub-label:first-child { margin-top: 0; }
+
+/* Separators */
+.sep { margin: 2.25rem 0; }
+
+/* Stats — even grid */
+.stats { margin-top: 1.75rem; margin-bottom: 0; }
+.stats + .callout { margin-top: 1.75rem; }
+.stats + .blist { margin-top: 1.75rem; }
+
+/* Bullet list */
+.blist { margin-top: 1.25rem; margin-bottom: 0; }
+.blist + .callout { margin-top: 1.75rem; }
+
+/* Fix orphaned cards — wrap them in a single-column flow */
+.card-stack { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.75rem; }
+
+/* Workshop/camp card — full-width single column */
+.card-workshop {
+  background: var(--off);
+  border: 1px solid var(--border);
+  border-radius: var(--rl);
+  padding: 1.625rem 1.75rem;
+  transition: border-color .2s, transform .2s;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+.card-workshop:hover { border-color: var(--gl); transform: translateY(-2px); }
+.card-workshop-header { display: flex; align-items: flex-start; gap: 1rem; }
+.card-workshop-ico {
+  width: 40px; height: 40px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; flex-shrink: 0;
+}
+.card-workshop-meta h4 { font-size: .9375rem; font-weight: 700; color: var(--ink); margin-bottom: .2rem; line-height: 1.3; }
+.card-workshop-meta .yr { font-size: .68rem; font-weight: 700; color: var(--gl); letter-spacing: .04em; }
+.card-workshop p { font-size: .8375rem; color: var(--mid); line-height: 1.7; margin: 0; }
+
+/* Photo placeholders — consistent sizing */
+.photo-grid-placeholder { margin-top: .875rem; }
+.photo-grid-placeholder + .sep { margin-top: 1.75rem; }
+
+/* Cert img placeholder */
+.cert-img-placeholder { flex-shrink: 0; }
+
+/* Banner — mobile breathing room */
+@media(max-width:860px) {
+  .banner { padding: 1.75rem 1.25rem 2rem; }
+  .content { padding: 2rem 1.25rem 4rem; }
+  .cards { grid-template-columns: 1fr; }
+  .card-full { grid-column: 1; }
+}
+@media(max-width:480px) {
+  .banner { padding: 1.5rem 1rem 1.75rem; }
+  .content { padding: 1.625rem 1rem 3.5rem; }
+  .stats { grid-template-columns: 1fr 1fr; }
+}
+
+/* Impact grid — consistent on mobile */
+@media(max-width:700px) {
+  .imp-grid { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width:400px) {
+  .imp-grid { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr; }
+}
+
+/* Medals grid — responsive */
+@media(max-width:600px) {
+  .medals { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width:380px) {
+  .medals { grid-template-columns: 1fr; }
+}
+
+/* Duration bars in clubs */
+.duration-bar { margin-bottom: 1rem; }
+
+/* Fix: body-text paragraphs get consistent spacing */
+.body-text { margin-bottom: 1.125rem; }
+.body-text:last-child { margin-bottom: 0; }
+
+/* Fix: card p elements */
+.card p { margin: 0; }
+.card p + p { margin-top: .625rem; }
+
+/* Rows on mobile — wrap badge below text */
+@media(max-width:540px) {
+  .row { flex-wrap: wrap; }
+  .row .badge { margin-left: auto; margin-top: .25rem; }
+}
+
+/* Orphaned cards directly in .content get proper spacing */
+.content > .card,
+.tab-panel > .card {
+  margin-top: 1rem;
+}
+.content > .card:first-of-type,
+.tab-panel > .card:first-of-type {
+  margin-top: 1.75rem;
+}
+/* Tab panel cards use grid */
+.tab-panel .cards {
+  margin-top: 1rem;
+}
 </style>
-<style>
-.photo-upload-zone{border:2px dashed var(--border2);border-radius:var(--rl);padding:2rem 1.25rem;text-align:center;background:var(--off);cursor:pointer;transition:border-color .2s,background .2s;margin:.5rem 0}
-.photo-upload-zone:hover{border-color:var(--gl);background:var(--g2)}
-.photo-upload-zone input[type=file]{display:none}
-.upload-ico{font-size:1.625rem;display:block;margin-bottom:.25rem}
-.photo-upload-zone p{font-size:.78rem;color:var(--muted)}
-.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.75rem;margin-top:.75rem}
-.photo-item{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:var(--off2);border:1px solid var(--border)}
-.photo-item img{width:100%;height:100%;object-fit:cover;display:block}
-.cert-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;margin-top:1rem}
-.cert-card{background:var(--off);border:1px solid var(--border);border-radius:var(--rl);padding:1.25rem}
-.cert-card h4{font-size:.875rem;font-weight:700;color:var(--ink);margin-bottom:.25rem;line-height:1.3}
-.cert-card p{font-size:.75rem;color:var(--mid);margin-bottom:.625rem}
-.cert-upload-zone{border:1.5px dashed var(--border2);border-radius:var(--r);padding:.75rem;text-align:center;cursor:pointer;transition:border-color .2s,background .2s;background:var(--white)}
-.cert-upload-zone:hover{border-color:var(--gl);background:var(--g2)}
-.cert-upload-zone input[type=file]{display:none}
-.cert-upload-zone span{font-size:.7rem;color:var(--muted)}
-.cert-preview{min-height:0}
-.cert-preview img{width:100%;border-radius:6px;margin-top:.375rem}
-.cert-preview p{font-size:.72rem;color:var(--g);font-weight:600;margin-top:.375rem}
-.resume-banner{background:var(--ink);border-radius:var(--rl);padding:1.625rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin:2rem 0}
-.resume-banner h3{font-family:"Fraunces",serif;font-size:1.125rem;font-weight:900;color:var(--white)}
-.resume-banner p{font-size:.78rem;color:rgba(255,255,255,.38);margin-top:.2rem}
-.resume-banner-btns{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center}
-@media(max-width:600px){.photo-grid{grid-template-columns:1fr 1fr}.cert-row{grid-template-columns:1fr}.resume-banner{flex-direction:column;align-items:flex-start}}
-</style>
+
 </head>
 <body>
 <!-- MOBILE HEADER -->
@@ -555,11 +677,7 @@ body{
     </button>
   </div>
 </header>
-
-<!-- VEIL -->
 <div class="mob-veil" id="veil"></div>
-
-<!-- SIDEBAR NAV -->
 <nav id="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-brand">
     <a href="index.html" onclick="closeNav()">
@@ -582,8 +700,9 @@ body{
     <a class="nav-link" href="nas.html" onclick="closeNav()"><span class="ni">🖥️</span>Personal NAS</a>
     <div class="nav-divider"></div>
     <span class="nav-section-label">Awards</span>
-    <a class="nav-link" href="olympiad-medals.html" onclick="closeNav()"><span class="ni">🥇</span>Olympiad Medals</a>
-    <a class="nav-link" href="competitions.html" onclick="closeNav()"><span class="ni">🏆</span>Competitions</a>
+    <a class="nav-link" href="school-awards.html" onclick="closeNav()"><span class="ni">🏆</span>School Awards</a>
+    <a class="nav-link" href="olympiad-medals.html" onclick="closeNav()"><span class="ni">🏅</span>Olympiad Medals</a>
+    <a class="nav-link" href="competitions.html" onclick="closeNav()"><span class="ni">🎯</span>Competitions</a>
     <a class="nav-link" href="other-awards.html" onclick="closeNav()"><span class="ni">⭐</span>Other Recognition</a>
     <div class="nav-divider"></div>
     <span class="nav-section-label">Academics</span>
@@ -594,10 +713,12 @@ body{
     <a class="nav-link" href="clubs.html" onclick="closeNav()"><span class="ni">🎯</span>School Clubs</a>
     <a class="nav-link" href="events.html" onclick="closeNav()"><span class="ni">🎭</span>School Events</a>
     <a class="nav-link" href="council.html" onclick="closeNav()"><span class="ni">🏛️</span>Student Council</a>
-    <a class="nav-link" href="arts.html" onclick="closeNav()"><span class="ni">🎵</span>Arts &amp; Music</a>
+    <a class="nav-link" href="music.html" onclick="closeNav()"><span class="ni">🎵</span>Music</a>
+    <a class="nav-link" href="art.html" onclick="closeNav()"><span class="ni">🎨</span>Art &amp; Design</a>
     <div class="nav-divider"></div>
-    <span class="nav-section-label">Programs</span>
+    <span class="nav-section-label">Programmes</span>
     <a class="nav-link" href="internships.html" onclick="closeNav()"><span class="ni">💼</span>Internships</a>
+    <a class="nav-link" href="summer-schools.html" onclick="closeNav()"><span class="ni">🏕️</span>Summer Schools</a>
     <a class="nav-link" href="workshops.html" onclick="closeNav()"><span class="ni">🛠️</span>Workshops &amp; Camps</a>
     <div class="nav-divider"></div>
     <a class="nav-link" href="impact.html" onclick="closeNav()"><span class="ni">📈</span>Impact</a>
@@ -612,109 +733,55 @@ body{
     </div>
   </div>
 </nav>
-
 <script>
-(function () {
+(function(){
   'use strict';
-  var NAV_SCROLL_KEY = 'navScrollTop';
-  var nav  = document.getElementById('nav');
-  var body_el = document.getElementById('navBody');
-  var veil = document.getElementById('veil');
-  var btn  = document.getElementById('hamburger');
-  var isOpen = false;
-
-  /* ── Restore nav scroll position ── */
-  try {
-    var saved = sessionStorage.getItem(NAV_SCROLL_KEY);
-    if (saved !== null && body_el) body_el.scrollTop = parseInt(saved, 10);
-  } catch (e) {}
-
-  /* Save nav scroll on every scroll + before page unload */
-  function saveScroll() {
-    try { if (body_el) sessionStorage.setItem(NAV_SCROLL_KEY, body_el.scrollTop); } catch (e) {}
-  }
-  if (body_el) body_el.addEventListener('scroll', saveScroll, { passive: true });
-  window.addEventListener('pagehide', saveScroll);
-  window.addEventListener('beforeunload', saveScroll);
-
-  /* ── Save scroll on nav link click (before navigation) ── */
-  document.querySelectorAll('.nav-link').forEach(function (a) {
-    a.addEventListener('click', saveScroll);
-  });
-
-  /* ── Open / close ── */
-  function openNav() {
-    isOpen = true;
-    nav.classList.add('open');
-    veil.classList.add('open');
-    if (btn) btn.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeNav() {
-    isOpen = false;
-    nav.classList.remove('open');
-    veil.classList.remove('open');
-    if (btn) btn.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-    saveScroll();
-  }
-  window.closeNav = closeNav;
-
-  if (btn) btn.addEventListener('click', function (e) { e.stopPropagation(); isOpen ? closeNav() : openNav(); });
-  if (veil) veil.addEventListener('click', closeNav);
-
-  /* ── Swipe left to close ── */
-  var tx = 0;
-  nav.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; }, { passive: true });
-  nav.addEventListener('touchend',   function (e) { if (e.changedTouches[0].clientX - tx < -60) closeNav(); }, { passive: true });
-
-  /* ── Escape key ── */
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && isOpen) closeNav(); });
-
-  /* ── Active link highlight ── */
-  var p = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-link').forEach(function (a) {
-    if (a.getAttribute('href') === p) {
+  var NAV_SCROLL_KEY='navScrollTop';
+  var nav=document.getElementById('nav');
+  var bodyEl=document.getElementById('navBody');
+  var veil=document.getElementById('veil');
+  var btn=document.getElementById('hamburger');
+  var isOpen=false;
+  try{var saved=sessionStorage.getItem(NAV_SCROLL_KEY);if(saved!==null&&bodyEl)bodyEl.scrollTop=parseInt(saved,10);}catch(e){}
+  function saveScroll(){try{if(bodyEl)sessionStorage.setItem(NAV_SCROLL_KEY,bodyEl.scrollTop);}catch(e){}}
+  if(bodyEl)bodyEl.addEventListener('scroll',saveScroll,{passive:true});
+  window.addEventListener('pagehide',saveScroll);
+  window.addEventListener('beforeunload',saveScroll);
+  document.querySelectorAll('.nav-link').forEach(function(a){a.addEventListener('click',saveScroll);});
+  function openNav(){isOpen=true;nav.classList.add('open');veil.classList.add('open');if(btn)btn.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
+  function closeNav(){isOpen=false;nav.classList.remove('open');veil.classList.remove('open');if(btn)btn.setAttribute('aria-expanded','false');document.body.style.overflow='';saveScroll();}
+  window.closeNav=closeNav;
+  if(btn)btn.addEventListener('click',function(e){e.stopPropagation();isOpen?closeNav():openNav();});
+  if(veil)veil.addEventListener('click',closeNav);
+  var tx=0;
+  nav.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
+  nav.addEventListener('touchend',function(e){if(e.changedTouches[0].clientX-tx<-60)closeNav();},{passive:true});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&isOpen)closeNav();});
+  var p=location.pathname.split('/').pop()||'index.html';
+  document.querySelectorAll('.nav-link').forEach(function(a){
+    if(a.getAttribute('href')===p){
       a.classList.add('active');
-      /* Scroll active link into view inside nav body */
-      try {
-        if (saved === null && body_el) {
-          var linkTop = a.offsetTop - body_el.offsetTop;
-          var center  = linkTop - body_el.clientHeight / 2 + a.clientHeight / 2;
-          body_el.scrollTop = Math.max(0, center);
-        }
-      } catch (e) {}
+      try{if(saved===null&&bodyEl){var lt=a.offsetTop-bodyEl.offsetTop;bodyEl.scrollTop=Math.max(0,lt-bodyEl.clientHeight/2+a.clientHeight/2);}}catch(e){}
     }
   });
 })();
 </script>
 
 <main id="main">
-
-<div class="resume-banner">
-  <div>
-    <h3>Download my resume</h3>
-    <p id="resumeStatus">Upload your resume PDF — visitors can then download it directly.</p>
-  </div>
-  <div class="resume-banner-btns">
-    <a id="resumeDlBtn" href="#" class="btn btn-outline" style="color:rgba(255,255,255,.6);border-color:rgba(255,255,255,.2)">↓ Resume (upload below)</a>
-    <label style="cursor:pointer" class="btn btn-green">
-      Upload resume.pdf
-      <input type="file" accept=".pdf" style="display:none" onchange="handleResumeUpload(this)"/>
-    </label>
-  </div>
-</div>
 <style>
-.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;padding:3rem}
-.contact-info h2{font-family:"Fraunces",serif;font-size:2.5rem;font-weight:900;letter-spacing:-.035em;line-height:1.1;margin-bottom:1rem}
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;padding:2.75rem 3rem}
+.contact-info h2{font-family:"Fraunces",serif;font-size:2.25rem;font-weight:900;letter-spacing:-.04em;line-height:1.05;margin-bottom:1rem}
 .contact-info h2 em{font-style:italic;color:var(--g)}
 .contact-info p{font-size:.9375rem;color:var(--mid);line-height:1.75;margin-bottom:2rem}
 .clinks{display:flex;flex-direction:column;gap:.5rem}
 .clink{display:flex;align-items:center;gap:.875rem;padding:.8rem 1.125rem;background:var(--off);border:1px solid var(--border);border-radius:var(--r);text-decoration:none;color:var(--ink);font-size:.875rem;font-weight:500;transition:border-color .2s,transform .18s}
 .clink:hover{border-color:var(--g);transform:translateX(3px)}
-.clink-ico{font-size:1.125rem;width:22px;text-align:center;flex-shrink:0}
-.form-section h3{font-family:"Fraunces",serif;font-size:1.375rem;font-weight:900;letter-spacing:-.02em;margin-bottom:1.5rem}
-@media(max-width:860px){.contact-wrap{grid-template-columns:1fr;padding:2rem 1.5rem;gap:2.5rem}}
+.clink-ico{font-size:1rem;width:20px;text-align:center;flex-shrink:0}
+.resume-note{background:var(--off);border:1.5px dashed var(--border2);border-radius:var(--r);padding:1rem 1.25rem;margin-top:1rem;font-size:.8rem;color:var(--muted);line-height:1.5}
+.resume-note strong{color:var(--ink)}
+.form-section h3{font-family:"Fraunces",serif;font-size:1.25rem;font-weight:900;letter-spacing:-.02em;margin-bottom:1.25rem;color:var(--ink)}
+@media(max-width:860px){.contact-wrap{grid-template-columns:1fr;padding:2rem 1.25rem;gap:2.5rem}}
+@media(max-width:480px){.contact-wrap{padding:1.5rem 1rem}}
 </style>
 <div class="banner banner-slate">
   <div class="banner-watermark">Contact</div>
@@ -725,7 +792,7 @@ body{
 <div class="contact-wrap">
   <div class="contact-info">
     <h2>Let&#39;s<br><em>connect.</em></h2>
-    <p>Whether you are a college admissions officer, potential collaborator, internship recruiter, or someone who wants to talk technology and sustainability — I would love to hear from you.</p>
+    <p>Whether you&#39;re a college admissions officer, potential collaborator, internship recruiter, or someone who wants to talk technology and sustainability — I&#39;d love to hear from you.</p>
     <div class="clinks">
       <a href="mailto:yashaschaudhry12@gmail.com" class="clink"><span class="clink-ico">✉️</span><span>yashaschaudhry12@gmail.com</span></a>
       <a href="https://www.linkedin.com/in/yashas-chaudhry-475556361/" class="clink" target="_blank" rel="noopener"><span class="clink-ico">💼</span><span>LinkedIn — Yashas Chaudhry</span></a>
@@ -733,16 +800,19 @@ body{
       <a href="https://www.instagram.com/yashas_chaudhry/" class="clink" target="_blank" rel="noopener"><span class="clink-ico">📸</span><span>Instagram — @yashas_chaudhry</span></a>
       <a href="https://x.com/dagodzilla1248" class="clink" target="_blank" rel="noopener"><span class="clink-ico">𝕏</span><span>X — @dagodzilla1248</span></a>
     </div>
-    <div style="margin-top:1.5rem;display:flex;gap:.75rem;flex-wrap:wrap">
-      <a href="#" class="btn btn-dark">Download Resume ↓</a>
+    <div style="margin-top:1.375rem;display:flex;gap:.75rem;flex-wrap:wrap">
+      <a href="resume.pdf" class="btn btn-dark" target="_blank">↓ Download Resume</a>
       <a href="about.html" class="btn btn-outline">About me →</a>
+    </div>
+    <div class="resume-note">
+      <strong>Resume:</strong> Replace <code>resume.pdf</code> in the site folder with your actual PDF — the download button links to it automatically.
     </div>
   </div>
   <div class="form-section">
     <h3>Send a message</h3>
     <div class="form-g"><label>Your name</label><input type="text" id="fn" placeholder="Jane Smith"/></div>
     <div class="form-g"><label>Email address</label><input type="email" id="fe" placeholder="jane@example.com"/></div>
-    <div class="form-g"><label>Organization (optional)</label><input type="text" id="fo" placeholder="MIT Admissions, Google, etc."/></div>
+    <div class="form-g"><label>Organisation (optional)</label><input type="text" id="fo" placeholder="MIT Admissions, Google, etc."/></div>
     <div class="form-g"><label>How can I help?</label>
       <select id="fs">
         <option value="">Select a topic...</option>
@@ -772,66 +842,11 @@ function handleSubmit(){
   <a href="contact.html">Get in touch →</a>
 </footer>
 </main>
-
 <script>
-(function() {
-  var obs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; obs.unobserve(e.target); }
-    });
-  }, {threshold:0.07});
-  document.querySelectorAll('.card,.row,.tl-item,.medal,.imp,.stat,.callout').forEach(function(el,i) {
-    el.style.opacity='0'; el.style.transform='translateY(20px)';
-    el.style.transition='opacity .5s ease '+(i*0.04)+'s, transform .5s ease '+(i*0.04)+'s';
-    obs.observe(el);
-  });
-  function animCount(el) {
-    var target=parseInt(el.dataset.t), suffix=el.dataset.suffix||'+', dur=1600, s=performance.now();
-    (function r(ts){var p=Math.min((ts-s)/dur,1),v=1-Math.pow(1-p,3); el.textContent=Math.round(v*target)+suffix; if(p<1)requestAnimationFrame(r);})(s);
-    requestAnimationFrame(function r(ts){var p=Math.min((ts-s)/dur,1),v=1-Math.pow(1-p,3); el.textContent=Math.round(v*target)+suffix; if(p<1)requestAnimationFrame(r);});
-  }
-  var cio=new IntersectionObserver(function(entries){entries.forEach(function(e){if(!e.isIntersecting)return;animCount(e.target);cio.unobserve(e.target);});},{threshold:.5});
-  document.querySelectorAll('[data-t]').forEach(function(el){cio.observe(el);});
+(function(){
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity="1";e.target.style.transform="translateY(0)";obs.unobserve(e.target);}});},{threshold:0.06});
+  document.querySelectorAll(".card,.card-workshop,.row,.tl-item,.medal,.imp,.stat,.callout,.cert-row-item,.club-card").forEach(function(el,i){el.style.opacity="0";el.style.transform="translateY(18px)";el.style.transition="opacity .45s ease "+(i*0.04)+"s, transform .45s ease "+(i*0.04)+"s";obs.observe(el);});
 })();
-</script>
-
-<script>
-function handlePhotoUpload(input,gridId){
-  var grid=document.getElementById(gridId); if(!grid) return;
-  Array.from(input.files).forEach(function(file){
-    if(!file.type.startsWith('image/'))return;
-    var r=new FileReader();
-    r.onload=function(e){var d=document.createElement('div');d.className='photo-item';var img=document.createElement('img');img.src=e.target.result;img.alt=file.name;d.appendChild(img);grid.appendChild(d);};
-    r.readAsDataURL(file);
-  });
-}
-function handleCertUpload(input,previewId){
-  var p=document.getElementById(previewId); if(!p||!input.files[0])return;
-  var file=input.files[0], r=new FileReader();
-  r.onload=function(e){
-    p.innerHTML='';
-    if(file.type==='application/pdf'){p.innerHTML='<p style="font-size:.72rem;color:var(--g);font-weight:600;margin-top:.375rem">✓ '+file.name+'</p>';}
-    else{var img=document.createElement('img');img.src=e.target.result;img.style.cssText='width:100%;border-radius:6px;margin-top:.375rem';p.appendChild(img);}
-  };
-  r.readAsDataURL(file);
-}
-function handleResumeUpload(input){
-  if(!input.files[0])return;
-  var btn=document.getElementById('resumeDlBtn');
-  if(btn){btn.href=URL.createObjectURL(input.files[0]);btn.download='Yashas_Chaudhry_Resume.pdf';btn.textContent='↓ Download Resume';btn.style.background='var(--gl)';btn.style.color='#061410';}
-  var st=document.getElementById('resumeStatus'); if(st)st.textContent='Resume uploaded — ready to download.';
-}
-// Tab switcher for research page
-function showTab(id,btn){
-  document.querySelectorAll('.tab-panel').forEach(function(p){p.style.display='none';});
-  document.querySelectorAll('.tab-btn').forEach(function(b){b.style.background='';b.style.color='var(--ink)';b.classList.remove('active');});
-  var panel=document.getElementById(id); if(panel)panel.style.display='block';
-  if(btn){btn.style.background='var(--ink)';btn.style.color='var(--white)';btn.classList.add('active');}
-}
-window.addEventListener('DOMContentLoaded',function(){
-  var first=document.querySelector('.tab-btn'); var fp=document.querySelector('.tab-panel');
-  if(first&&fp){showTab(fp.id,first);}
-});
 </script>
 </body>
 </html>

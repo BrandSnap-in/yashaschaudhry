@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
 <title>Courses & Certifications — Yashas Chaudhry</title>
-<meta name="description" content="My courses and certifications — CS50, JavaScript Mastery, Pickle.AI, Plaksha YDS, Rancho Labs, and more."/>
+<meta name="description" content="My courses — CS50, JavaScript Mastery, Rancho Labs Python/AI, Drone Workshop, Mindbox, HPAIR, EV3 Robotics. Certificates shown inline."/>
 <meta name="theme-color" content="#ffffff"/>
 <style>/* ═══════════════════════════════════════════════════════
    YASHAS CHAUDHRY PORTFOLIO — Premium CSS v2
@@ -516,32 +516,174 @@ body{
   /* Close nav when link tapped */
   .nav-link:active{background:var(--g2)}
 }
+
+
+/* ═══════════════════════════════════════════════
+   SPACING & LAYOUT CONSISTENCY FIXES v12
+═══════════════════════════════════════════════ */
+
+/* Content wrapper — consistent inner rhythm */
+.content > * + * { margin-top: 0; }
+.content > p.body-text + p.body-text { margin-top: 0; }
+
+/* Section spacing within content */
+.section-gap { margin-top: 2.5rem; }
+.section-gap-sm { margin-top: 1.5rem; }
+
+/* Cards grid — always has a top margin when following text */
+.cards { margin-top: 1.75rem; }
+.cards + .cards { margin-top: 1rem; }
+
+/* Rows list */
+.rows { margin-top: 1.25rem; }
+.rows + .callout { margin-top: 1.75rem; }
+
+/* Callout spacing */
+.callout + .callout { margin-top: 1rem; }
+.callout + .cards { margin-top: 1.75rem; }
+.callout + .rows { margin-top: 1.5rem; }
+
+/* Timeline items — consistent vertical rhythm */
+.tl-item + .tl-item { /* already has padding-bottom */ }
+.tl-item h4 { margin-bottom: .375rem; }
+.tl-item p { margin-top: 0; }
+
+/* Cert row items */
+.cert-row-item + .cert-row-item { margin-top: 0; }  /* gap handles this in flex */
+
+/* Headings inside content */
+.content h3.heading-sm { margin-top: 2.25rem; margin-bottom: .875rem; }
+.content h3.heading-sm:first-child { margin-top: 0; }
+
+/* Sub-labels */
+.sub-label { margin-top: 2rem; margin-bottom: .875rem; }
+.sub-label:first-child { margin-top: 0; }
+
+/* Separators */
+.sep { margin: 2.25rem 0; }
+
+/* Stats — even grid */
+.stats { margin-top: 1.75rem; margin-bottom: 0; }
+.stats + .callout { margin-top: 1.75rem; }
+.stats + .blist { margin-top: 1.75rem; }
+
+/* Bullet list */
+.blist { margin-top: 1.25rem; margin-bottom: 0; }
+.blist + .callout { margin-top: 1.75rem; }
+
+/* Fix orphaned cards — wrap them in a single-column flow */
+.card-stack { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.75rem; }
+
+/* Workshop/camp card — full-width single column */
+.card-workshop {
+  background: var(--off);
+  border: 1px solid var(--border);
+  border-radius: var(--rl);
+  padding: 1.625rem 1.75rem;
+  transition: border-color .2s, transform .2s;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+.card-workshop:hover { border-color: var(--gl); transform: translateY(-2px); }
+.card-workshop-header { display: flex; align-items: flex-start; gap: 1rem; }
+.card-workshop-ico {
+  width: 40px; height: 40px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; flex-shrink: 0;
+}
+.card-workshop-meta h4 { font-size: .9375rem; font-weight: 700; color: var(--ink); margin-bottom: .2rem; line-height: 1.3; }
+.card-workshop-meta .yr { font-size: .68rem; font-weight: 700; color: var(--gl); letter-spacing: .04em; }
+.card-workshop p { font-size: .8375rem; color: var(--mid); line-height: 1.7; margin: 0; }
+
+/* Photo placeholders — consistent sizing */
+.photo-grid-placeholder { margin-top: .875rem; }
+.photo-grid-placeholder + .sep { margin-top: 1.75rem; }
+
+/* Cert img placeholder */
+.cert-img-placeholder { flex-shrink: 0; }
+
+/* Banner — mobile breathing room */
+@media(max-width:860px) {
+  .banner { padding: 1.75rem 1.25rem 2rem; }
+  .content { padding: 2rem 1.25rem 4rem; }
+  .cards { grid-template-columns: 1fr; }
+  .card-full { grid-column: 1; }
+}
+@media(max-width:480px) {
+  .banner { padding: 1.5rem 1rem 1.75rem; }
+  .content { padding: 1.625rem 1rem 3.5rem; }
+  .stats { grid-template-columns: 1fr 1fr; }
+}
+
+/* Impact grid — consistent on mobile */
+@media(max-width:700px) {
+  .imp-grid { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width:400px) {
+  .imp-grid { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr; }
+}
+
+/* Medals grid — responsive */
+@media(max-width:600px) {
+  .medals { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width:380px) {
+  .medals { grid-template-columns: 1fr; }
+}
+
+/* Duration bars in clubs */
+.duration-bar { margin-bottom: 1rem; }
+
+/* Fix: body-text paragraphs get consistent spacing */
+.body-text { margin-bottom: 1.125rem; }
+.body-text:last-child { margin-bottom: 0; }
+
+/* Fix: card p elements */
+.card p { margin: 0; }
+.card p + p { margin-top: .625rem; }
+
+/* Rows on mobile — wrap badge below text */
+@media(max-width:540px) {
+  .row { flex-wrap: wrap; }
+  .row .badge { margin-left: auto; margin-top: .25rem; }
+}
+
+/* Orphaned cards directly in .content get proper spacing */
+.content > .card,
+.tab-panel > .card {
+  margin-top: 1rem;
+}
+.content > .card:first-of-type,
+.tab-panel > .card:first-of-type {
+  margin-top: 1.75rem;
+}
+/* Tab panel cards use grid */
+.tab-panel .cards {
+  margin-top: 1rem;
+}
 </style>
 <style>
-.photo-upload-zone{border:2px dashed var(--border2);border-radius:var(--rl);padding:2rem 1.25rem;text-align:center;background:var(--off);cursor:pointer;transition:border-color .2s,background .2s;margin:.5rem 0}
-.photo-upload-zone:hover{border-color:var(--gl);background:var(--g2)}
-.photo-upload-zone input[type=file]{display:none}
-.upload-ico{font-size:1.625rem;display:block;margin-bottom:.25rem}
-.photo-upload-zone p{font-size:.78rem;color:var(--muted)}
-.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.75rem;margin-top:.75rem}
-.photo-item{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:var(--off2);border:1px solid var(--border)}
-.photo-item img{width:100%;height:100%;object-fit:cover;display:block}
-.cert-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;margin-top:1rem}
-.cert-card{background:var(--off);border:1px solid var(--border);border-radius:var(--rl);padding:1.25rem}
-.cert-card h4{font-size:.875rem;font-weight:700;color:var(--ink);margin-bottom:.25rem;line-height:1.3}
-.cert-card p{font-size:.75rem;color:var(--mid);margin-bottom:.625rem}
-.cert-upload-zone{border:1.5px dashed var(--border2);border-radius:var(--r);padding:.75rem;text-align:center;cursor:pointer;transition:border-color .2s,background .2s;background:var(--white)}
-.cert-upload-zone:hover{border-color:var(--gl);background:var(--g2)}
-.cert-upload-zone input[type=file]{display:none}
-.cert-upload-zone span{font-size:.7rem;color:var(--muted)}
-.cert-preview{min-height:0}
-.cert-preview img{width:100%;border-radius:6px;margin-top:.375rem}
-.cert-preview p{font-size:.72rem;color:var(--g);font-weight:600;margin-top:.375rem}
-.resume-banner{background:var(--ink);border-radius:var(--rl);padding:1.625rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin:2rem 0}
-.resume-banner h3{font-family:"Fraunces",serif;font-size:1.125rem;font-weight:900;color:var(--white)}
-.resume-banner p{font-size:.78rem;color:rgba(255,255,255,.38);margin-top:.2rem}
-.resume-banner-btns{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center}
-@media(max-width:600px){.photo-grid{grid-template-columns:1fr 1fr}.cert-row{grid-template-columns:1fr}.resume-banner{flex-direction:column;align-items:flex-start}}
+.cert-img-placeholder{width:200px;height:140px;border-radius:var(--r);border:1.5px dashed var(--border2);background:var(--white);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.375rem;flex-shrink:0;position:relative;overflow:hidden}
+.cert-img-placeholder .ph-ico{font-size:1.5rem;opacity:.28}
+.cert-img-placeholder .ph-txt{font-size:.65rem;color:var(--faint);font-weight:500;text-align:center;line-height:1.3;padding:0 .5rem}
+.cert-img-placeholder .ph-label{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.5);color:var(--white);font-size:.6rem;font-weight:600;text-align:center;padding:.25rem .375rem;letter-spacing:.04em;text-transform:uppercase}
+.photo-grid-placeholder{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.75rem;margin-top:.75rem}
+.photo-thumb-ph{aspect-ratio:4/3;border-radius:var(--r);border:1.5px dashed var(--border2);background:var(--off);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.25rem}
+.photo-thumb-ph span{font-size:1.125rem;opacity:.2}
+.photo-thumb-ph p{font-size:.62rem;color:var(--faint);text-align:center;padding:0 .5rem;line-height:1.3}
+</style>
+<style>
+.cert-row-item{display:grid;grid-template-columns:1fr 200px;gap:1.5rem;align-items:start;padding:1.625rem;background:var(--off);border:1px solid var(--border);border-radius:var(--rl);transition:border-color .2s,transform .2s;margin-bottom:1rem}
+.cert-row-item:last-child{margin-bottom:0}
+.cert-row-item:hover{border-color:var(--gl);transform:translateY(-2px)}
+.cert-text{min-width:0}
+.cert-text .card-yr{font-size:.68rem;font-weight:700;color:var(--gl);letter-spacing:.04em;margin-bottom:.25rem;display:block}
+.cert-text h4{font-size:.9375rem;font-weight:700;color:var(--ink);margin-bottom:.3rem;line-height:1.3}
+.cert-text p{font-size:.8125rem;color:var(--mid);line-height:1.65}
+.cert-text .tags{margin-top:.75rem}
+@media(max-width:700px){.cert-row-item{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -555,11 +697,7 @@ body{
     </button>
   </div>
 </header>
-
-<!-- VEIL -->
 <div class="mob-veil" id="veil"></div>
-
-<!-- SIDEBAR NAV -->
 <nav id="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-brand">
     <a href="index.html" onclick="closeNav()">
@@ -582,8 +720,9 @@ body{
     <a class="nav-link" href="nas.html" onclick="closeNav()"><span class="ni">🖥️</span>Personal NAS</a>
     <div class="nav-divider"></div>
     <span class="nav-section-label">Awards</span>
-    <a class="nav-link" href="olympiad-medals.html" onclick="closeNav()"><span class="ni">🥇</span>Olympiad Medals</a>
-    <a class="nav-link" href="competitions.html" onclick="closeNav()"><span class="ni">🏆</span>Competitions</a>
+    <a class="nav-link" href="school-awards.html" onclick="closeNav()"><span class="ni">🏆</span>School Awards</a>
+    <a class="nav-link" href="olympiad-medals.html" onclick="closeNav()"><span class="ni">🏅</span>Olympiad Medals</a>
+    <a class="nav-link" href="competitions.html" onclick="closeNav()"><span class="ni">🎯</span>Competitions</a>
     <a class="nav-link" href="other-awards.html" onclick="closeNav()"><span class="ni">⭐</span>Other Recognition</a>
     <div class="nav-divider"></div>
     <span class="nav-section-label">Academics</span>
@@ -594,10 +733,12 @@ body{
     <a class="nav-link" href="clubs.html" onclick="closeNav()"><span class="ni">🎯</span>School Clubs</a>
     <a class="nav-link" href="events.html" onclick="closeNav()"><span class="ni">🎭</span>School Events</a>
     <a class="nav-link" href="council.html" onclick="closeNav()"><span class="ni">🏛️</span>Student Council</a>
-    <a class="nav-link" href="arts.html" onclick="closeNav()"><span class="ni">🎵</span>Arts &amp; Music</a>
+    <a class="nav-link" href="music.html" onclick="closeNav()"><span class="ni">🎵</span>Music</a>
+    <a class="nav-link" href="art.html" onclick="closeNav()"><span class="ni">🎨</span>Art &amp; Design</a>
     <div class="nav-divider"></div>
-    <span class="nav-section-label">Programs</span>
+    <span class="nav-section-label">Programmes</span>
     <a class="nav-link" href="internships.html" onclick="closeNav()"><span class="ni">💼</span>Internships</a>
+    <a class="nav-link" href="summer-schools.html" onclick="closeNav()"><span class="ni">🏕️</span>Summer Schools</a>
     <a class="nav-link" href="workshops.html" onclick="closeNav()"><span class="ni">🛠️</span>Workshops &amp; Camps</a>
     <div class="nav-divider"></div>
     <a class="nav-link" href="impact.html" onclick="closeNav()"><span class="ni">📈</span>Impact</a>
@@ -612,78 +753,35 @@ body{
     </div>
   </div>
 </nav>
-
 <script>
-(function () {
+(function(){
   'use strict';
-  var NAV_SCROLL_KEY = 'navScrollTop';
-  var nav  = document.getElementById('nav');
-  var body_el = document.getElementById('navBody');
-  var veil = document.getElementById('veil');
-  var btn  = document.getElementById('hamburger');
-  var isOpen = false;
-
-  /* ── Restore nav scroll position ── */
-  try {
-    var saved = sessionStorage.getItem(NAV_SCROLL_KEY);
-    if (saved !== null && body_el) body_el.scrollTop = parseInt(saved, 10);
-  } catch (e) {}
-
-  /* Save nav scroll on every scroll + before page unload */
-  function saveScroll() {
-    try { if (body_el) sessionStorage.setItem(NAV_SCROLL_KEY, body_el.scrollTop); } catch (e) {}
-  }
-  if (body_el) body_el.addEventListener('scroll', saveScroll, { passive: true });
-  window.addEventListener('pagehide', saveScroll);
-  window.addEventListener('beforeunload', saveScroll);
-
-  /* ── Save scroll on nav link click (before navigation) ── */
-  document.querySelectorAll('.nav-link').forEach(function (a) {
-    a.addEventListener('click', saveScroll);
-  });
-
-  /* ── Open / close ── */
-  function openNav() {
-    isOpen = true;
-    nav.classList.add('open');
-    veil.classList.add('open');
-    if (btn) btn.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeNav() {
-    isOpen = false;
-    nav.classList.remove('open');
-    veil.classList.remove('open');
-    if (btn) btn.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-    saveScroll();
-  }
-  window.closeNav = closeNav;
-
-  if (btn) btn.addEventListener('click', function (e) { e.stopPropagation(); isOpen ? closeNav() : openNav(); });
-  if (veil) veil.addEventListener('click', closeNav);
-
-  /* ── Swipe left to close ── */
-  var tx = 0;
-  nav.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; }, { passive: true });
-  nav.addEventListener('touchend',   function (e) { if (e.changedTouches[0].clientX - tx < -60) closeNav(); }, { passive: true });
-
-  /* ── Escape key ── */
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && isOpen) closeNav(); });
-
-  /* ── Active link highlight ── */
-  var p = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-link').forEach(function (a) {
-    if (a.getAttribute('href') === p) {
+  var NAV_SCROLL_KEY='navScrollTop';
+  var nav=document.getElementById('nav');
+  var bodyEl=document.getElementById('navBody');
+  var veil=document.getElementById('veil');
+  var btn=document.getElementById('hamburger');
+  var isOpen=false;
+  try{var saved=sessionStorage.getItem(NAV_SCROLL_KEY);if(saved!==null&&bodyEl)bodyEl.scrollTop=parseInt(saved,10);}catch(e){}
+  function saveScroll(){try{if(bodyEl)sessionStorage.setItem(NAV_SCROLL_KEY,bodyEl.scrollTop);}catch(e){}}
+  if(bodyEl)bodyEl.addEventListener('scroll',saveScroll,{passive:true});
+  window.addEventListener('pagehide',saveScroll);
+  window.addEventListener('beforeunload',saveScroll);
+  document.querySelectorAll('.nav-link').forEach(function(a){a.addEventListener('click',saveScroll);});
+  function openNav(){isOpen=true;nav.classList.add('open');veil.classList.add('open');if(btn)btn.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
+  function closeNav(){isOpen=false;nav.classList.remove('open');veil.classList.remove('open');if(btn)btn.setAttribute('aria-expanded','false');document.body.style.overflow='';saveScroll();}
+  window.closeNav=closeNav;
+  if(btn)btn.addEventListener('click',function(e){e.stopPropagation();isOpen?closeNav():openNav();});
+  if(veil)veil.addEventListener('click',closeNav);
+  var tx=0;
+  nav.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
+  nav.addEventListener('touchend',function(e){if(e.changedTouches[0].clientX-tx<-60)closeNav();},{passive:true});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&isOpen)closeNav();});
+  var p=location.pathname.split('/').pop()||'index.html';
+  document.querySelectorAll('.nav-link').forEach(function(a){
+    if(a.getAttribute('href')===p){
       a.classList.add('active');
-      /* Scroll active link into view inside nav body */
-      try {
-        if (saved === null && body_el) {
-          var linkTop = a.offsetTop - body_el.offsetTop;
-          var center  = linkTop - body_el.clientHeight / 2 + a.clientHeight / 2;
-          body_el.scrollTop = Math.max(0, center);
-        }
-      } catch (e) {}
+      try{if(saved===null&&bodyEl){var lt=a.offsetTop-bodyEl.offsetTop;bodyEl.scrollTop=Math.max(0,lt-bodyEl.clientHeight/2+a.clientHeight/2);}}catch(e){}
     }
   });
 })();
@@ -695,105 +793,84 @@ body{
   <div class="banner-watermark">Courses</div>
   <div class="banner-eyebrow">Academics · Courses &amp; Certifications</div>
   <div class="banner-title">Courses &amp;<br><em>Certifications</em></div>
-  <div class="banner-desc">CS50 · JavaScript Mastery · Pickle.AI · Plaksha YDS · Rancho Labs · Jabberwocky · HPAIR</div>
+  <div class="banner-desc">CS50 · JavaScript Mastery · Rancho Labs · Mindbox · HPAIR · Drone Workshop · EV3</div>
 </div>
-<div class="content">
+<div class="content" style="max-width:900px">
   <span class="eyebrow">Continuous learning</span>
   <h2 class="heading">Learning beyond<br><em>the classroom.</em></h2>
   <div class="rule"></div>
-  <p class="body-text">Every course here was chosen deliberately — to build a specific skill the school syllabus didn't cover. From Harvard's CS50 to an AI internship at a real startup to a selective residential developer summit, the pattern is consistent: identify the gap, fill it, build something with what you learn.</p>
-
-  <div class="cert-row">
-    <div class="cert-card">
-      <h4>CS50 — Harvard University</h4>
-      <p>Grade 12 · Completed</p>
-      <div class="cert-upload-zone" onclick="this.querySelector('input').click()">
-        <input type="file" accept="image/*,.pdf" onchange="handleCertUpload(this,'cert-0')"/>
-        <span>📎 Tap to attach certificate</span>
-      </div>
-      <div class="cert-preview" id="cert-0"></div>
-    </div>
-    <div class="cert-card">
-      <h4>The Complete JavaScript Course 2025</h4>
-      <p>Grade 12 · Udemy · Jonas Schmedtmann · Completed</p>
-      <div class="cert-upload-zone" onclick="this.querySelector('input').click()">
-        <input type="file" accept="image/*,.pdf" onchange="handleCertUpload(this,'cert-1')"/>
-        <span>📎 Tap to attach certificate</span>
-      </div>
-      <div class="cert-preview" id="cert-1"></div>
-    </div>
-    <div class="cert-card">
-      <h4>AI Internship — Pickle.AI</h4>
-      <p>Grade 11 · Industry internship · Completed</p>
-      <div class="cert-upload-zone" onclick="this.querySelector('input').click()">
-        <input type="file" accept="image/*,.pdf" onchange="handleCertUpload(this,'cert-2')"/>
-        <span>📎 Tap to attach certificate</span>
-      </div>
-      <div class="cert-preview" id="cert-2"></div>
-    </div>
-    <div class="cert-card">
-      <h4>Plaksha Young Developer Summit</h4>
-      <p>Grade 11 · 7-day residential · Completed</p>
-      <div class="cert-upload-zone" onclick="this.querySelector('input').click()">
-        <input type="file" accept="image/*,.pdf" onchange="handleCertUpload(this,'cert-3')"/>
-        <span>📎 Tap to attach certificate</span>
-      </div>
-      <div class="cert-preview" id="cert-3"></div>
-    </div>
-    <div class="cert-card">
-      <h4>Python & AI Summer Camp — Rancho Labs</h4>
-      <p>Grade 10 · Intensive AI & Python camp · Completed</p>
-      <div class="cert-upload-zone" onclick="this.querySelector('input').click()">
-        <input type="file" accept="image/*,.pdf" onchange="handleCertUpload(this,'cert-4')"/>
-        <span>📎 Tap to attach certificate</span>
-      </div>
-      <div class="cert-preview" id="cert-4"></div>
-    </div>
-    <div class="cert-card">
-      <h4>Drone Building Workshop</h4>
-      <p>Grade 11 · Hardware build & flight systems · Completed</p>
-      <div class="cert-upload-zone" onclick="this.querySelector('input').click()">
-        <input type="file" accept="image/*,.pdf" onchange="handleCertUpload(this,'cert-5')"/>
-        <span>📎 Tap to attach certificate</span>
-      </div>
-      <div class="cert-preview" id="cert-5"></div>
-    </div>
-    <div class="cert-card">
-      <h4>Debate & Public Speaking — Jabberwocky</h4>
-      <p>Grade 9 · Structured debate training · Completed</p>
-      <div class="cert-upload-zone" onclick="this.querySelector('input').click()">
-        <input type="file" accept="image/*,.pdf" onchange="handleCertUpload(this,'cert-6')"/>
-        <span>📎 Tap to attach certificate</span>
-      </div>
-      <div class="cert-preview" id="cert-6"></div>
-    </div>
-    <div class="cert-card">
-      <h4>Coding with JavaScript — Mindbox</h4>
-      <p>Grade 9 · JavaScript fundamentals · Completed</p>
-      <div class="cert-upload-zone" onclick="this.querySelector('input').click()">
-        <input type="file" accept="image/*,.pdf" onchange="handleCertUpload(this,'cert-7')"/>
-        <span>📎 Tap to attach certificate</span>
-      </div>
-      <div class="cert-preview" id="cert-7"></div>
-    </div>
-    <div class="cert-card">
-      <h4>HPAIR Summer Leadership Workshop</h4>
-      <p>Grade 8 · Harvard Political Asian Review · Completed</p>
-      <div class="cert-upload-zone" onclick="this.querySelector('input').click()">
-        <input type="file" accept="image/*,.pdf" onchange="handleCertUpload(this,'cert-8')"/>
-        <span>📎 Tap to attach certificate</span>
-      </div>
-      <div class="cert-preview" id="cert-8"></div>
-    </div>
-    <div class="cert-card">
-      <h4>EV3 Robotics Summer Camp — Robo Club</h4>
-      <p>Grade 8 · Autonomous robotics programming · Completed</p>
-      <div class="cert-upload-zone" onclick="this.querySelector('input').click()">
-        <input type="file" accept="image/*,.pdf" onchange="handleCertUpload(this,'cert-9')"/>
-        <span>📎 Tap to attach certificate</span>
-      </div>
-      <div class="cert-preview" id="cert-9"></div>
-    </div>
+  <p class="body-text">Every course here was chosen deliberately — to build a skill the school syllabus didn't cover. Plaksha YDS and Jabberwocky are now on the <a href="summer-schools.html" style="color:var(--g);font-weight:600">Summer Schools page</a>. Certificates are shown next to each course.</p>
+  <div style="display:flex;flex-direction:column;gap:0;margin-top:1.75rem">
+    <div class="cert-row-item">
+  <div class="cert-text">
+    <div style="width:36px;height:36px;border-radius:9px;background:var(--off2);display:inline-flex;align-items:center;justify-content:center;font-size:.9rem;margin-bottom:.5rem">🎓</div>
+    <span class="card-yr">Grade 12 · Completed</span>
+    <h4>CS50 — Harvard University</h4>
+    <p>Harvard's flagship Introduction to Computer Science — C, Python, SQL, web development, data structures, and algorithms. The gold standard intro CS course in the world.</p>
+    <div class="tags"><span class="tag">Harvard</span><span class="tag">CS50</span><span class="tag">Grade 12</span><span class="tag">Completed</span></div>
+  </div>
+  <div class="cert-img-placeholder"><span class="ph-ico">📄</span><span class="ph-txt">Add CS50 Certificate</span><span class="ph-label">CS50 Certificate</span></div>
+</div>
+<div class="cert-row-item">
+  <div class="cert-text">
+    <div style="width:36px;height:36px;border-radius:9px;background:var(--off2);display:inline-flex;align-items:center;justify-content:center;font-size:.9rem;margin-bottom:.5rem">🌐</div>
+    <span class="card-yr">Grade 12 · Completed</span>
+    <h4>The Complete JavaScript Course 2025</h4>
+    <p>Udemy — Jonas Schmedtmann. Fundamentals through advanced JS: closures, async/await, OOP, DOM, modern ES6+. Applied directly in BrandSnap client websites.</p>
+    <div class="tags"><span class="tag">JavaScript</span><span class="tag">Udemy</span><span class="tag">Grade 12</span><span class="tag">Completed</span></div>
+  </div>
+  <div class="cert-img-placeholder"><span class="ph-ico">📄</span><span class="ph-txt">Add JS Certificate</span><span class="ph-label">JS Certificate</span></div>
+</div>
+<div class="cert-row-item">
+  <div class="cert-text">
+    <div style="width:36px;height:36px;border-radius:9px;background:var(--off2);display:inline-flex;align-items:center;justify-content:center;font-size:.9rem;margin-bottom:.5rem">🐍</div>
+    <span class="card-yr">Grade 10 · Completed</span>
+    <h4>Python & AI Summer Camp — Rancho Labs</h4>
+    <p>Intensive camp focused on Python and applied AI. First real exposure to how ML models work in practice. Foundation that made the Pickle.AI internship possible.</p>
+    <div class="tags"><span class="tag">Python</span><span class="tag">AI/ML</span><span class="tag">Rancho Labs</span><span class="tag">Grade 10</span></div>
+  </div>
+  <div class="cert-img-placeholder"><span class="ph-ico">📄</span><span class="ph-txt">Add Certificate</span><span class="ph-label">Certificate</span></div>
+</div>
+<div class="cert-row-item">
+  <div class="cert-text">
+    <div style="width:36px;height:36px;border-radius:9px;background:var(--off2);display:inline-flex;align-items:center;justify-content:center;font-size:.9rem;margin-bottom:.5rem">🚁</div>
+    <span class="card-yr">Grade 11 · Completed</span>
+    <h4>Drone Building Workshop</h4>
+    <p>Full hardware build: frame, motors, ESC, Betaflight, PID tuning. Skills applied directly to placing 3rd in the school drone race.</p>
+    <div class="tags"><span class="tag">Hardware</span><span class="tag">Betaflight</span><span class="tag">Grade 11</span></div>
+  </div>
+  <div class="cert-img-placeholder"><span class="ph-ico">📄</span><span class="ph-txt">Add Certificate</span><span class="ph-label">Certificate</span></div>
+</div>
+<div class="cert-row-item">
+  <div class="cert-text">
+    <div style="width:36px;height:36px;border-radius:9px;background:var(--off2);display:inline-flex;align-items:center;justify-content:center;font-size:.9rem;margin-bottom:.5rem">🌐</div>
+    <span class="card-yr">Grade 9 · Completed</span>
+    <h4>Coding with JavaScript — Mindbox</h4>
+    <p>Formal coding education covering JavaScript fundamentals and web development basics. The structured foundation that preceded years of self-directed learning.</p>
+    <div class="tags"><span class="tag">JavaScript</span><span class="tag">Mindbox</span><span class="tag">Grade 9</span></div>
+  </div>
+  <div class="cert-img-placeholder"><span class="ph-ico">📄</span><span class="ph-txt">Add Certificate</span><span class="ph-label">Certificate</span></div>
+</div>
+<div class="cert-row-item">
+  <div class="cert-text">
+    <div style="width:36px;height:36px;border-radius:9px;background:var(--off2);display:inline-flex;align-items:center;justify-content:center;font-size:.9rem;margin-bottom:.5rem">🤝</div>
+    <span class="card-yr">Grade 8 · Completed</span>
+    <h4>HPAIR Summer Leadership Workshop</h4>
+    <p>Harvard Political Asian Review — leadership development, policy thinking, and cross-cultural collaboration. Earliest formal leadership training.</p>
+    <div class="tags"><span class="tag">HPAIR</span><span class="tag">Leadership</span><span class="tag">Grade 8</span></div>
+  </div>
+  <div class="cert-img-placeholder"><span class="ph-ico">📄</span><span class="ph-txt">Add Certificate</span><span class="ph-label">Certificate</span></div>
+</div>
+<div class="cert-row-item">
+  <div class="cert-text">
+    <div style="width:36px;height:36px;border-radius:9px;background:var(--off2);display:inline-flex;align-items:center;justify-content:center;font-size:.9rem;margin-bottom:.5rem">🤖</div>
+    <span class="card-yr">Grade 8 · Completed</span>
+    <h4>EV3 Robotics Summer Camp — Robo Club</h4>
+    <p>LEGO EV3 autonomous robotics: sensor integration, line-following, obstacle avoidance. Robotics had been a school activity since Grade 2 — this formalised it.</p>
+    <div class="tags"><span class="tag">EV3</span><span class="tag">Robotics</span><span class="tag">Grade 8</span></div>
+  </div>
+  <div class="cert-img-placeholder"><span class="ph-ico">📄</span><span class="ph-txt">Add Certificate</span><span class="ph-label">Certificate</span></div>
+</div>
   </div>
 </div>
 
@@ -802,66 +879,11 @@ body{
   <a href="contact.html">Get in touch →</a>
 </footer>
 </main>
-
 <script>
-(function() {
-  var obs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; obs.unobserve(e.target); }
-    });
-  }, {threshold:0.07});
-  document.querySelectorAll('.card,.row,.tl-item,.medal,.imp,.stat,.callout').forEach(function(el,i) {
-    el.style.opacity='0'; el.style.transform='translateY(20px)';
-    el.style.transition='opacity .5s ease '+(i*0.04)+'s, transform .5s ease '+(i*0.04)+'s';
-    obs.observe(el);
-  });
-  function animCount(el) {
-    var target=parseInt(el.dataset.t), suffix=el.dataset.suffix||'+', dur=1600, s=performance.now();
-    (function r(ts){var p=Math.min((ts-s)/dur,1),v=1-Math.pow(1-p,3); el.textContent=Math.round(v*target)+suffix; if(p<1)requestAnimationFrame(r);})(s);
-    requestAnimationFrame(function r(ts){var p=Math.min((ts-s)/dur,1),v=1-Math.pow(1-p,3); el.textContent=Math.round(v*target)+suffix; if(p<1)requestAnimationFrame(r);});
-  }
-  var cio=new IntersectionObserver(function(entries){entries.forEach(function(e){if(!e.isIntersecting)return;animCount(e.target);cio.unobserve(e.target);});},{threshold:.5});
-  document.querySelectorAll('[data-t]').forEach(function(el){cio.observe(el);});
+(function(){
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity="1";e.target.style.transform="translateY(0)";obs.unobserve(e.target);}});},{threshold:0.06});
+  document.querySelectorAll(".card,.card-workshop,.row,.tl-item,.medal,.imp,.stat,.callout,.cert-row-item,.club-card,.perf-item,.design-item,.stat-box").forEach(function(el,i){el.style.opacity="0";el.style.transform="translateY(18px)";el.style.transition="opacity .45s ease "+(i*0.04)+"s, transform .45s ease "+(i*0.04)+"s";obs.observe(el);});
 })();
-</script>
-
-<script>
-function handlePhotoUpload(input,gridId){
-  var grid=document.getElementById(gridId); if(!grid) return;
-  Array.from(input.files).forEach(function(file){
-    if(!file.type.startsWith('image/'))return;
-    var r=new FileReader();
-    r.onload=function(e){var d=document.createElement('div');d.className='photo-item';var img=document.createElement('img');img.src=e.target.result;img.alt=file.name;d.appendChild(img);grid.appendChild(d);};
-    r.readAsDataURL(file);
-  });
-}
-function handleCertUpload(input,previewId){
-  var p=document.getElementById(previewId); if(!p||!input.files[0])return;
-  var file=input.files[0], r=new FileReader();
-  r.onload=function(e){
-    p.innerHTML='';
-    if(file.type==='application/pdf'){p.innerHTML='<p style="font-size:.72rem;color:var(--g);font-weight:600;margin-top:.375rem">✓ '+file.name+'</p>';}
-    else{var img=document.createElement('img');img.src=e.target.result;img.style.cssText='width:100%;border-radius:6px;margin-top:.375rem';p.appendChild(img);}
-  };
-  r.readAsDataURL(file);
-}
-function handleResumeUpload(input){
-  if(!input.files[0])return;
-  var btn=document.getElementById('resumeDlBtn');
-  if(btn){btn.href=URL.createObjectURL(input.files[0]);btn.download='Yashas_Chaudhry_Resume.pdf';btn.textContent='↓ Download Resume';btn.style.background='var(--gl)';btn.style.color='#061410';}
-  var st=document.getElementById('resumeStatus'); if(st)st.textContent='Resume uploaded — ready to download.';
-}
-// Tab switcher for research page
-function showTab(id,btn){
-  document.querySelectorAll('.tab-panel').forEach(function(p){p.style.display='none';});
-  document.querySelectorAll('.tab-btn').forEach(function(b){b.style.background='';b.style.color='var(--ink)';b.classList.remove('active');});
-  var panel=document.getElementById(id); if(panel)panel.style.display='block';
-  if(btn){btn.style.background='var(--ink)';btn.style.color='var(--white)';btn.classList.add('active');}
-}
-window.addEventListener('DOMContentLoaded',function(){
-  var first=document.querySelector('.tab-btn'); var fp=document.querySelector('.tab-panel');
-  if(first&&fp){showTab(fp.id,first);}
-});
 </script>
 </body>
 </html>

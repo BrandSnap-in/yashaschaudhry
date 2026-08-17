@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
-<title>Arts & Music — Yashas Chaudhry</title>
-<meta name="description" content="Yashas Chaudhry — Indian classical flute since Grade 3, Grade 9 flute award, guitar Trinity Grade 2, pottery, painting, digital art, Canva."/>
+<title>Music — Yashas Chaudhry</title>
+<meta name="description" content="My music — Indian classical flute since Grade 3 (School Flute Award Gr9, one per year), consistent performer at all school events. Trinity College London guitar Grade 2."/>
 <meta name="theme-color" content="#ffffff"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700;1,9..144,900&display=swap" rel="stylesheet"/>
 <style>/* ═══════════════════════════════════════════════════════
    YASHAS CHAUDHRY PORTFOLIO — Premium CSS v2
    Mobile-first, professional grade, admissions-ready
@@ -518,6 +516,195 @@ body{
   /* Close nav when link tapped */
   .nav-link:active{background:var(--g2)}
 }
+
+
+/* ═══════════════════════════════════════════════
+   SPACING & LAYOUT CONSISTENCY FIXES v12
+═══════════════════════════════════════════════ */
+
+/* Content wrapper — consistent inner rhythm */
+.content > * + * { margin-top: 0; }
+.content > p.body-text + p.body-text { margin-top: 0; }
+
+/* Section spacing within content */
+.section-gap { margin-top: 2.5rem; }
+.section-gap-sm { margin-top: 1.5rem; }
+
+/* Cards grid — always has a top margin when following text */
+.cards { margin-top: 1.75rem; }
+.cards + .cards { margin-top: 1rem; }
+
+/* Rows list */
+.rows { margin-top: 1.25rem; }
+.rows + .callout { margin-top: 1.75rem; }
+
+/* Callout spacing */
+.callout + .callout { margin-top: 1rem; }
+.callout + .cards { margin-top: 1.75rem; }
+.callout + .rows { margin-top: 1.5rem; }
+
+/* Timeline items — consistent vertical rhythm */
+.tl-item + .tl-item { /* already has padding-bottom */ }
+.tl-item h4 { margin-bottom: .375rem; }
+.tl-item p { margin-top: 0; }
+
+/* Cert row items */
+.cert-row-item + .cert-row-item { margin-top: 0; }  /* gap handles this in flex */
+
+/* Headings inside content */
+.content h3.heading-sm { margin-top: 2.25rem; margin-bottom: .875rem; }
+.content h3.heading-sm:first-child { margin-top: 0; }
+
+/* Sub-labels */
+.sub-label { margin-top: 2rem; margin-bottom: .875rem; }
+.sub-label:first-child { margin-top: 0; }
+
+/* Separators */
+.sep { margin: 2.25rem 0; }
+
+/* Stats — even grid */
+.stats { margin-top: 1.75rem; margin-bottom: 0; }
+.stats + .callout { margin-top: 1.75rem; }
+.stats + .blist { margin-top: 1.75rem; }
+
+/* Bullet list */
+.blist { margin-top: 1.25rem; margin-bottom: 0; }
+.blist + .callout { margin-top: 1.75rem; }
+
+/* Fix orphaned cards — wrap them in a single-column flow */
+.card-stack { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.75rem; }
+
+/* Workshop/camp card — full-width single column */
+.card-workshop {
+  background: var(--off);
+  border: 1px solid var(--border);
+  border-radius: var(--rl);
+  padding: 1.625rem 1.75rem;
+  transition: border-color .2s, transform .2s;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+.card-workshop:hover { border-color: var(--gl); transform: translateY(-2px); }
+.card-workshop-header { display: flex; align-items: flex-start; gap: 1rem; }
+.card-workshop-ico {
+  width: 40px; height: 40px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; flex-shrink: 0;
+}
+.card-workshop-meta h4 { font-size: .9375rem; font-weight: 700; color: var(--ink); margin-bottom: .2rem; line-height: 1.3; }
+.card-workshop-meta .yr { font-size: .68rem; font-weight: 700; color: var(--gl); letter-spacing: .04em; }
+.card-workshop p { font-size: .8375rem; color: var(--mid); line-height: 1.7; margin: 0; }
+
+/* Photo placeholders — consistent sizing */
+.photo-grid-placeholder { margin-top: .875rem; }
+.photo-grid-placeholder + .sep { margin-top: 1.75rem; }
+
+/* Cert img placeholder */
+.cert-img-placeholder { flex-shrink: 0; }
+
+/* Banner — mobile breathing room */
+@media(max-width:860px) {
+  .banner { padding: 1.75rem 1.25rem 2rem; }
+  .content { padding: 2rem 1.25rem 4rem; }
+  .cards { grid-template-columns: 1fr; }
+  .card-full { grid-column: 1; }
+}
+@media(max-width:480px) {
+  .banner { padding: 1.5rem 1rem 1.75rem; }
+  .content { padding: 1.625rem 1rem 3.5rem; }
+  .stats { grid-template-columns: 1fr 1fr; }
+}
+
+/* Impact grid — consistent on mobile */
+@media(max-width:700px) {
+  .imp-grid { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width:400px) {
+  .imp-grid { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr; }
+}
+
+/* Medals grid — responsive */
+@media(max-width:600px) {
+  .medals { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width:380px) {
+  .medals { grid-template-columns: 1fr; }
+}
+
+/* Duration bars in clubs */
+.duration-bar { margin-bottom: 1rem; }
+
+/* Fix: body-text paragraphs get consistent spacing */
+.body-text { margin-bottom: 1.125rem; }
+.body-text:last-child { margin-bottom: 0; }
+
+/* Fix: card p elements */
+.card p { margin: 0; }
+.card p + p { margin-top: .625rem; }
+
+/* Rows on mobile — wrap badge below text */
+@media(max-width:540px) {
+  .row { flex-wrap: wrap; }
+  .row .badge { margin-left: auto; margin-top: .25rem; }
+}
+
+/* Orphaned cards directly in .content get proper spacing */
+.content > .card,
+.tab-panel > .card {
+  margin-top: 1rem;
+}
+.content > .card:first-of-type,
+.tab-panel > .card:first-of-type {
+  margin-top: 1.75rem;
+}
+/* Tab panel cards use grid */
+.tab-panel .cards {
+  margin-top: 1rem;
+}
+</style>
+<style>
+.cert-img-placeholder{width:200px;height:140px;border-radius:var(--r);border:1.5px dashed var(--border2);background:var(--white);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.375rem;flex-shrink:0;position:relative;overflow:hidden}
+.cert-img-placeholder .ph-ico{font-size:1.5rem;opacity:.28}
+.cert-img-placeholder .ph-txt{font-size:.65rem;color:var(--faint);font-weight:500;text-align:center;line-height:1.3;padding:0 .5rem}
+.cert-img-placeholder .ph-label{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.5);color:var(--white);font-size:.6rem;font-weight:600;text-align:center;padding:.25rem .375rem;letter-spacing:.04em;text-transform:uppercase}
+.photo-grid-placeholder{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.75rem;margin-top:.75rem}
+.photo-thumb-ph{aspect-ratio:4/3;border-radius:var(--r);border:1.5px dashed var(--border2);background:var(--off);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.25rem}
+.photo-thumb-ph span{font-size:1.125rem;opacity:.2}
+.photo-thumb-ph p{font-size:.62rem;color:var(--faint);text-align:center;padding:0 .5rem;line-height:1.3}
+</style><style>
+.music-hero{min-height:55vh;background:linear-gradient(160deg,#040d08 0%,#0b2418 50%,#1b4332 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:3.5rem 3rem;position:relative;overflow:hidden}
+.music-hero::before{content:"♪";position:absolute;right:-1rem;top:50%;transform:translateY(-50%);font-size:clamp(200px,28vw,380px);color:rgba(255,255,255,.025);line-height:1;pointer-events:none}
+.music-hero-eyebrow{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:.75rem}
+.music-hero-title{font-family:"Fraunces",serif;font-size:clamp(2.75rem,6vw,5.5rem);font-weight:900;color:var(--white);line-height:.92;letter-spacing:-.045em;margin-bottom:.875rem}
+.music-hero-title em{font-style:italic;color:var(--gl)}
+.music-hero-desc{font-size:1rem;color:rgba(255,255,255,.45);max-width:480px;line-height:1.65}
+.music-stats-bar{display:grid;grid-template-columns:repeat(4,1fr);background:var(--ink)}
+.msb{padding:1.5rem 1rem;border-right:1px solid rgba(255,255,255,.06);text-align:center}
+.msb:last-child{border-right:none}
+.msb-n{font-family:"Fraunces",serif;font-size:1.75rem;font-weight:900;color:var(--gl);display:block;line-height:1}
+.msb-l{font-size:.6rem;color:rgba(255,255,255,.35);margin-top:.375rem;line-height:1.3}
+.music-content{padding:3rem}
+.instr-block{margin-bottom:3rem}
+.instr-block:last-child{margin-bottom:0}
+.instr-header{display:flex;align-items:center;gap:1.25rem;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border)}
+.instr-ico{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+.instr-ico.green{background:linear-gradient(135deg,#d8f3dc,#b7e4c7)}
+.instr-ico.purple{background:linear-gradient(135deg,#e9d5ff,#d8b4fe)}
+.instr-title h2{font-family:"Fraunces",serif;font-size:1.625rem;font-weight:900;letter-spacing:-.03em;color:var(--ink);line-height:1.1;margin-bottom:.2rem}
+.instr-title h2 em{font-style:italic;color:var(--g)}
+.instr-title .it-sub{font-size:.78rem;color:var(--muted);font-weight:500}
+.instr-body p{font-size:.9375rem;color:var(--ink3);line-height:1.85;margin-bottom:1.125rem}
+.instr-body p:last-child{margin-bottom:0}
+.perf-timeline{display:flex;flex-direction:column;gap:.5rem;margin:1.5rem 0}
+.perf-item{display:flex;align-items:center;gap:.875rem;padding:.75rem 1rem;background:var(--off);border:1px solid var(--border);border-radius:var(--r);transition:border-color .2s}
+.perf-item:hover{border-color:var(--gl)}
+.perf-yr{font-size:.65rem;font-weight:700;color:var(--gl);letter-spacing:.06em;min-width:55px;flex-shrink:0}
+.perf-desc{color:var(--ink3);font-size:.84rem;flex:1;line-height:1.4}
+.perf-badge{font-size:.62rem;font-weight:700;color:var(--g);background:var(--gxl);padding:.2rem .625rem;border-radius:100px;white-space:nowrap;flex-shrink:0}
+@media(max-width:860px){.music-hero{min-height:auto;padding:2.5rem 1.25rem}.music-content{padding:2rem 1.25rem}.music-stats-bar{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.music-hero{padding:2rem 1rem}.music-content{padding:1.5rem 1rem}}
 </style>
 </head>
 <body>
@@ -531,11 +718,7 @@ body{
     </button>
   </div>
 </header>
-
-<!-- VEIL -->
 <div class="mob-veil" id="veil"></div>
-
-<!-- SIDEBAR NAV -->
 <nav id="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-brand">
     <a href="index.html" onclick="closeNav()">
@@ -558,8 +741,9 @@ body{
     <a class="nav-link" href="nas.html" onclick="closeNav()"><span class="ni">🖥️</span>Personal NAS</a>
     <div class="nav-divider"></div>
     <span class="nav-section-label">Awards</span>
-    <a class="nav-link" href="olympiad-medals.html" onclick="closeNav()"><span class="ni">🥇</span>Olympiad Medals</a>
-    <a class="nav-link" href="competitions.html" onclick="closeNav()"><span class="ni">🏆</span>Competitions</a>
+    <a class="nav-link" href="school-awards.html" onclick="closeNav()"><span class="ni">🏆</span>School Awards</a>
+    <a class="nav-link" href="olympiad-medals.html" onclick="closeNav()"><span class="ni">🏅</span>Olympiad Medals</a>
+    <a class="nav-link" href="competitions.html" onclick="closeNav()"><span class="ni">🎯</span>Competitions</a>
     <a class="nav-link" href="other-awards.html" onclick="closeNav()"><span class="ni">⭐</span>Other Recognition</a>
     <div class="nav-divider"></div>
     <span class="nav-section-label">Academics</span>
@@ -570,10 +754,12 @@ body{
     <a class="nav-link" href="clubs.html" onclick="closeNav()"><span class="ni">🎯</span>School Clubs</a>
     <a class="nav-link" href="events.html" onclick="closeNav()"><span class="ni">🎭</span>School Events</a>
     <a class="nav-link" href="council.html" onclick="closeNav()"><span class="ni">🏛️</span>Student Council</a>
-    <a class="nav-link" href="arts.html" onclick="closeNav()"><span class="ni">🎵</span>Arts &amp; Music</a>
+    <a class="nav-link" href="music.html" onclick="closeNav()"><span class="ni">🎵</span>Music</a>
+    <a class="nav-link" href="art.html" onclick="closeNav()"><span class="ni">🎨</span>Art &amp; Design</a>
     <div class="nav-divider"></div>
-    <span class="nav-section-label">Programs</span>
+    <span class="nav-section-label">Programmes</span>
     <a class="nav-link" href="internships.html" onclick="closeNav()"><span class="ni">💼</span>Internships</a>
+    <a class="nav-link" href="summer-schools.html" onclick="closeNav()"><span class="ni">🏕️</span>Summer Schools</a>
     <a class="nav-link" href="workshops.html" onclick="closeNav()"><span class="ni">🛠️</span>Workshops &amp; Camps</a>
     <div class="nav-divider"></div>
     <a class="nav-link" href="impact.html" onclick="closeNav()"><span class="ni">📈</span>Impact</a>
@@ -588,128 +774,95 @@ body{
     </div>
   </div>
 </nav>
-
 <script>
-(function () {
+(function(){
   'use strict';
-  var NAV_SCROLL_KEY = 'navScrollTop';
-  var nav  = document.getElementById('nav');
-  var body_el = document.getElementById('navBody');
-  var veil = document.getElementById('veil');
-  var btn  = document.getElementById('hamburger');
-  var isOpen = false;
-
-  /* ── Restore nav scroll position ── */
-  try {
-    var saved = sessionStorage.getItem(NAV_SCROLL_KEY);
-    if (saved !== null && body_el) body_el.scrollTop = parseInt(saved, 10);
-  } catch (e) {}
-
-  /* Save nav scroll on every scroll + before page unload */
-  function saveScroll() {
-    try { if (body_el) sessionStorage.setItem(NAV_SCROLL_KEY, body_el.scrollTop); } catch (e) {}
-  }
-  if (body_el) body_el.addEventListener('scroll', saveScroll, { passive: true });
-  window.addEventListener('pagehide', saveScroll);
-  window.addEventListener('beforeunload', saveScroll);
-
-  /* ── Save scroll on nav link click (before navigation) ── */
-  document.querySelectorAll('.nav-link').forEach(function (a) {
-    a.addEventListener('click', saveScroll);
-  });
-
-  /* ── Open / close ── */
-  function openNav() {
-    isOpen = true;
-    nav.classList.add('open');
-    veil.classList.add('open');
-    if (btn) btn.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeNav() {
-    isOpen = false;
-    nav.classList.remove('open');
-    veil.classList.remove('open');
-    if (btn) btn.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-    saveScroll();
-  }
-  window.closeNav = closeNav;
-
-  if (btn) btn.addEventListener('click', function (e) { e.stopPropagation(); isOpen ? closeNav() : openNav(); });
-  if (veil) veil.addEventListener('click', closeNav);
-
-  /* ── Swipe left to close ── */
-  var tx = 0;
-  nav.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; }, { passive: true });
-  nav.addEventListener('touchend',   function (e) { if (e.changedTouches[0].clientX - tx < -60) closeNav(); }, { passive: true });
-
-  /* ── Escape key ── */
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && isOpen) closeNav(); });
-
-  /* ── Active link highlight ── */
-  var p = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-link').forEach(function (a) {
-    if (a.getAttribute('href') === p) {
+  var NAV_SCROLL_KEY='navScrollTop';
+  var nav=document.getElementById('nav');
+  var bodyEl=document.getElementById('navBody');
+  var veil=document.getElementById('veil');
+  var btn=document.getElementById('hamburger');
+  var isOpen=false;
+  try{var saved=sessionStorage.getItem(NAV_SCROLL_KEY);if(saved!==null&&bodyEl)bodyEl.scrollTop=parseInt(saved,10);}catch(e){}
+  function saveScroll(){try{if(bodyEl)sessionStorage.setItem(NAV_SCROLL_KEY,bodyEl.scrollTop);}catch(e){}}
+  if(bodyEl)bodyEl.addEventListener('scroll',saveScroll,{passive:true});
+  window.addEventListener('pagehide',saveScroll);
+  window.addEventListener('beforeunload',saveScroll);
+  document.querySelectorAll('.nav-link').forEach(function(a){a.addEventListener('click',saveScroll);});
+  function openNav(){isOpen=true;nav.classList.add('open');veil.classList.add('open');if(btn)btn.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
+  function closeNav(){isOpen=false;nav.classList.remove('open');veil.classList.remove('open');if(btn)btn.setAttribute('aria-expanded','false');document.body.style.overflow='';saveScroll();}
+  window.closeNav=closeNav;
+  if(btn)btn.addEventListener('click',function(e){e.stopPropagation();isOpen?closeNav():openNav();});
+  if(veil)veil.addEventListener('click',closeNav);
+  var tx=0;
+  nav.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
+  nav.addEventListener('touchend',function(e){if(e.changedTouches[0].clientX-tx<-60)closeNav();},{passive:true});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&isOpen)closeNav();});
+  var p=location.pathname.split('/').pop()||'index.html';
+  document.querySelectorAll('.nav-link').forEach(function(a){
+    if(a.getAttribute('href')===p){
       a.classList.add('active');
-      /* Scroll active link into view inside nav body */
-      try {
-        if (saved === null && body_el) {
-          var linkTop = a.offsetTop - body_el.offsetTop;
-          var center  = linkTop - body_el.clientHeight / 2 + a.clientHeight / 2;
-          body_el.scrollTop = Math.max(0, center);
-        }
-      } catch (e) {}
+      try{if(saved===null&&bodyEl){var lt=a.offsetTop-bodyEl.offsetTop;bodyEl.scrollTop=Math.max(0,lt-bodyEl.clientHeight/2+a.clientHeight/2);}}catch(e){}
     }
   });
 })();
 </script>
 
 <main id="main">
-<div class="banner banner-purple">
-  <div class="banner-watermark">Arts</div>
-  <div class="banner-eyebrow">Activities · Arts &amp; Music</div>
-  <div class="banner-title">Arts &amp; <em>Music</em></div>
-  <div class="banner-desc">Flute · Guitar · Pottery · Painting · Digital Art · Design</div>
-</div>
-<div class="content">
-  <span class="eyebrow">Creative expression</span>
-  <h2 class="heading">The same instinct<br>that builds code <em>makes art.</em></h2>
-  <div class="rule"></div>
-  <p class="body-text">The same compulsion that drives Yashas to build products — the need to make something that did not exist before — shows up across music, pottery, painting, and design. These are not hobbies added to a portfolio to look well-rounded. They are how the same person expresses themselves in different materials.</p>
 
-  <div class="cards">
-    <div class="card">
-      <div class="card-top"><div class="card-ico ci-g">🎵</div><div class="card-yr">Grade 3 to Present · Award Grade 9</div></div>
-      <h4>Indian Classical Flute — a decade of practice</h4>
-      <p>Playing Indian classical flute since Grade 3 — over a decade, uninterrupted. Performed at Jashn, the school&#39;s annual cultural function, in Grades 9, 10, and 11. In Grade 9, received a formal school award for flute performance. The discipline of classical music — the repetition, the patience, the long arc of improvement — is the same quality that keeps Yashas debugging at midnight or maintaining a project for years after starting it.</p>
-      <div class="tags"><span class="tag">10+ years</span><span class="tag">Indian classical</span><span class="tag">Award — Grade 9</span><span class="tag">3× Jashn performer</span></div>
+<div class="music-hero">
+  <div class="music-hero-eyebrow">Activities · Music</div>
+  <h1 class="music-hero-title">Music<br>as a<br><em>constant.</em></h1>
+  <p class="music-hero-desc">Indian classical flute since Grade 3. Trinity-certified guitar. Over a decade of performing at every school event that had a stage.</p>
+</div>
+<div class="music-stats-bar">
+  <div class="msb"><span class="msb-n">10+</span><div class="msb-l">years playing flute</div></div>
+  <div class="msb"><span class="msb-n">Gr 3</span><div class="msb-l">when I started</div></div>
+  <div class="msb"><span class="msb-n">Every</span><div class="msb-l">school event performed</div></div>
+  <div class="msb"><span class="msb-n">1/yr</span><div class="msb-l">Flute Award — one per year</div></div>
+</div>
+<div class="music-content">
+  <div class="instr-block">
+    <div class="instr-header">
+      <div class="instr-ico green">🎵</div>
+      <div class="instr-title">
+        <h2>Indian Classical <em>Flute</em></h2>
+        <div class="it-sub">Grade 3 to Present · School Flute Award Gr 9 · All school events consistently</div>
+      </div>
     </div>
-    <div class="card">
-      <div class="card-top"><div class="card-ico ci-a">🎸</div><div class="card-yr">Certified</div></div>
-      <h4>Guitar — Trinity College London, Grade 2</h4>
-      <p>Completed Trinity College London guitar examinations to Grade 2. Trinity is internationally recognised graded music certification — Grade 2 represents solid foundational technique and music theory under formal examination conditions.</p>
-      <div class="tags"><span class="tag">Trinity College London</span><span class="tag">Grade 2 certified</span></div>
+    <div class="instr-body">
+      <p>I've been playing Indian classical flute since Grade 3 — over a decade, without interruption. It started simply: I liked the sound, and I wanted to be able to make it. Over years of practice I moved through the foundational ragas, learned to control breath and tone, and eventually became the student the school called on for every performance that needed a flute on stage.</p>
+      <p>Throughout my school years I've performed at <strong>every school event consistently</strong> — annual functions, cultural evenings, morning assemblies, and every occasion where there was a stage and music was needed. Not as a one-off. Not for a portfolio entry. Just because it was what I did, year after year, since Grade 3.</p>
+      <p>In Grade 9 I received the <strong>School Flute Award</strong> — given to one student per year across the entire school. The recognition wasn't for a single performance. It was for six years of consistent practice and presence that the teachers had watched firsthand. That kind of recognition, earned over time, means more to me than anything scored in a single sitting.</p>
     </div>
-    <div class="card">
-      <div class="card-top"><div class="card-ico ci-a">🏺</div><div class="card-yr">Grades 10 &amp; 11</div></div>
-      <h4>Pottery — 40% of a Jashn display</h4>
-      <p>In Grade 10, multiple pottery pieces were selected for the Jashn showcase — approximately 40% of the entire pottery display at the annual function was his work alone. In Grade 11, managed the SEVA CAS pottery stall at Jashn, combining hands-on art with community service output.</p>
-      <div class="tags"><span class="tag">Multiple pieces showcased</span><span class="tag">~40% of display</span><span class="tag">SEVA CAS stall</span><span class="tag">Grades 10–11</span></div>
+    <div class="perf-timeline">
+      <div class="perf-item"><div class="perf-yr">GR 3</div><div class="perf-desc">Started learning Indian classical flute</div></div>
+      <div class="perf-item"><div class="perf-yr">GR 4–8</div><div class="perf-desc">Consistent performance at all school events and cultural programmes</div></div>
+      <div class="perf-item"><div class="perf-yr">GR 9</div><div class="perf-desc">Performed at Jashn · Received School Flute Award</div><div class="perf-badge">Award — 1 per year</div></div>
+      <div class="perf-item"><div class="perf-yr">GR 10</div><div class="perf-desc">Performed at Jashn annual function</div></div>
+      <div class="perf-item"><div class="perf-yr">GR 11</div><div class="perf-desc">Performed at Jashn · Managed SEVA CAS pottery stall alongside</div></div>
+      <div class="perf-item"><div class="perf-yr">GR 12</div><div class="perf-desc">Continued performing at all school events</div></div>
     </div>
-    <div class="card">
-      <div class="card-top"><div class="card-ico ci-b">🖼️</div><div class="card-yr">Grades 9 &amp; 10</div></div>
-      <h4>Painting — framed and displayed</h4>
-      <p>In Grade 9, a painting was selected, framed, and put on display at Jashn. In Grade 10, another piece of art was again selected for the annual function showcase — demonstrating consistent visual art output across multiple years.</p>
-      <div class="tags"><span class="tag">Framed &amp; displayed</span><span class="tag">Grades 9 &amp; 10</span><span class="tag">Jashn</span></div>
-    </div>
-    <div class="card card-full">
-      <div class="card-top"><div class="card-ico ci-b">🎨</div><div class="card-yr">Ongoing</div></div>
-      <h4>Digital Art &amp; Design — the creative layer behind everything</h4>
-      <p>Yashas does a significant amount of digital art and design work — across Canva and other tools — for real purposes, not just practice. This includes designing all social media content for Battery Bin, BrandSnap, and Hardware Decoded&#39;s Instagram accounts, creating promotional materials for school events, designing the official Jashn annual function invite in Grade 11 (selected from all Grade 11 students), producing event posters for CCDPS school as an external commission, and building the visual identity and UI for his client websites through BrandSnap. Design is not a side skill — it is embedded in almost everything he ships.</p>
-      <div class="tags"><span class="tag">Canva</span><span class="tag">Digital art</span><span class="tag">Battery Bin Instagram</span><span class="tag">BrandSnap Instagram</span><span class="tag">Hardware Decoded Instagram</span><span class="tag">Jashn invite designer</span><span class="tag">CCDPS commission</span><span class="tag">Website UI/UX</span></div>
-    </div>
+    <div class="tags" style="margin-top:1rem"><span class="tag">10+ years</span><span class="tag">Indian classical</span><span class="tag">All school events</span><span class="tag">School Flute Award Gr9</span><span class="tag">One award per year</span></div>
   </div>
+  <hr class="sep"/>
+  <div class="instr-block">
+    <div class="instr-header">
+      <div class="instr-ico purple">🎸</div>
+      <div class="instr-title">
+        <h2>Guitar — <em>Trinity Grade 2</em></h2>
+        <div class="it-sub">Trinity College London · Internationally recognised certification</div>
+      </div>
+    </div>
+    <div class="instr-body">
+      <p>I completed Trinity College London guitar examinations to Grade 2 — internationally recognised graded certification covering technique, sight-reading, and music theory under formal examination conditions. Trinity Grade 2 represents solid foundational mastery: chord transitions, fingerpicking patterns, and the theoretical understanding that underpins all of it.</p>
+      <p>Playing two instruments — Indian classical and Western — exposed me to the idea that the same emotional truth can be reached through completely different technical systems. That turns out to apply beyond music.</p>
+    </div>
+    <div class="tags" style="margin-top:1rem"><span class="tag">Trinity College London</span><span class="tag">Grade 2 certified</span><span class="tag">Western guitar</span><span class="tag">Formal examination</span></div>
+  </div>
+  <hr class="sep"/>
+  <div class="sub-label">Performance photos</div>
+<div class="photo-grid-placeholder"><div class="photo-thumb-ph"><span>📸</span><p>Performance</p></div><div class="photo-thumb-ph"><span>📸</span><p>Performance</p></div><div class="photo-thumb-ph"><span>📸</span><p>Performance</p></div><div class="photo-thumb-ph"><span>📸</span><p>Performance</p></div></div>
 </div>
 <footer class="foot">
   <p>© 2025 Yashas Chaudhry · yashaschaudhry.com</p>
@@ -718,11 +871,8 @@ body{
 </main>
 <script>
 (function(){
-  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity="1";e.target.style.transform="translateY(0)";obs.unobserve(e.target);}});},{threshold:0.07});
-  document.querySelectorAll(".card,.row,.tl-item,.medal,.imp,.stat,.callout").forEach(function(el,i){el.style.opacity="0";el.style.transform="translateY(20px)";el.style.transition="opacity .5s ease "+(i*0.05)+"s, transform .5s ease "+(i*0.05)+"s";obs.observe(el);});
-  function animCount(el){var t=parseInt(el.dataset.t),sx=el.dataset.suffix||"+",d=1600,s=performance.now();(function r(ts){var p=Math.min((ts-s)/d,1),v=1-Math.pow(1-p,3);el.textContent=Math.round(v*t)+sx;if(p<1)requestAnimationFrame(r);})(s);}
-  var cio=new IntersectionObserver(function(e){e.forEach(function(x){if(!x.isIntersecting)return;animCount(x.target);cio.unobserve(x.target);});},{threshold:.5});
-  document.querySelectorAll("[data-t]").forEach(function(el){cio.observe(el);});
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity="1";e.target.style.transform="translateY(0)";obs.unobserve(e.target);}});},{threshold:0.06});
+  document.querySelectorAll(".card,.card-workshop,.row,.tl-item,.medal,.imp,.stat,.callout,.cert-row-item,.club-card,.perf-item,.art-piece").forEach(function(el,i){el.style.opacity="0";el.style.transform="translateY(18px)";el.style.transition="opacity .45s ease "+(i*0.04)+"s, transform .45s ease "+(i*0.04)+"s";obs.observe(el);});
 })();
 </script>
 </body>

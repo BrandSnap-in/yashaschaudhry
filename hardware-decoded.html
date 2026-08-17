@@ -4,10 +4,8 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
 <title>Hardware Decoded — Yashas Chaudhry</title>
-<meta name="description" content="Yashas Chaudhry built Hardware Decoded — a 300+ member tech community, built from scratch through COVID, rebuilt twice after raids, and transformed into a genuine hub for tech enthusiasts."/>
+<meta name="description" content="I founded Hardware Decoded — 300+ member Discord community, rebuilt twice after raids. hardwaredecoded.com has 700+ active users in the past 3 months."/>
 <meta name="theme-color" content="#ffffff"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700;1,9..144,900&display=swap" rel="stylesheet"/>
 <style>/* ═══════════════════════════════════════════════════════
    YASHAS CHAUDHRY PORTFOLIO — Premium CSS v2
    Mobile-first, professional grade, admissions-ready
@@ -518,7 +516,165 @@ body{
   /* Close nav when link tapped */
   .nav-link:active{background:var(--g2)}
 }
+
+
+/* ═══════════════════════════════════════════════
+   SPACING & LAYOUT CONSISTENCY FIXES v12
+═══════════════════════════════════════════════ */
+
+/* Content wrapper — consistent inner rhythm */
+.content > * + * { margin-top: 0; }
+.content > p.body-text + p.body-text { margin-top: 0; }
+
+/* Section spacing within content */
+.section-gap { margin-top: 2.5rem; }
+.section-gap-sm { margin-top: 1.5rem; }
+
+/* Cards grid — always has a top margin when following text */
+.cards { margin-top: 1.75rem; }
+.cards + .cards { margin-top: 1rem; }
+
+/* Rows list */
+.rows { margin-top: 1.25rem; }
+.rows + .callout { margin-top: 1.75rem; }
+
+/* Callout spacing */
+.callout + .callout { margin-top: 1rem; }
+.callout + .cards { margin-top: 1.75rem; }
+.callout + .rows { margin-top: 1.5rem; }
+
+/* Timeline items — consistent vertical rhythm */
+.tl-item + .tl-item { /* already has padding-bottom */ }
+.tl-item h4 { margin-bottom: .375rem; }
+.tl-item p { margin-top: 0; }
+
+/* Cert row items */
+.cert-row-item + .cert-row-item { margin-top: 0; }  /* gap handles this in flex */
+
+/* Headings inside content */
+.content h3.heading-sm { margin-top: 2.25rem; margin-bottom: .875rem; }
+.content h3.heading-sm:first-child { margin-top: 0; }
+
+/* Sub-labels */
+.sub-label { margin-top: 2rem; margin-bottom: .875rem; }
+.sub-label:first-child { margin-top: 0; }
+
+/* Separators */
+.sep { margin: 2.25rem 0; }
+
+/* Stats — even grid */
+.stats { margin-top: 1.75rem; margin-bottom: 0; }
+.stats + .callout { margin-top: 1.75rem; }
+.stats + .blist { margin-top: 1.75rem; }
+
+/* Bullet list */
+.blist { margin-top: 1.25rem; margin-bottom: 0; }
+.blist + .callout { margin-top: 1.75rem; }
+
+/* Fix orphaned cards — wrap them in a single-column flow */
+.card-stack { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.75rem; }
+
+/* Workshop/camp card — full-width single column */
+.card-workshop {
+  background: var(--off);
+  border: 1px solid var(--border);
+  border-radius: var(--rl);
+  padding: 1.625rem 1.75rem;
+  transition: border-color .2s, transform .2s;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+.card-workshop:hover { border-color: var(--gl); transform: translateY(-2px); }
+.card-workshop-header { display: flex; align-items: flex-start; gap: 1rem; }
+.card-workshop-ico {
+  width: 40px; height: 40px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; flex-shrink: 0;
+}
+.card-workshop-meta h4 { font-size: .9375rem; font-weight: 700; color: var(--ink); margin-bottom: .2rem; line-height: 1.3; }
+.card-workshop-meta .yr { font-size: .68rem; font-weight: 700; color: var(--gl); letter-spacing: .04em; }
+.card-workshop p { font-size: .8375rem; color: var(--mid); line-height: 1.7; margin: 0; }
+
+/* Photo placeholders — consistent sizing */
+.photo-grid-placeholder { margin-top: .875rem; }
+.photo-grid-placeholder + .sep { margin-top: 1.75rem; }
+
+/* Cert img placeholder */
+.cert-img-placeholder { flex-shrink: 0; }
+
+/* Banner — mobile breathing room */
+@media(max-width:860px) {
+  .banner { padding: 1.75rem 1.25rem 2rem; }
+  .content { padding: 2rem 1.25rem 4rem; }
+  .cards { grid-template-columns: 1fr; }
+  .card-full { grid-column: 1; }
+}
+@media(max-width:480px) {
+  .banner { padding: 1.5rem 1rem 1.75rem; }
+  .content { padding: 1.625rem 1rem 3.5rem; }
+  .stats { grid-template-columns: 1fr 1fr; }
+}
+
+/* Impact grid — consistent on mobile */
+@media(max-width:700px) {
+  .imp-grid { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width:400px) {
+  .imp-grid { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr; }
+}
+
+/* Medals grid — responsive */
+@media(max-width:600px) {
+  .medals { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width:380px) {
+  .medals { grid-template-columns: 1fr; }
+}
+
+/* Duration bars in clubs */
+.duration-bar { margin-bottom: 1rem; }
+
+/* Fix: body-text paragraphs get consistent spacing */
+.body-text { margin-bottom: 1.125rem; }
+.body-text:last-child { margin-bottom: 0; }
+
+/* Fix: card p elements */
+.card p { margin: 0; }
+.card p + p { margin-top: .625rem; }
+
+/* Rows on mobile — wrap badge below text */
+@media(max-width:540px) {
+  .row { flex-wrap: wrap; }
+  .row .badge { margin-left: auto; margin-top: .25rem; }
+}
+
+/* Orphaned cards directly in .content get proper spacing */
+.content > .card,
+.tab-panel > .card {
+  margin-top: 1rem;
+}
+.content > .card:first-of-type,
+.tab-panel > .card:first-of-type {
+  margin-top: 1.75rem;
+}
+/* Tab panel cards use grid */
+.tab-panel .cards {
+  margin-top: 1rem;
+}
 </style>
+<style>
+.cert-img-placeholder{width:200px;height:140px;border-radius:var(--r);border:1.5px dashed var(--border2);background:var(--white);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.375rem;flex-shrink:0;position:relative;overflow:hidden}
+.cert-img-placeholder .ph-ico{font-size:1.5rem;opacity:.28}
+.cert-img-placeholder .ph-txt{font-size:.65rem;color:var(--faint);font-weight:500;text-align:center;line-height:1.3;padding:0 .5rem}
+.cert-img-placeholder .ph-label{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.5);color:var(--white);font-size:.6rem;font-weight:600;text-align:center;padding:.25rem .375rem;letter-spacing:.04em;text-transform:uppercase}
+.photo-grid-placeholder{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.75rem;margin-top:.75rem}
+.photo-thumb-ph{aspect-ratio:4/3;border-radius:var(--r);border:1.5px dashed var(--border2);background:var(--off);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.25rem}
+.photo-thumb-ph span{font-size:1.125rem;opacity:.2}
+.photo-thumb-ph p{font-size:.62rem;color:var(--faint);text-align:center;padding:0 .5rem;line-height:1.3}
+</style>
+
 </head>
 <body>
 <!-- MOBILE HEADER -->
@@ -531,11 +687,7 @@ body{
     </button>
   </div>
 </header>
-
-<!-- VEIL -->
 <div class="mob-veil" id="veil"></div>
-
-<!-- SIDEBAR NAV -->
 <nav id="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-brand">
     <a href="index.html" onclick="closeNav()">
@@ -558,8 +710,9 @@ body{
     <a class="nav-link" href="nas.html" onclick="closeNav()"><span class="ni">🖥️</span>Personal NAS</a>
     <div class="nav-divider"></div>
     <span class="nav-section-label">Awards</span>
-    <a class="nav-link" href="olympiad-medals.html" onclick="closeNav()"><span class="ni">🥇</span>Olympiad Medals</a>
-    <a class="nav-link" href="competitions.html" onclick="closeNav()"><span class="ni">🏆</span>Competitions</a>
+    <a class="nav-link" href="school-awards.html" onclick="closeNav()"><span class="ni">🏆</span>School Awards</a>
+    <a class="nav-link" href="olympiad-medals.html" onclick="closeNav()"><span class="ni">🏅</span>Olympiad Medals</a>
+    <a class="nav-link" href="competitions.html" onclick="closeNav()"><span class="ni">🎯</span>Competitions</a>
     <a class="nav-link" href="other-awards.html" onclick="closeNav()"><span class="ni">⭐</span>Other Recognition</a>
     <div class="nav-divider"></div>
     <span class="nav-section-label">Academics</span>
@@ -570,10 +723,12 @@ body{
     <a class="nav-link" href="clubs.html" onclick="closeNav()"><span class="ni">🎯</span>School Clubs</a>
     <a class="nav-link" href="events.html" onclick="closeNav()"><span class="ni">🎭</span>School Events</a>
     <a class="nav-link" href="council.html" onclick="closeNav()"><span class="ni">🏛️</span>Student Council</a>
-    <a class="nav-link" href="arts.html" onclick="closeNav()"><span class="ni">🎵</span>Arts &amp; Music</a>
+    <a class="nav-link" href="music.html" onclick="closeNav()"><span class="ni">🎵</span>Music</a>
+    <a class="nav-link" href="art.html" onclick="closeNav()"><span class="ni">🎨</span>Art &amp; Design</a>
     <div class="nav-divider"></div>
-    <span class="nav-section-label">Programs</span>
+    <span class="nav-section-label">Programmes</span>
     <a class="nav-link" href="internships.html" onclick="closeNav()"><span class="ni">💼</span>Internships</a>
+    <a class="nav-link" href="summer-schools.html" onclick="closeNav()"><span class="ni">🏕️</span>Summer Schools</a>
     <a class="nav-link" href="workshops.html" onclick="closeNav()"><span class="ni">🛠️</span>Workshops &amp; Camps</a>
     <div class="nav-divider"></div>
     <a class="nav-link" href="impact.html" onclick="closeNav()"><span class="ni">📈</span>Impact</a>
@@ -588,118 +743,99 @@ body{
     </div>
   </div>
 </nav>
-
 <script>
-(function () {
+(function(){
   'use strict';
-  var NAV_SCROLL_KEY = 'navScrollTop';
-  var nav  = document.getElementById('nav');
-  var body_el = document.getElementById('navBody');
-  var veil = document.getElementById('veil');
-  var btn  = document.getElementById('hamburger');
-  var isOpen = false;
-
-  /* ── Restore nav scroll position ── */
-  try {
-    var saved = sessionStorage.getItem(NAV_SCROLL_KEY);
-    if (saved !== null && body_el) body_el.scrollTop = parseInt(saved, 10);
-  } catch (e) {}
-
-  /* Save nav scroll on every scroll + before page unload */
-  function saveScroll() {
-    try { if (body_el) sessionStorage.setItem(NAV_SCROLL_KEY, body_el.scrollTop); } catch (e) {}
-  }
-  if (body_el) body_el.addEventListener('scroll', saveScroll, { passive: true });
-  window.addEventListener('pagehide', saveScroll);
-  window.addEventListener('beforeunload', saveScroll);
-
-  /* ── Save scroll on nav link click (before navigation) ── */
-  document.querySelectorAll('.nav-link').forEach(function (a) {
-    a.addEventListener('click', saveScroll);
-  });
-
-  /* ── Open / close ── */
-  function openNav() {
-    isOpen = true;
-    nav.classList.add('open');
-    veil.classList.add('open');
-    if (btn) btn.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeNav() {
-    isOpen = false;
-    nav.classList.remove('open');
-    veil.classList.remove('open');
-    if (btn) btn.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-    saveScroll();
-  }
-  window.closeNav = closeNav;
-
-  if (btn) btn.addEventListener('click', function (e) { e.stopPropagation(); isOpen ? closeNav() : openNav(); });
-  if (veil) veil.addEventListener('click', closeNav);
-
-  /* ── Swipe left to close ── */
-  var tx = 0;
-  nav.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; }, { passive: true });
-  nav.addEventListener('touchend',   function (e) { if (e.changedTouches[0].clientX - tx < -60) closeNav(); }, { passive: true });
-
-  /* ── Escape key ── */
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && isOpen) closeNav(); });
-
-  /* ── Active link highlight ── */
-  var p = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-link').forEach(function (a) {
-    if (a.getAttribute('href') === p) {
+  var NAV_SCROLL_KEY='navScrollTop';
+  var nav=document.getElementById('nav');
+  var bodyEl=document.getElementById('navBody');
+  var veil=document.getElementById('veil');
+  var btn=document.getElementById('hamburger');
+  var isOpen=false;
+  try{var saved=sessionStorage.getItem(NAV_SCROLL_KEY);if(saved!==null&&bodyEl)bodyEl.scrollTop=parseInt(saved,10);}catch(e){}
+  function saveScroll(){try{if(bodyEl)sessionStorage.setItem(NAV_SCROLL_KEY,bodyEl.scrollTop);}catch(e){}}
+  if(bodyEl)bodyEl.addEventListener('scroll',saveScroll,{passive:true});
+  window.addEventListener('pagehide',saveScroll);
+  window.addEventListener('beforeunload',saveScroll);
+  document.querySelectorAll('.nav-link').forEach(function(a){a.addEventListener('click',saveScroll);});
+  function openNav(){isOpen=true;nav.classList.add('open');veil.classList.add('open');if(btn)btn.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
+  function closeNav(){isOpen=false;nav.classList.remove('open');veil.classList.remove('open');if(btn)btn.setAttribute('aria-expanded','false');document.body.style.overflow='';saveScroll();}
+  window.closeNav=closeNav;
+  if(btn)btn.addEventListener('click',function(e){e.stopPropagation();isOpen?closeNav():openNav();});
+  if(veil)veil.addEventListener('click',closeNav);
+  var tx=0;
+  nav.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
+  nav.addEventListener('touchend',function(e){if(e.changedTouches[0].clientX-tx<-60)closeNav();},{passive:true});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&isOpen)closeNav();});
+  var p=location.pathname.split('/').pop()||'index.html';
+  document.querySelectorAll('.nav-link').forEach(function(a){
+    if(a.getAttribute('href')===p){
       a.classList.add('active');
-      /* Scroll active link into view inside nav body */
-      try {
-        if (saved === null && body_el) {
-          var linkTop = a.offsetTop - body_el.offsetTop;
-          var center  = linkTop - body_el.clientHeight / 2 + a.clientHeight / 2;
-          body_el.scrollTop = Math.max(0, center);
-        }
-      } catch (e) {}
+      try{if(saved===null&&bodyEl){var lt=a.offsetTop-bodyEl.offsetTop;bodyEl.scrollTop=Math.max(0,lt-bodyEl.clientHeight/2+a.clientHeight/2);}}catch(e){}
     }
   });
 })();
 </script>
 
 <main id="main">
+
 <div class="banner banner-purple">
   <div class="banner-watermark">Hardware Decoded</div>
   <div class="banner-eyebrow">Projects · Education &amp; Community</div>
   <div class="banner-title">Hardware <em>Decoded</em></div>
-  <div class="banner-desc">Founder · COVID lockdowns to Present · Rebuilt twice. Still standing.</div>
+  <div class="banner-desc">Raided twice. Built three times. 300+ members. 700+ website users in 3 months.</div>
 </div>
 <div class="content">
   <span class="eyebrow">The real story</span>
   <h2 class="heading">Raided twice.<br><em>Built three times.</em></h2>
   <div class="rule"></div>
   <p class="body-text">The polished version of this story is: I founded a 300+ member Discord community for tech enthusiasts. The real version is messier, more honest, and far more interesting.</p>
-  <p class="body-text">COVID hit during what was supposed to be a normal school year. Offline socialising stopped. I moved online like everyone else — and I wanted to build something I could call my own. I started a Discord server with a group of school friends. We had scheduled calls every day and played online games together. Slowly they invited their friends, who invited theirs. Every new join felt like a lot. We reached 40 members — strangers I did not personally know. Trusting them was hard. I had to take chances giving people responsibilities I could not fully verify. There was only so much I could do to test someone through a screen.</p>
-  <p class="body-text">I started partnering with other servers — cross-posting join links as mutual advertising. I ran events around Dank Memer, a Discord bot with its own economy and community. The server exploded. We hit around 100 members, then the Dank Memer community found us and it kept growing. At peak: <strong>1,100 members</strong>. Then the first raid hit. We lost 900 people in a single day. Every channel destroyed. Every role wiped. The server was gone.</p>
-  <p class="body-text">I did not quit. I rebuilt it. Took it back up to 950. We were approaching 1,000 when the second raid came — worse than the first. Again: everything gone.</p>
-  <p class="body-text">I rebuilt it a third time. But this time I stopped and asked myself an honest question: <em>what am I actually building this for?</em> I had been building a community for the sake of having built something. I did not have a real reason for it to exist.</p>
-  <p class="body-text">That question became the pivot. I changed the server&#39;s identity entirely — from a gaming and bot server to a genuine hub for tech enthusiasts like me. A place where people could talk about hardware, software, and everything in between among people who actually cared about it. I called it <strong>Hardware Decoded</strong>. As it grew, important conversations started getting buried in chat, so I built a companion website to preserve them — to make the path to becoming a tech enthusiast easier for everyone who came after me.</p>
-  <p class="body-text">What this whole journey taught me had nothing to do with technology. It taught me how to trust strangers with real responsibility. How to communicate with completely different kinds of people — each with different mindsets, different priorities, different ways of seeing the world. How to rebuild after a total loss without needing external validation to keep going. And how to ask the right question at the right moment: not "how do I make this bigger?" but "why does this exist?"</p>
+  <p class="body-text">COVID hit during what was supposed to be a normal school year. Offline socialising stopped. I moved online like everyone else — and I wanted to build something I could call my own. I started a Discord server with a group of school friends. We had scheduled calls every day and played online games together. Slowly they invited their friends, who invited theirs. Every new join felt significant. We reached 40 members — strangers I didn't personally know. Trusting them was hard at first.</p>
+  <p class="body-text">I started partnering with other servers — cross-posting join links as mutual advertising. I ran events around Dank Memer, a Discord bot with its own economy and community. The server exploded. At peak: <strong>1,100 members</strong>. Then the first raid hit. We lost 900 people in a single day. Every channel destroyed. Every role wiped.</p>
+  <p class="body-text">I didn't quit. I rebuilt it. Took it back up to 950. We were approaching 1,000 when the second raid came — worse than the first. Again: everything gone. I rebuilt it a third time. But this time I asked myself an honest question: <em>what am I actually building this for?</em> I had been building a community for the sake of having built something. I didn't have a real reason for it to exist.</p>
+  <p class="body-text">That question became the pivot. I changed the server's identity entirely — from a gaming hub to a genuine community for tech enthusiasts like me. A place to talk about hardware, software, and everything in between, among people who actually cared. I called it <strong>Hardware Decoded</strong>.</p>
+
   <div class="stats">
     <div class="stat"><span class="stat-n">1.1K</span><div class="stat-l">Peak members reached</div></div>
     <div class="stat"><span class="stat-n">2×</span><div class="stat-l">Server raids survived</div></div>
     <div class="stat"><span class="stat-n">3×</span><div class="stat-l">Rebuilt from scratch</div></div>
     <div class="stat"><span class="stat-n">300+</span><div class="stat-l">Current active members</div></div>
   </div>
-  <div class="callout">
-    <span class="callout-ico">💻</span>
-    <div>
-      <h3>Why this story matters more than the number</h3>
-      <p>Most people quit after the first raid. Yashas rebuilt after two — then changed direction entirely based on an honest self-assessment. That combination — resilience and intellectual honesty about purpose — is rarer than any technical skill. Hardware Decoded is proof of both.</p>
-      <span class="callout-tag">Discord · 300+ members · Rebuilt 3× · Community Building · Tech Education</span>
+
+  <hr class="sep"/>
+  <h3 class="heading-sm" style="font-size:1.375rem">hardwaredecoded.com — the website</h3>
+  <p class="body-text">As the server grew, I noticed a problem: important conversations were getting buried in chat history. A discussion about overclocking that took three hours to work through — gone within a day. A beginner asking for help with their first build — lost under new messages before anyone could respond. The Discord was alive but not durable.</p>
+  <p class="body-text">So I built <strong>hardwaredecoded.com</strong> — a companion website designed to preserve the conversations worth keeping. It serves as a knowledge base, a resource hub, and a structured home for the information that kept disappearing in the fast-moving chat. Articles, guides, hardware reviews, and community-contributed content — all searchable, all permanent.</p>
+  <p class="body-text">The website has had <strong>700+ active users in the past 3 months</strong> — people who found it through search or through the Discord, and who come back because it actually answers their questions. It's not a marketing page for the server. It's a standalone resource that makes the path to becoming a tech enthusiast genuinely easier.</p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-top"><div class="card-ico ci-p">🌐</div><div class="card-yr">hardwaredecoded.com</div></div>
+      <h4>700+ active users — past 3 months</h4>
+      <p>The website has attracted over 700 active users in the last 3 months alone — people who come back because the content is genuinely useful, not just because they're community members.</p>
+      <div class="tags"><span class="tag">700+ active users</span><span class="tag">3 months</span><span class="tag">Knowledge base</span></div>
+    </div>
+    <div class="card">
+      <div class="card-top"><div class="card-ico ci-b">📚</div><div class="card-yr">Content</div></div>
+      <h4>Guides, articles, and hardware resources</h4>
+      <p>Structured, searchable content covering hardware builds, troubleshooting guides, beginner resources, and community-contributed knowledge — the conversations worth keeping, made permanent.</p>
+      <div class="tags"><span class="tag">Searchable</span><span class="tag">Community-contributed</span><span class="tag">Hardware guides</span></div>
+    </div>
+    <div class="card">
+      <div class="card-top"><div class="card-ico ci-g">🔁</div><div class="card-yr">The pivot</div></div>
+      <h4>From gaming hub to tech community</h4>
+      <p>The decision to rebuild with purpose — not just for numbers — transformed what could have been a failed experiment into a genuine community of people who care about the same things I do.</p>
+      <div class="tags"><span class="tag">Purpose-driven</span><span class="tag">Tech education</span><span class="tag">Community building</span></div>
+    </div>
+    <div class="card">
+      <div class="card-top"><div class="card-ico ci-a">🤝</div><div class="card-yr">The lesson</div></div>
+      <h4>Trust is built, not assumed</h4>
+      <p>Managing a community of strangers taught me how to communicate with completely different kinds of people, how to give real responsibility to people I'd only just met, and how to rebuild after total loss without external validation to keep me going.</p>
+      <div class="tags"><span class="tag">Leadership</span><span class="tag">Communication</span><span class="tag">Resilience</span></div>
     </div>
   </div>
-  <hr class="sep"/>
-  </div>
 </div>
+
 <footer class="foot">
   <p>© 2025 Yashas Chaudhry · yashaschaudhry.com</p>
   <a href="contact.html">Get in touch →</a>
@@ -707,11 +843,8 @@ body{
 </main>
 <script>
 (function(){
-  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity="1";e.target.style.transform="translateY(0)";obs.unobserve(e.target);}});},{threshold:0.07});
-  document.querySelectorAll(".card,.row,.tl-item,.medal,.imp,.stat,.callout").forEach(function(el,i){el.style.opacity="0";el.style.transform="translateY(20px)";el.style.transition="opacity .5s ease "+(i*0.05)+"s, transform .5s ease "+(i*0.05)+"s";obs.observe(el);});
-  function animCount(el){var t=parseInt(el.dataset.t),sx=el.dataset.suffix||"+",d=1600,s=performance.now();(function r(ts){var p=Math.min((ts-s)/d,1),v=1-Math.pow(1-p,3);el.textContent=Math.round(v*t)+sx;if(p<1)requestAnimationFrame(r);})(s);}
-  var cio=new IntersectionObserver(function(e){e.forEach(function(x){if(!x.isIntersecting)return;animCount(x.target);cio.unobserve(x.target);});},{threshold:.5});
-  document.querySelectorAll("[data-t]").forEach(function(el){cio.observe(el);});
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity="1";e.target.style.transform="translateY(0)";obs.unobserve(e.target);}});},{threshold:0.06});
+  document.querySelectorAll(".card,.card-workshop,.row,.tl-item,.medal,.imp,.stat,.callout,.cert-row-item,.club-card,.perf-item,.design-item,.stat-box").forEach(function(el,i){el.style.opacity="0";el.style.transform="translateY(18px)";el.style.transition="opacity .45s ease "+(i*0.04)+"s, transform .45s ease "+(i*0.04)+"s";obs.observe(el);});
 })();
 </script>
 </body>

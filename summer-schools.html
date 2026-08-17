@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
-<title>About Me — Yashas Chaudhry</title>
-<meta name="description" content="Yashas Chaudhry — who I am, how I think, and why I build."/>
+<title>Summer Schools — Yashas Chaudhry</title>
+<meta name="description" content="My summer school programmes — Plaksha Young Developer Summit (7-day residential, Grade 11) and Jabberwocky debate & public speaking (Grade 9)."/>
 <meta name="theme-color" content="#ffffff"/>
 <style>/* ═══════════════════════════════════════════════════════
    YASHAS CHAUDHRY PORTFOLIO — Premium CSS v2
@@ -664,7 +664,25 @@ body{
   margin-top: 1rem;
 }
 </style>
-
+<style>
+.cert-row-item{display:grid;grid-template-columns:1fr 200px;gap:1.5rem;align-items:start;padding:1.625rem;background:var(--off);border:1px solid var(--border);border-radius:var(--rl);transition:border-color .2s,transform .2s;margin-bottom:1rem}
+.cert-row-item:last-child{margin-bottom:0}
+.cert-row-item:hover{border-color:var(--gl);transform:translateY(-2px)}
+.cert-text{min-width:0}
+.cert-text .card-yr{font-size:.68rem;font-weight:700;color:var(--gl);letter-spacing:.04em;margin-bottom:.25rem;display:block}
+.cert-text h4{font-size:.9375rem;font-weight:700;color:var(--ink);margin-bottom:.3rem;line-height:1.3}
+.cert-text p{font-size:.8125rem;color:var(--mid);line-height:1.65}
+.cert-text .tags{margin-top:.75rem}
+.cert-img-placeholder{width:200px;height:140px;border-radius:var(--r);border:1.5px dashed var(--border2);background:var(--white);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.375rem;flex-shrink:0;position:relative;overflow:hidden}
+.cert-img-placeholder .ph-ico{font-size:1.5rem;opacity:.28}
+.cert-img-placeholder .ph-txt{font-size:.65rem;color:var(--faint);font-weight:500;text-align:center;line-height:1.3;padding:0 .5rem}
+.cert-img-placeholder .ph-label{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.5);color:var(--white);font-size:.6rem;font-weight:600;text-align:center;padding:.25rem .375rem;letter-spacing:.04em;text-transform:uppercase}
+.photo-grid-placeholder{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.75rem;margin-top:.75rem}
+.photo-thumb-ph{aspect-ratio:4/3;border-radius:var(--r);border:1.5px dashed var(--border2);background:var(--off);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.25rem}
+.photo-thumb-ph span{font-size:1.125rem;opacity:.2}
+.photo-thumb-ph p{font-size:.62rem;color:var(--faint);text-align:center;padding:0 .5rem;line-height:1.3}
+@media(max-width:700px){.cert-row-item{grid-template-columns:1fr}.cert-img-placeholder{width:100%;height:150px}}
+</style>
 </head>
 <body>
 <!-- MOBILE HEADER -->
@@ -768,34 +786,46 @@ body{
 </script>
 
 <main id="main">
-<div class="banner banner-green">
-  <div class="banner-watermark">About</div>
-  <div class="banner-eyebrow">Personal · Who I am</div>
-  <div class="banner-title">The person<br>behind the <em>projects.</em></div>
-  <div class="banner-desc">Builder. Thinker. Flute player. Chess obsessive. Reluctant patient person.</div>
+
+<div class="banner banner-blue">
+  <div class="banner-watermark">Summer</div>
+  <div class="banner-eyebrow">Programmes · Summer Schools</div>
+  <div class="banner-title">Summer <em>Schools</em></div>
+  <div class="banner-desc">Plaksha Young Developer Summit · Jabberwocky Debate &amp; Public Speaking</div>
 </div>
-<div class="content">
-  <span class="eyebrow">My story</span>
-  <h2 class="heading">I do not wait<br>for the <em>right time.</em></h2>
+<div class="content" style="max-width:900px">
+  <span class="eyebrow">Selective programmes</span>
+  <h2 class="heading">Chosen to be there.<br><em>Came back changed.</em></h2>
   <div class="rule"></div>
-  <p class="body-text">Technology found me early — not through a class or a parent who coded. In Grade 6 I was introduced to Scratch during an online summer camp, and loved the idea of turning an idea into something that worked. Robotics was a regular school activity from Grade 2. By Grade 7 I joined Helios Tech Club and started exploring coding seriously — not because it was required, but because making a computer do something new felt genuinely exciting. By Grade 8 I had built a Discord community for hardware enthusiasts (raided twice, rebuilt three times — now 300+ members). By Grade 10 I was running a battery recycling initiative and speaking about it to a full school auditorium. By Grade 11 I had four internships, a cybersecurity app, a design agency with seven paying clients, and a competition cybersecurity dossier. Nobody assigned any of it.</p>
-  <p class="body-text">I sit at the intersection of <strong>technology, sustainability, and entrepreneurship</strong> — not because it sounds good on paper, but because these are the three things I cannot stop thinking about. Battery Bin is environmental. PhishSentinel is technical. BrandSnap is entrepreneurial. Hardware Decoded is community. My NAS is infrastructure. The thread connecting all of them: I saw something worth building and built it.</p>
-  <p class="body-text">Outside the projects: I have played <strong>Indian classical flute since Grade 3</strong> — over a decade, uninterrupted, with a school award in Grade 9. I have won gold medals in skating and chess. I taught myself chess seriously during COVID in Grade 7 — Lichess and Chess.com daily for five months, beat my father for the first time, became the chess person of the grade, won two gold medals representing school. I run a personal NAS and maintain a digital library at home because I want to understand infrastructure by actually running it. I have completed Harvard CS50 and The Complete JavaScript Course. I do not start things to have started them.</p>
-  <div class="qblock">
-    <blockquote>"The best time to build something that matters is before you are given permission to."</blockquote>
-    <cite>— The principle behind every project</cite>
-  </div>
-  <div class="stats">
-    <div class="stat"><span class="stat-n">75+</span><div class="stat-l">kg batteries recycled</div></div>
-    <div class="stat"><span class="stat-n">7</span><div class="stat-l">client websites built</div></div>
-    <div class="stat"><span class="stat-n">300+</span><div class="stat-l">community members</div></div>
-    <div class="stat"><span class="stat-n blue">3</span><div class="stat-l">SOF Gold Medals</div></div>
-    <div class="stat"><span class="stat-n amber">10+</span><div class="stat-l">years playing flute</div></div>
-  </div>
-  <hr class="sep"/>
-  <h3 class="heading" style="font-size:1.5rem">What drives me</h3>
+  <p class="body-text">Both of these were selective — you had to apply, and not everyone got in. Both changed how I communicate, how I lead, and how I think under pressure. One was residential and technical; the other was debate-focused and taught me how to hold an argument. Together they shaped how I show up in rooms where something is at stake.</p>
+
+  <div style="display:flex;flex-direction:column;gap:1.5rem;margin-top:2rem">
+
+    <div class="cert-row-item">
+      <div class="cert-text">
+        <span class="card-yr">Grade 11 · 7-day residential</span>
+        <h4>Plaksha Young Developer Summit (YDS) — Plaksha University</h4>
+        <p>A 7-day offline residential programme at Plaksha University, one of India's newest and most ambitious engineering institutions. It brought together high-school technology students from across India — and it was selective. I stayed on campus, met people from cities and schools I'd never been in contact with, and led my group through collaborative engineering challenges across the week.</p>
+        <p style="margin-top:.75rem">The YDS wasn't primarily about what we built — it was about how we worked together under time pressure with people we'd just met. I had to lead a group of strangers toward a shared goal in a few days. That experience taught me something no classroom can: how to listen to people you don't know yet, how to earn trust quickly, and how to keep a team moving when things aren't going to plan. It also introduced me to some of the most interesting peers I've ever worked with — people whose thinking genuinely challenged my own.</p>
+        <div class="tags"><span class="tag">Plaksha University</span><span class="tag">7-day residential</span><span class="tag">Selective programme</span><span class="tag">Group leadership</span><span class="tag">Peer network</span><span class="tag">Grade 11</span></div>
+      </div>
+      <div class="cert-img-placeholder"><span class="ph-ico">📄</span><span class="ph-txt">Add YDS Certificate</span><span class="ph-label">YDS Certificate</span></div>
+    </div>
+
+    <div class="cert-row-item">
+      <div class="cert-text">
+        <span class="card-yr">Grade 9 · Debate &amp; Public Speaking</span>
+        <h4>Jabberwocky — Debate &amp; Public Speaking Programme</h4>
+        <p>Jabberwocky is a structured debate and public speaking programme. I attended in Grade 9 — before I had ever spoken in front of a large audience, before Battery Bin, before any of the moments that required me to be articulate under pressure. It taught me the mechanics of argument: how to construct a case, how to rebut without attacking, how to use evidence, and how to think on your feet when the other side says something you didn't prepare for.</p>
+        <p style="margin-top:.75rem">The skills from Jabberwocky show up in places I didn't expect: every client conversation for BrandSnap, every time I've had to explain Battery Bin to a teacher or a potential partner, and the moment I stood in front of nearly 1,000 students in a school auditorium in May 2026 — forgot my script, and decided to just speak. I didn't panic because I already knew how to find the argument even when the preparation was gone.</p>
+        <div class="tags"><span class="tag">Jabberwocky</span><span class="tag">Structured debate</span><span class="tag">Public speaking</span><span class="tag">Argumentation &amp; rebuttal</span><span class="tag">Grade 9</span></div>
+      </div>
+      <div class="cert-img-placeholder"><span class="ph-ico">📄</span><span class="ph-txt">Add Jabberwocky Certificate</span><span class="ph-label">Jabberwocky Certificate</span></div>
+    </div>
+
   </div>
 </div>
+
 <footer class="foot">
   <p>© 2025 Yashas Chaudhry · yashaschaudhry.com</p>
   <a href="contact.html">Get in touch →</a>
@@ -804,7 +834,7 @@ body{
 <script>
 (function(){
   var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity="1";e.target.style.transform="translateY(0)";obs.unobserve(e.target);}});},{threshold:0.06});
-  document.querySelectorAll(".card,.card-workshop,.row,.tl-item,.medal,.imp,.stat,.callout,.cert-row-item,.club-card").forEach(function(el,i){el.style.opacity="0";el.style.transform="translateY(18px)";el.style.transition="opacity .45s ease "+(i*0.04)+"s, transform .45s ease "+(i*0.04)+"s";obs.observe(el);});
+  document.querySelectorAll(".card,.card-workshop,.row,.tl-item,.medal,.imp,.stat,.callout,.cert-row-item,.club-card,.stat-box").forEach(function(el,i){el.style.opacity="0";el.style.transform="translateY(18px)";el.style.transition="opacity .45s ease "+(i*0.04)+"s, transform .45s ease "+(i*0.04)+"s";obs.observe(el);});
 })();
 </script>
 </body>

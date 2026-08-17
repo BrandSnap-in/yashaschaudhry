@@ -4,10 +4,8 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
 <title>BrandSnap — Yashas Chaudhry</title>
-<meta name="description" content="Yashas Chaudhry founded BrandSnap after building a website for a family friend led to a realisation: he could do this for everyone. Started with tuition teachers and local restaurants. Now 7 paying clients."/>
+<meta name="description" content="I founded BrandSnap — 8 websites delivered (5 pilot, 3 paying clients at ₹2,000/month). Started from one favour. 100% word-of-mouth growth."/>
 <meta name="theme-color" content="#ffffff"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700;1,9..144,900&display=swap" rel="stylesheet"/>
 <style>/* ═══════════════════════════════════════════════════════
    YASHAS CHAUDHRY PORTFOLIO — Premium CSS v2
    Mobile-first, professional grade, admissions-ready
@@ -518,7 +516,165 @@ body{
   /* Close nav when link tapped */
   .nav-link:active{background:var(--g2)}
 }
+
+
+/* ═══════════════════════════════════════════════
+   SPACING & LAYOUT CONSISTENCY FIXES v12
+═══════════════════════════════════════════════ */
+
+/* Content wrapper — consistent inner rhythm */
+.content > * + * { margin-top: 0; }
+.content > p.body-text + p.body-text { margin-top: 0; }
+
+/* Section spacing within content */
+.section-gap { margin-top: 2.5rem; }
+.section-gap-sm { margin-top: 1.5rem; }
+
+/* Cards grid — always has a top margin when following text */
+.cards { margin-top: 1.75rem; }
+.cards + .cards { margin-top: 1rem; }
+
+/* Rows list */
+.rows { margin-top: 1.25rem; }
+.rows + .callout { margin-top: 1.75rem; }
+
+/* Callout spacing */
+.callout + .callout { margin-top: 1rem; }
+.callout + .cards { margin-top: 1.75rem; }
+.callout + .rows { margin-top: 1.5rem; }
+
+/* Timeline items — consistent vertical rhythm */
+.tl-item + .tl-item { /* already has padding-bottom */ }
+.tl-item h4 { margin-bottom: .375rem; }
+.tl-item p { margin-top: 0; }
+
+/* Cert row items */
+.cert-row-item + .cert-row-item { margin-top: 0; }  /* gap handles this in flex */
+
+/* Headings inside content */
+.content h3.heading-sm { margin-top: 2.25rem; margin-bottom: .875rem; }
+.content h3.heading-sm:first-child { margin-top: 0; }
+
+/* Sub-labels */
+.sub-label { margin-top: 2rem; margin-bottom: .875rem; }
+.sub-label:first-child { margin-top: 0; }
+
+/* Separators */
+.sep { margin: 2.25rem 0; }
+
+/* Stats — even grid */
+.stats { margin-top: 1.75rem; margin-bottom: 0; }
+.stats + .callout { margin-top: 1.75rem; }
+.stats + .blist { margin-top: 1.75rem; }
+
+/* Bullet list */
+.blist { margin-top: 1.25rem; margin-bottom: 0; }
+.blist + .callout { margin-top: 1.75rem; }
+
+/* Fix orphaned cards — wrap them in a single-column flow */
+.card-stack { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.75rem; }
+
+/* Workshop/camp card — full-width single column */
+.card-workshop {
+  background: var(--off);
+  border: 1px solid var(--border);
+  border-radius: var(--rl);
+  padding: 1.625rem 1.75rem;
+  transition: border-color .2s, transform .2s;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+.card-workshop:hover { border-color: var(--gl); transform: translateY(-2px); }
+.card-workshop-header { display: flex; align-items: flex-start; gap: 1rem; }
+.card-workshop-ico {
+  width: 40px; height: 40px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; flex-shrink: 0;
+}
+.card-workshop-meta h4 { font-size: .9375rem; font-weight: 700; color: var(--ink); margin-bottom: .2rem; line-height: 1.3; }
+.card-workshop-meta .yr { font-size: .68rem; font-weight: 700; color: var(--gl); letter-spacing: .04em; }
+.card-workshop p { font-size: .8375rem; color: var(--mid); line-height: 1.7; margin: 0; }
+
+/* Photo placeholders — consistent sizing */
+.photo-grid-placeholder { margin-top: .875rem; }
+.photo-grid-placeholder + .sep { margin-top: 1.75rem; }
+
+/* Cert img placeholder */
+.cert-img-placeholder { flex-shrink: 0; }
+
+/* Banner — mobile breathing room */
+@media(max-width:860px) {
+  .banner { padding: 1.75rem 1.25rem 2rem; }
+  .content { padding: 2rem 1.25rem 4rem; }
+  .cards { grid-template-columns: 1fr; }
+  .card-full { grid-column: 1; }
+}
+@media(max-width:480px) {
+  .banner { padding: 1.5rem 1rem 1.75rem; }
+  .content { padding: 1.625rem 1rem 3.5rem; }
+  .stats { grid-template-columns: 1fr 1fr; }
+}
+
+/* Impact grid — consistent on mobile */
+@media(max-width:700px) {
+  .imp-grid { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width:400px) {
+  .imp-grid { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr; }
+}
+
+/* Medals grid — responsive */
+@media(max-width:600px) {
+  .medals { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width:380px) {
+  .medals { grid-template-columns: 1fr; }
+}
+
+/* Duration bars in clubs */
+.duration-bar { margin-bottom: 1rem; }
+
+/* Fix: body-text paragraphs get consistent spacing */
+.body-text { margin-bottom: 1.125rem; }
+.body-text:last-child { margin-bottom: 0; }
+
+/* Fix: card p elements */
+.card p { margin: 0; }
+.card p + p { margin-top: .625rem; }
+
+/* Rows on mobile — wrap badge below text */
+@media(max-width:540px) {
+  .row { flex-wrap: wrap; }
+  .row .badge { margin-left: auto; margin-top: .25rem; }
+}
+
+/* Orphaned cards directly in .content get proper spacing */
+.content > .card,
+.tab-panel > .card {
+  margin-top: 1rem;
+}
+.content > .card:first-of-type,
+.tab-panel > .card:first-of-type {
+  margin-top: 1.75rem;
+}
+/* Tab panel cards use grid */
+.tab-panel .cards {
+  margin-top: 1rem;
+}
 </style>
+<style>
+.cert-img-placeholder{width:200px;height:140px;border-radius:var(--r);border:1.5px dashed var(--border2);background:var(--white);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.375rem;flex-shrink:0;position:relative;overflow:hidden}
+.cert-img-placeholder .ph-ico{font-size:1.5rem;opacity:.28}
+.cert-img-placeholder .ph-txt{font-size:.65rem;color:var(--faint);font-weight:500;text-align:center;line-height:1.3;padding:0 .5rem}
+.cert-img-placeholder .ph-label{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.5);color:var(--white);font-size:.6rem;font-weight:600;text-align:center;padding:.25rem .375rem;letter-spacing:.04em;text-transform:uppercase}
+.photo-grid-placeholder{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.75rem;margin-top:.75rem}
+.photo-thumb-ph{aspect-ratio:4/3;border-radius:var(--r);border:1.5px dashed var(--border2);background:var(--off);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.25rem}
+.photo-thumb-ph span{font-size:1.125rem;opacity:.2}
+.photo-thumb-ph p{font-size:.62rem;color:var(--faint);text-align:center;padding:0 .5rem;line-height:1.3}
+</style>
+
 </head>
 <body>
 <!-- MOBILE HEADER -->
@@ -531,11 +687,7 @@ body{
     </button>
   </div>
 </header>
-
-<!-- VEIL -->
 <div class="mob-veil" id="veil"></div>
-
-<!-- SIDEBAR NAV -->
 <nav id="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-brand">
     <a href="index.html" onclick="closeNav()">
@@ -558,8 +710,9 @@ body{
     <a class="nav-link" href="nas.html" onclick="closeNav()"><span class="ni">🖥️</span>Personal NAS</a>
     <div class="nav-divider"></div>
     <span class="nav-section-label">Awards</span>
-    <a class="nav-link" href="olympiad-medals.html" onclick="closeNav()"><span class="ni">🥇</span>Olympiad Medals</a>
-    <a class="nav-link" href="competitions.html" onclick="closeNav()"><span class="ni">🏆</span>Competitions</a>
+    <a class="nav-link" href="school-awards.html" onclick="closeNav()"><span class="ni">🏆</span>School Awards</a>
+    <a class="nav-link" href="olympiad-medals.html" onclick="closeNav()"><span class="ni">🏅</span>Olympiad Medals</a>
+    <a class="nav-link" href="competitions.html" onclick="closeNav()"><span class="ni">🎯</span>Competitions</a>
     <a class="nav-link" href="other-awards.html" onclick="closeNav()"><span class="ni">⭐</span>Other Recognition</a>
     <div class="nav-divider"></div>
     <span class="nav-section-label">Academics</span>
@@ -570,10 +723,12 @@ body{
     <a class="nav-link" href="clubs.html" onclick="closeNav()"><span class="ni">🎯</span>School Clubs</a>
     <a class="nav-link" href="events.html" onclick="closeNav()"><span class="ni">🎭</span>School Events</a>
     <a class="nav-link" href="council.html" onclick="closeNav()"><span class="ni">🏛️</span>Student Council</a>
-    <a class="nav-link" href="arts.html" onclick="closeNav()"><span class="ni">🎵</span>Arts &amp; Music</a>
+    <a class="nav-link" href="music.html" onclick="closeNav()"><span class="ni">🎵</span>Music</a>
+    <a class="nav-link" href="art.html" onclick="closeNav()"><span class="ni">🎨</span>Art &amp; Design</a>
     <div class="nav-divider"></div>
-    <span class="nav-section-label">Programs</span>
+    <span class="nav-section-label">Programmes</span>
     <a class="nav-link" href="internships.html" onclick="closeNav()"><span class="ni">💼</span>Internships</a>
+    <a class="nav-link" href="summer-schools.html" onclick="closeNav()"><span class="ni">🏕️</span>Summer Schools</a>
     <a class="nav-link" href="workshops.html" onclick="closeNav()"><span class="ni">🛠️</span>Workshops &amp; Camps</a>
     <div class="nav-divider"></div>
     <a class="nav-link" href="impact.html" onclick="closeNav()"><span class="ni">📈</span>Impact</a>
@@ -588,137 +743,102 @@ body{
     </div>
   </div>
 </nav>
-
 <script>
-(function () {
+(function(){
   'use strict';
-  var NAV_SCROLL_KEY = 'navScrollTop';
-  var nav  = document.getElementById('nav');
-  var body_el = document.getElementById('navBody');
-  var veil = document.getElementById('veil');
-  var btn  = document.getElementById('hamburger');
-  var isOpen = false;
-
-  /* ── Restore nav scroll position ── */
-  try {
-    var saved = sessionStorage.getItem(NAV_SCROLL_KEY);
-    if (saved !== null && body_el) body_el.scrollTop = parseInt(saved, 10);
-  } catch (e) {}
-
-  /* Save nav scroll on every scroll + before page unload */
-  function saveScroll() {
-    try { if (body_el) sessionStorage.setItem(NAV_SCROLL_KEY, body_el.scrollTop); } catch (e) {}
-  }
-  if (body_el) body_el.addEventListener('scroll', saveScroll, { passive: true });
-  window.addEventListener('pagehide', saveScroll);
-  window.addEventListener('beforeunload', saveScroll);
-
-  /* ── Save scroll on nav link click (before navigation) ── */
-  document.querySelectorAll('.nav-link').forEach(function (a) {
-    a.addEventListener('click', saveScroll);
-  });
-
-  /* ── Open / close ── */
-  function openNav() {
-    isOpen = true;
-    nav.classList.add('open');
-    veil.classList.add('open');
-    if (btn) btn.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeNav() {
-    isOpen = false;
-    nav.classList.remove('open');
-    veil.classList.remove('open');
-    if (btn) btn.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-    saveScroll();
-  }
-  window.closeNav = closeNav;
-
-  if (btn) btn.addEventListener('click', function (e) { e.stopPropagation(); isOpen ? closeNav() : openNav(); });
-  if (veil) veil.addEventListener('click', closeNav);
-
-  /* ── Swipe left to close ── */
-  var tx = 0;
-  nav.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; }, { passive: true });
-  nav.addEventListener('touchend',   function (e) { if (e.changedTouches[0].clientX - tx < -60) closeNav(); }, { passive: true });
-
-  /* ── Escape key ── */
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && isOpen) closeNav(); });
-
-  /* ── Active link highlight ── */
-  var p = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-link').forEach(function (a) {
-    if (a.getAttribute('href') === p) {
+  var NAV_SCROLL_KEY='navScrollTop';
+  var nav=document.getElementById('nav');
+  var bodyEl=document.getElementById('navBody');
+  var veil=document.getElementById('veil');
+  var btn=document.getElementById('hamburger');
+  var isOpen=false;
+  try{var saved=sessionStorage.getItem(NAV_SCROLL_KEY);if(saved!==null&&bodyEl)bodyEl.scrollTop=parseInt(saved,10);}catch(e){}
+  function saveScroll(){try{if(bodyEl)sessionStorage.setItem(NAV_SCROLL_KEY,bodyEl.scrollTop);}catch(e){}}
+  if(bodyEl)bodyEl.addEventListener('scroll',saveScroll,{passive:true});
+  window.addEventListener('pagehide',saveScroll);
+  window.addEventListener('beforeunload',saveScroll);
+  document.querySelectorAll('.nav-link').forEach(function(a){a.addEventListener('click',saveScroll);});
+  function openNav(){isOpen=true;nav.classList.add('open');veil.classList.add('open');if(btn)btn.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
+  function closeNav(){isOpen=false;nav.classList.remove('open');veil.classList.remove('open');if(btn)btn.setAttribute('aria-expanded','false');document.body.style.overflow='';saveScroll();}
+  window.closeNav=closeNav;
+  if(btn)btn.addEventListener('click',function(e){e.stopPropagation();isOpen?closeNav():openNav();});
+  if(veil)veil.addEventListener('click',closeNav);
+  var tx=0;
+  nav.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
+  nav.addEventListener('touchend',function(e){if(e.changedTouches[0].clientX-tx<-60)closeNav();},{passive:true});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&isOpen)closeNav();});
+  var p=location.pathname.split('/').pop()||'index.html';
+  document.querySelectorAll('.nav-link').forEach(function(a){
+    if(a.getAttribute('href')===p){
       a.classList.add('active');
-      /* Scroll active link into view inside nav body */
-      try {
-        if (saved === null && body_el) {
-          var linkTop = a.offsetTop - body_el.offsetTop;
-          var center  = linkTop - body_el.clientHeight / 2 + a.clientHeight / 2;
-          body_el.scrollTop = Math.max(0, center);
-        }
-      } catch (e) {}
+      try{if(saved===null&&bodyEl){var lt=a.offsetTop-bodyEl.offsetTop;bodyEl.scrollTop=Math.max(0,lt-bodyEl.clientHeight/2+a.clientHeight/2);}}catch(e){}
     }
   });
 })();
 </script>
 
 <main id="main">
+
 <div class="banner banner-amber">
   <div class="banner-watermark">BrandSnap</div>
   <div class="banner-eyebrow">Projects · Entrepreneurship</div>
   <div class="banner-title">Brand<em>Snap</em></div>
-  <div class="banner-desc">Founder · Grade 11 to Present · Started with one favour. Became a business.</div>
+  <div class="banner-desc">Started with one favour. Became a real business with paying clients.</div>
 </div>
 <div class="content">
   <span class="eyebrow">The real origin story</span>
-  <h2 class="heading">One family friend.<br><em>Seven paying clients.</em></h2>
+  <h2 class="heading">One family friend.<br><em>Eight clients.</em></h2>
   <div class="rule"></div>
-  <p class="body-text">BrandSnap did not start as a business idea. It started as a favour.</p>
-  <p class="body-text">A family friend saw the website I had built for Battery Bin and asked if I could make one for their project. I said yes. I made it. When it was done, something shifted — I realised I had just done something genuinely useful for someone, something they needed, and I had the skills to deliver it. That project gave me a quiet but real confidence. And it planted an obvious question: if I can do this for a family friend, why not do it for others?</p>
-  <p class="body-text">That question became BrandSnap. I started with a pilot — building websites for my tuition teachers and a few local restaurants. Low stakes, real clients, real feedback. Each one worked. Each one gave me more confidence than the last. The tuition teachers were happy. The restaurants got something they actually used. And with each delivery I got a little better at understanding what clients actually needed, not just what they said they wanted.</p>
-  <p class="body-text">That is when I started charging. The first payment I received under the official BrandSnap name was a genuinely different feeling. Not because of the money — but because it meant someone had decided my work was worth paying for. That is a different kind of validation than a grade or an award. It meant I could be independent. It meant I could build something that supported itself. It made me believe in myself in a way that no certificate had.</p>
-  <p class="body-text">Seven websites delivered since. Every single client has come through word of mouth — no paid advertising, no cold outreach, no marketing. Just people seeing work and telling other people. That is the feedback loop I am most proud of.</p>
+  <p class="body-text">BrandSnap didn't start as a business idea. It started as a favour. A family friend saw the website I'd built for Battery Bin and asked if I could make one for their project. I said yes. When it was done, something shifted — I'd just done something genuinely useful for someone who needed it, and I had the skills to deliver it. That project gave me quiet but real confidence. And it planted an obvious question: if I can do this for a family friend, why not do it for others?</p>
+  <p class="body-text">That question became BrandSnap. I started with a pilot — building websites for my tuition teachers and a few local restaurants. Low stakes, real clients, real feedback. I ran the pilot across 5 clients to test whether my approach actually worked and whether people valued what I was building. Each delivery gave me more confidence. Each one made me better at understanding what clients actually needed, not just what they said they wanted.</p>
+  <p class="body-text">After the pilot, I started charging. The first payment under the BrandSnap name felt genuinely different — not because of the money, but because it meant someone had decided my work was worth paying for. I currently have <strong>3 paying clients at ₹2,000 per month</strong> each. Every single client, pilot or paying, has come through word of mouth — no ads, no cold outreach. Just people seeing work and telling other people.</p>
+
   <div class="stats">
-    <div class="stat"><span class="stat-n">7</span><div class="stat-l">websites delivered</div></div>
-    <div class="stat"><span class="stat-n">£0</span><div class="stat-l">advertising spend</div></div>
-    <div class="stat"><span class="stat-n">Gr 11</span><div class="stat-l">Founded</div></div>
-    <div class="stat"><span class="stat-n">100%</span><div class="stat-l">Word of mouth growth</div></div>
+    <div class="stat"><span class="stat-n">8</span><div class="stat-l">websites delivered total</div></div>
+    <div class="stat"><span class="stat-n">5</span><div class="stat-l">pilot clients (free)</div></div>
+    <div class="stat"><span class="stat-n">3</span><div class="stat-l">paying clients</div></div>
+    <div class="stat"><span class="stat-n">₹2K</span><div class="stat-l">per month per client</div></div>
+    <div class="stat"><span class="stat-n">100%</span><div class="stat-l">word-of-mouth growth</div></div>
   </div>
+
   <div class="callout">
     <span class="callout-ico">⚡</span>
     <div>
       <h3>What the first payment actually meant</h3>
-      <p>There is a specific feeling that comes from someone handing you money for work you did — not as a gift, not as a grade, but as a judgment that your work was worth the exchange. That feeling, when it arrived, confirmed something Yashas had been building toward for years: the ability to create something of real value for real people, independently. BrandSnap is proof of that.</p>
-      <span class="callout-tag">Entrepreneurship · Self-belief · 7 Websites · Grade 11 Onwards · Word of Mouth</span>
+      <p>There's a specific feeling that comes from someone handing you money for work you did — not as a gift, not as a grade, but as a judgment that your work was worth the exchange. That feeling confirmed something I'd been building toward: the ability to create real value for real people, independently. BrandSnap is proof of that.</p>
+      <span class="callout-tag">Entrepreneurship · 8 websites · 3 paying clients · ₹2,000/month · 100% word-of-mouth · Grade 11 onwards</span>
     </div>
   </div>
+
   <hr class="sep"/>
   <div class="cards">
-    <div class="card"><div class="card-top"><div class="card-ico ci-a">🎨</div><div class="card-yr">Design</div></div>
+    <div class="card">
+      <div class="card-top"><div class="card-ico ci-a">🎨</div></div>
       <h4>Custom websites — hand-coded, not templated</h4>
-      <p>Every site built from scratch. Real HTML, CSS, and JavaScript — maintainable, fast, and actually owned by the client. Not a drag-and-drop builder with a custom colour scheme.</p>
-      <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Responsive</span><span class="tag">No page builders</span></div>
+      <p>Every site built from scratch — real HTML, CSS, and JavaScript. Maintainable, fast, and actually owned by the client. Not a drag-and-drop builder with a custom colour scheme.</p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Responsive</span></div>
     </div>
-    <div class="card"><div class="card-top"><div class="card-ico ci-g">📍</div><div class="card-yr">Branding</div></div>
-      <h4>Brand identity</h4>
-      <p>Logo, colour palette, typography, and visual language — the full identity package that gives a small business something to build on, not just a website to exist on.</p>
-      <div class="tags"><span class="tag">Logo design</span><span class="tag">Visual identity</span><span class="tag">Canva</span><span class="tag">Brand guidelines</span></div>
+    <div class="card">
+      <div class="card-top"><div class="card-ico ci-g">📍</div></div>
+      <h4>Full brand identity</h4>
+      <p>Logo, colour palette, typography, and visual language. The full identity package that gives a small business something to build on, not just a website to exist on.</p>
+      <div class="tags"><span class="tag">Logo design</span><span class="tag">Visual identity</span><span class="tag">Brand guidelines</span></div>
     </div>
-    <div class="card"><div class="card-top"><div class="card-ico ci-b">📈</div><div class="card-yr">Visibility</div></div>
+    <div class="card">
+      <div class="card-top"><div class="card-ico ci-b">📈</div></div>
       <h4>SEO and digital presence</h4>
-      <p>On-page SEO, structured metadata, and Google Business setup for every client — the basics that ensure they actually show up when someone searches for them.</p>
+      <p>On-page SEO, structured metadata, and Google Business setup for every client — the basics that ensure they actually appear when someone searches for them.</p>
       <div class="tags"><span class="tag">SEO</span><span class="tag">Google Business</span><span class="tag">Meta tags</span></div>
     </div>
-    <div class="card"><div class="card-top"><div class="card-ico ci-p">🤝</div><div class="card-yr">Delivery</div></div>
-      <h4>Full end-to-end client management</h4>
-      <p>Discovery calls, proposals, design iterations, revision rounds, sign-off, and post-launch. Every stage handled independently — including the hard parts: scope changes, late feedback, and clients who change their minds after approval.</p>
+    <div class="card">
+      <div class="card-top"><div class="card-ico ci-p">🤝</div></div>
+      <h4>End-to-end client management</h4>
+      <p>Discovery calls, proposals, design iterations, revision rounds, sign-off, and post-launch. Every stage handled independently — including scope changes, late feedback, and clients who change their minds after approval.</p>
       <div class="tags"><span class="tag">Client comms</span><span class="tag">Project delivery</span><span class="tag">Sales</span></div>
     </div>
   </div>
 </div>
+
 <footer class="foot">
   <p>© 2025 Yashas Chaudhry · yashaschaudhry.com</p>
   <a href="contact.html">Get in touch →</a>
@@ -726,11 +846,8 @@ body{
 </main>
 <script>
 (function(){
-  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity="1";e.target.style.transform="translateY(0)";obs.unobserve(e.target);}});},{threshold:0.07});
-  document.querySelectorAll(".card,.row,.tl-item,.medal,.imp,.stat,.callout").forEach(function(el,i){el.style.opacity="0";el.style.transform="translateY(20px)";el.style.transition="opacity .5s ease "+(i*0.05)+"s, transform .5s ease "+(i*0.05)+"s";obs.observe(el);});
-  function animCount(el){var t=parseInt(el.dataset.t),sx=el.dataset.suffix||"+",d=1600,s=performance.now();(function r(ts){var p=Math.min((ts-s)/d,1),v=1-Math.pow(1-p,3);el.textContent=Math.round(v*t)+sx;if(p<1)requestAnimationFrame(r);})(s);}
-  var cio=new IntersectionObserver(function(e){e.forEach(function(x){if(!x.isIntersecting)return;animCount(x.target);cio.unobserve(x.target);});},{threshold:.5});
-  document.querySelectorAll("[data-t]").forEach(function(el){cio.observe(el);});
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity="1";e.target.style.transform="translateY(0)";obs.unobserve(e.target);}});},{threshold:0.06});
+  document.querySelectorAll(".card,.card-workshop,.row,.tl-item,.medal,.imp,.stat,.callout,.cert-row-item,.club-card,.perf-item,.design-item,.stat-box").forEach(function(el,i){el.style.opacity="0";el.style.transform="translateY(18px)";el.style.transition="opacity .45s ease "+(i*0.04)+"s, transform .45s ease "+(i*0.04)+"s";obs.observe(el);});
 })();
 </script>
 </body>
