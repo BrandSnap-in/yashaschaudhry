@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
 <title>School Clubs — Yashas Chaudhry</title>
-<meta name="description" content="My school clubs — Helios Tech (6 years, HoD Web Dev Gr12), Chess (5+ years, 2 gold medals), Environmental OC (earned through Urja), Math Contour OC (Gr11–12), AI Club, Antariksh OC, Threco."/>
+<meta name="description" content="My school clubs — Helios Tech (6 years, HoD Gr12), Chess Club (Gr7–10, 2 gold medals, still plays), AI Club (Gr9–10), Math Contour OC, Antariksh OC, Environmental OC."/>
 <meta name="theme-color" content="#ffffff"/>
 <style>/* ═══════════════════════════════════════════════════════
    YASHAS CHAUDHRY PORTFOLIO — Premium CSS v2
@@ -665,17 +665,35 @@ body{
 }
 </style>
 <style>
-.club-card{background:var(--off);border:1px solid var(--border);border-radius:var(--rl);padding:1.75rem;transition:border-color .2s,transform .2s}
+.cert-img-placeholder{width:200px;height:140px;border-radius:var(--r);border:1.5px dashed var(--border2);background:var(--white);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.375rem;flex-shrink:0;position:relative;overflow:hidden}
+.cert-img-placeholder .ph-ico{font-size:1.5rem;opacity:.28}
+.cert-img-placeholder .ph-txt{font-size:.65rem;color:var(--faint);font-weight:500;text-align:center;line-height:1.3;padding:0 .5rem}
+.cert-img-placeholder .ph-label{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.5);color:var(--white);font-size:.6rem;font-weight:600;text-align:center;padding:.25rem .375rem;letter-spacing:.04em;text-transform:uppercase}
+.photo-grid-placeholder{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.75rem;margin-top:.75rem}
+.photo-thumb-ph{aspect-ratio:4/3;border-radius:var(--r);border:1.5px dashed var(--border2);background:var(--off);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.25rem}
+.photo-thumb-ph span{font-size:1.125rem;opacity:.2}
+.photo-thumb-ph p{font-size:.62rem;color:var(--faint);text-align:center;padding:0 .5rem;line-height:1.3}
+</style>
+<style>
+.club-card{background:var(--off);border:1px solid var(--border);border-radius:var(--rl);padding:1.75rem;transition:border-color .2s,transform .2s;margin-bottom:1rem}
+.club-card:last-child{margin-bottom:0}
 .club-card:hover{border-color:var(--gl);transform:translateY(-2px)}
 .club-header{display:flex;align-items:flex-start;gap:1rem;margin-bottom:.875rem}
 .club-ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.125rem;flex-shrink:0}
-.club-meta{flex:1;min-width:0}
 .club-meta h4{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:.2rem;line-height:1.3}
 .club-meta .dur{font-size:.68rem;font-weight:700;color:var(--gl);letter-spacing:.04em}
 .club-body p{font-size:.8375rem;color:var(--mid);line-height:1.7;margin:0}
 .club-body p+p{margin-top:.75rem}
-.two-col-clubs{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
-@media(max-width:700px){.two-col-clubs{grid-template-columns:1fr}}
+.duration-badge{display:inline-flex;align-items:center;gap:.375rem;border-radius:100px;padding:.275rem .75rem;font-size:.68rem;font-weight:700;letter-spacing:.04em;margin-bottom:.875rem}
+.duration-badge .dur-dot{width:5px;height:5px;border-radius:50%}
+.duration-badge.green{background:var(--gxl);border:1px solid var(--g2);color:var(--g)}.duration-badge.green .dur-dot{background:var(--gl)}
+.duration-badge.blue{background:var(--bl);border:1px solid var(--bxl);color:var(--b)}.duration-badge.blue .dur-dot{background:var(--bm)}
+.duration-badge.amber{background:var(--al);border:1px solid var(--axl);color:var(--am)}.duration-badge.amber .dur-dot{background:var(--am)}
+.duration-badge.slate{background:var(--off2);border:1px solid var(--border2);color:var(--mid)}.duration-badge.slate .dur-dot{background:var(--mid)}
+.duration-bar{height:4px;background:var(--off2);border-radius:3px;margin:.3rem 0 1.125rem;overflow:hidden}
+.duration-fill{height:100%;border-radius:3px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
+@media(max-width:700px){.two-col{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -780,112 +798,93 @@ body{
 </script>
 
 <main id="main">
+
 <div class="banner banner-green">
   <div class="banner-watermark">Clubs</div>
   <div class="banner-eyebrow">Activities · School Clubs</div>
   <div class="banner-title">School <em>Clubs</em></div>
-  <div class="banner-desc">Seven clubs. Head of Department. Four OC roles. Six years of showing up.</div>
+  <div class="banner-desc">Six clubs · Grade 7 to Grade 12 · Four leadership roles</div>
 </div>
 <div class="content">
-  <span class="eyebrow">Extracurricular commitment</span>
+  <span class="eyebrow">In order from when I joined</span>
   <h2 class="heading">Not just joined.<br><em>Led.</em></h2>
   <div class="rule"></div>
-  <p class="body-text">The story of these clubs is not membership — it is what I did inside them. Helios has been part of my life since Grade 7, and in Grade 12 I became Head of Department for Web Development. Chess has been a daily part of my routine since Grade 7. The Environmental Club OC role in Grade 12 was earned through the impact I drove in Grade 11 — not because of seniority.</p>
+  <p class="body-text">The story of these clubs is not membership — it is what I did inside them. Listed from earliest to latest by when I first joined. For my external environmental work with Threco, see the <a href="threco.html" style="color:var(--g);font-weight:600">Threco page</a>.</p>
 
-  <!-- HELIOS -->
+  <!-- GR 7 — HELIOS -->
   <div class="club-card">
-    <div class="duration-badge"><span class="dur-dot"></span>6 Years · Grades 7–12 · Member Gr 7–11 · HoD Web Dev Gr 12 · OC Gr 12</div>
-    <div class="duration-bar"><div class="duration-fill" style="width:100%"></div></div>
+    <div class="duration-badge green"><span class="dur-dot"></span>6 Years · Grade 7–12 · HoD Web Dev &amp; OC · Grade 12</div>
+    <div class="duration-bar"><div class="duration-fill" style="width:100%;background:linear-gradient(90deg,var(--g),var(--gl))"></div></div>
     <div class="club-header">
       <div class="club-ico ci-b">💡</div>
       <div class="club-meta">
         <h4>Helios Tech Club — Head of Department, Web Development</h4>
-        <div class="dur">Grades 7–12 · Member → HoD (Gr 12) · OC (Gr 12)</div>
+        <div class="dur">Joined Grade 7 · Member → HoD Web Dev &amp; OC (Grade 12)</div>
       </div>
     </div>
     <div class="club-body">
       <p>I joined Helios in Grade 7 not knowing much about coding — just curious about how things worked. Helios is where that curiosity turned into a real skill. Through the club I explored programming seriously for the first time and developed a genuine love for building things. That spark became Hardware Decoded, BrandSnap, PhishSentinel, and every web project since.</p>
-      <p>In Grade 12 I was appointed <strong>Head of Department for Web Development</strong> — organising events, workshops, and sessions on web development for the club. I plan activities, mentor members on front-end and back-end skills, and I'm the person juniors come to when they want to understand how websites are actually built. Helios also gave me the offline connections that seeded Hardware Decoded — people I already trusted before I gave them responsibilities online.</p>
-      <div class="tags"><span class="tag">6 years · Gr 7–12</span><span class="tag">HoD Web Dev · Gr 12</span><span class="tag">OC · Gr 12</span><span class="tag">Web dev events &amp; workshops</span><span class="tag">Mentoring</span></div>
+      <p>In Grade 12 I was appointed <strong>Head of Department for Web Development</strong> — organising events, workshops, and sessions for the club. I plan activities, mentor members on front-end and back-end skills, and I'm the person juniors come to when they want to understand how websites are actually built.</p>
+      <div class="tags"><span class="tag">6 years · Gr 7–12</span><span class="tag">HoD Web Dev · Gr 12</span><span class="tag">OC · Gr 12</span><span class="tag">Web dev workshops</span><span class="tag">Mentoring</span></div>
     </div>
   </div>
 
-  <!-- CHESS -->
+  <!-- GR 7–10 — CHESS -->
   <div class="club-card">
-    <div class="duration-badge"><span class="dur-dot"></span>5+ Years · Grade 7 onwards · 2× Gold Medals (individual competitions)</div>
-    <div class="duration-bar"><div class="duration-fill" style="width:83%"></div></div>
+    <div class="duration-badge amber"><span class="dur-dot"></span>Grade 7–10 as club member · Still plays · 2× Gold Medals (individual)</div>
+    <div class="duration-bar"><div class="duration-fill" style="width:67%;background:linear-gradient(90deg,#d97706,#f59e0b)"></div></div>
     <div class="club-header">
       <div class="club-ico ci-y">♟️</div>
       <div class="club-meta">
-        <h4>Chess Club — Five years, two gold medals, one brother I'm trying to convert</h4>
-        <div class="dur">Grade 7 onwards</div>
+        <h4>Chess Club — Member Grades 7–10 · Two gold medals · Still plays</h4>
+        <div class="dur">Club member Grade 7–10 · Continues as an independent player</div>
       </div>
     </div>
     <div class="club-body">
-      <p>Chess started at age 7, watching my father and sister play. I wanted to join but just wasn't good enough to win. Then COVID arrived. In Grade 7 I discovered Lichess and Chess.com and started practising every day — openings, endgames, tactics puzzles, five or six games daily. After five months of this I beat my father for the first time. That was the moment everything clicked.</p>
-      <p>When school reopened I joined the Chess Club and started carrying a physical board everywhere. I became the chess person of the grade — not a single day passed without a game. I went on to compete in individual chess competitions and win <strong>two gold medals</strong>. Even now, when I need a break from a deadline or a debugging session, I reach for the board — and quietly try to light the same flame in my younger brother.</p>
-      <div class="tags"><span class="tag">5+ years</span><span class="tag">2× Gold medals (individual)</span><span class="tag">Lichess · Chess.com</span><span class="tag">Grade 7 onwards</span></div>
+      <p>Chess started at age 7, watching my father and sister play. During COVID in Grade 7 I discovered Lichess and Chess.com and started practising every day — openings, endgames, tactics puzzles, five or six games daily. After five months I beat my father for the first time. When school reopened I joined the Chess Club and became the chess person of the grade, competing in individual competitions and winning <strong>two gold medals</strong>.</p>
+      <p>I was an active Chess Club member through Grade 10. I still play regularly — it's what I reach for when I need a break from a deadline or a debugging session. Some things stay with you past the formal membership.</p>
+      <div class="tags"><span class="tag">Club member Gr 7–10</span><span class="tag">2× Gold medals (individual)</span><span class="tag">Still plays</span><span class="tag">Lichess · Chess.com</span></div>
     </div>
   </div>
 
-  <!-- ENVIRONMENTAL -->
+  <!-- GR 9–10 — AI CLUB -->
   <div class="club-card">
-    <div class="duration-badge"><span class="dur-dot"></span>Gr 11 member → Gr 12 OC · Earned through demonstrated impact</div>
-    <div class="duration-bar"><div class="duration-fill" style="width:33%"></div></div>
+    <div class="duration-badge blue"><span class="dur-dot"></span>2 Years · Grades 9–10</div>
+    <div class="duration-bar"><div class="duration-fill" style="width:33%;background:linear-gradient(90deg,var(--b),var(--bm))"></div></div>
     <div class="club-header">
-      <div class="club-ico ci-g">🌍</div>
+      <div class="club-ico ci-b">🤖</div>
       <div class="club-meta">
-        <h4>Environmental Club — Joined Grade 11. Earned OC in Grade 12.</h4>
-        <div class="dur">Grade 11 member → Grade 12 OC</div>
+        <h4>AI Club — When AI was still just a curiosity</h4>
+        <div class="dur">Grades 9–10</div>
       </div>
     </div>
     <div class="club-body">
-      <p>I joined the Environmental Club as a member in Grade 11 and immediately used it to expand Battery Bin — finding students who genuinely cared about sustainability and would actually show up to collect batteries and spread the word. I also set up e-waste collection bins and ran awareness sessions on the consequences of incorrect e-waste disposal.</p>
-      <p>The standout moment was the school science festival <strong>Urja</strong>. I showcased Battery Bin — and on event day, <strong>more than 650 students and teachers visited the showcase</strong>. I'd made custom activity sheets on e-waste awareness; <strong>60 people completed them</strong>. I collected <strong>16 batteries</strong> on that single day. Looking at that impact, the club made me part of the Organising Committee in Grade 12 — not because of time served, but because of what I'd actually delivered.</p>
-      <div class="tags"><span class="tag">Member · Gr 11</span><span class="tag">OC · Gr 12</span><span class="tag">Urja science fest — 650+ visitors</span><span class="tag">60 activity sheets</span><span class="tag">16 batteries (single day)</span></div>
+      <p>I joined the AI Club in Grade 9 when AI wasn't yet the defining technology it is today — I was just curious about how it worked. Two years of foundations: training data, neural networks, how models actually learn. Those two years directly shaped the Pickle.AI internship and everything AI-related I've built since.</p>
+      <div class="tags"><span class="tag">2 years · Grades 9–10</span><span class="tag">AI/ML foundations</span></div>
     </div>
   </div>
 
-  <!-- MATH CONTOUR + AI CLUB (two-col) -->
-  <div class="two-col-clubs">
+  <!-- GR 11–12 two-col row -->
+  <div class="two-col">
     <div class="club-card" style="margin-bottom:0">
       <div class="duration-badge amber"><span class="dur-dot"></span>OC · Grades 11–12</div>
-      <div class="duration-bar"><div class="duration-fill" style="width:33%;background:linear-gradient(90deg,var(--am),#d97706)"></div></div>
+      <div class="duration-bar"><div class="duration-fill" style="width:33%;background:linear-gradient(90deg,#d97706,#f59e0b)"></div></div>
       <div class="club-header">
         <div class="club-ico ci-a">🔢</div>
         <div class="club-meta">
-          <h4>Math Contour Club — OC, Grades 11–12</h4>
-          <div class="dur">Grades 11–12 · OC</div>
+          <h4>Math Contour Club — OC</h4>
+          <div class="dur">Joined Grade 11 · OC Grades 11–12</div>
         </div>
       </div>
       <div class="club-body">
-        <p>Once I truly understood a maths concept, solving problems became genuinely enjoyable — a puzzle, not a chore. I joined Math Contour as OC in Grade 11 and continue in Grade 12, helping plan competitions and sessions that show younger students what mathematics actually feels like when it clicks: logical, satisfying, and fun.</p>
-        <div class="tags"><span class="tag">OC · Grades 11–12</span><span class="tag">Math competitions</span><span class="tag">Middle school outreach</span></div>
+        <p>Once I truly understood a maths concept, solving problems became genuinely enjoyable. As OC from Grade 11 I help plan competitions and sessions that show younger students what mathematics feels like when it clicks.</p>
+        <div class="tags"><span class="tag">OC · Grades 11–12</span><span class="tag">Math competitions</span></div>
       </div>
     </div>
 
     <div class="club-card" style="margin-bottom:0">
-      <div class="duration-badge blue"><span class="dur-dot"></span>2 Years · Grades 9–10</div>
-      <div class="duration-bar"><div class="duration-fill" style="width:33%;background:linear-gradient(90deg,var(--b),var(--bm))"></div></div>
-      <div class="club-header">
-        <div class="club-ico ci-b">🤖</div>
-        <div class="club-meta">
-          <h4>AI Club — When AI was just a curiosity</h4>
-          <div class="dur">Grades 9–10</div>
-        </div>
-      </div>
-      <div class="club-body">
-        <p>I joined the AI Club in Grade 9 when AI wasn't yet the defining technology it is today — I was just curious about how it worked. Two years of foundations: training data, neural networks, how models actually learn. Those two years directly shaped the Pickle.AI internship and everything AI-related since.</p>
-        <div class="tags"><span class="tag">2 years · Grades 9–10</span><span class="tag">AI/ML foundations</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ANTARIKSH + THRECO (two-col) -->
-  <div class="two-col-clubs" style="margin-top:1rem">
-    <div class="club-card" style="margin-bottom:0">
-      <div class="duration-badge"><span class="dur-dot"></span>OC Member · Space &amp; Astronomy</div>
-      <div class="duration-bar"><div class="duration-fill" style="width:17%"></div></div>
+      <div class="duration-badge blue"><span class="dur-dot"></span>OC Member · Space &amp; Astronomy</div>
+      <div class="duration-bar"><div class="duration-fill" style="width:17%;background:linear-gradient(90deg,var(--b),var(--bm))"></div></div>
       <div class="club-header">
         <div class="club-ico ci-b">🚀</div>
         <div class="club-meta">
@@ -894,37 +893,39 @@ body{
         </div>
       </div>
       <div class="club-body">
-        <p>Antariksh (the Hindi word for "space") is the school's space and astronomy club. As OC I help organise events and workshops around space science and exploration. The same instinct that makes me want to understand how software works shows up here too — I want to understand how the systems beyond Earth work.</p>
-        <div class="tags"><span class="tag">OC Member</span><span class="tag">Space &amp; astronomy</span><span class="tag">Events &amp; workshops</span></div>
+        <p>Antariksh (Hindi for "space") is the school's space and astronomy club. As OC I help organise events and workshops around space science and exploration.</p>
+        <div class="tags"><span class="tag">OC Member</span><span class="tag">Space &amp; astronomy</span></div>
       </div>
     </div>
+  </div>
 
-    <div class="club-card" style="margin-bottom:0">
-      <div class="duration-badge"><span class="dur-dot"></span>Head of Operations · North India · External Organisation</div>
-      <div class="duration-bar"><div class="duration-fill" style="width:100%;background:linear-gradient(90deg,#065f46,#10b981)"></div></div>
-      <div class="club-header">
-        <div class="club-ico ci-g">♻️</div>
-        <div class="club-meta">
-          <h4>Threco — Head of Operations, North India</h4>
-          <div class="dur">External · CPCB-authorised e-waste company</div>
-        </div>
+  <!-- ENVIRONMENTAL GR 11 member → GR 12 OC -->
+  <div class="club-card" style="margin-top:1rem">
+    <div class="duration-badge green"><span class="dur-dot"></span>Member Gr 11 → OC Gr 12 · Earned through impact</div>
+    <div class="duration-bar"><div class="duration-fill" style="width:33%;background:linear-gradient(90deg,var(--g),var(--gl))"></div></div>
+    <div class="club-header">
+      <div class="club-ico ci-g">🌍</div>
+      <div class="club-meta">
+        <h4>Environmental Club — Joined Grade 11 · Earned OC Grade 12</h4>
+        <div class="dur">Member Grade 11 → OC Grade 12</div>
       </div>
-      <div class="club-body">
-        <p>Threco is a national CPCB-authorised e-waste management company. I used my Battery Bin network — built entirely independently — to expand their operations from West India into North India. I did this alone. I'm now their <strong>Head of Operations for North India</strong>, running e-waste collection and expanding the network to new schools and institutions. <a href="threco.html" style="color:var(--g);font-weight:600">Full story →</a></p>
-        <div class="tags"><span class="tag">Head of Operations</span><span class="tag">North India</span><span class="tag">CPCB-authorised</span><span class="tag">Solo expansion</span></div>
-      </div>
+    </div>
+    <div class="club-body">
+      <p>I joined the Environmental Club in Grade 11 and immediately used it to expand Battery Bin — finding students who cared about sustainability and would show up to collect batteries and spread the word. The standout moment was <strong>Urja</strong> — the school science festival: <strong>650+ visitors</strong>, <strong>60 activity sheets</strong> completed, <strong>16 batteries</strong> collected on a single day. The club made me OC in Grade 12 — not because of time served, but because of what I'd delivered.</p>
+      <div class="tags"><span class="tag">Member · Gr 11</span><span class="tag">OC · Gr 12</span><span class="tag">Urja — 650+ visitors</span><span class="tag">60 activity sheets</span><span class="tag">16 batteries (single day)</span></div>
     </div>
   </div>
 
   <div class="callout" style="margin-top:1.75rem">
     <span class="callout-ico">📋</span>
     <div>
-      <h3>Leadership at a glance</h3>
-      <p><strong>Helios</strong> — HoD Web Dev &amp; OC (Gr 12) &nbsp;·&nbsp; <strong>Chess</strong> — 2× individual gold medals (Gr 7+) &nbsp;·&nbsp; <strong>Environmental</strong> — OC Gr 12 (earned) &nbsp;·&nbsp; <strong>Math Contour</strong> — OC Gr 11–12 &nbsp;·&nbsp; <strong>AI Club</strong> — member Gr 9–10 &nbsp;·&nbsp; <strong>Antariksh</strong> — OC &nbsp;·&nbsp; <strong>Threco</strong> — Head of Operations, North India</p>
-      <span class="callout-tag">7 clubs · 5 leadership roles · 6-year Helios commitment</span>
+      <h3>Leadership at a glance — chronological</h3>
+      <p><strong>Helios</strong> Gr 7–12 (HoD Web Dev &amp; OC · Gr 12) &nbsp;·&nbsp; <strong>Chess</strong> Club Gr 7–10 (2× individual gold, still plays) &nbsp;·&nbsp; <strong>AI Club</strong> Gr 9–10 &nbsp;·&nbsp; <strong>Math Contour</strong> OC Gr 11–12 &nbsp;·&nbsp; <strong>Antariksh</strong> OC &nbsp;·&nbsp; <strong>Environmental</strong> Member Gr 11 → OC Gr 12</p>
+      <span class="callout-tag">6 clubs · 4 leadership roles · 6-year Helios commitment</span>
     </div>
   </div>
 </div>
+
 <footer class="foot">
   <p>© 2025 Yashas Chaudhry · yashaschaudhry.com</p>
   <a href="contact.html">Get in touch →</a>
@@ -933,7 +934,7 @@ body{
 <script>
 (function(){
   var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity="1";e.target.style.transform="translateY(0)";obs.unobserve(e.target);}});},{threshold:0.06});
-  document.querySelectorAll(".card,.card-workshop,.row,.tl-item,.medal,.imp,.stat,.callout,.cert-row-item,.club-card").forEach(function(el,i){el.style.opacity="0";el.style.transform="translateY(18px)";el.style.transition="opacity .45s ease "+(i*0.04)+"s, transform .45s ease "+(i*0.04)+"s";obs.observe(el);});
+  document.querySelectorAll(".card,.row,.tl-item,.medal,.imp,.stat,.callout,.cert-row-item,.club-card,.perf-item,.stat-box").forEach(function(el,i){el.style.opacity="0";el.style.transform="translateY(18px)";el.style.transition="opacity .45s ease "+(i*0.04)+"s, transform .45s ease "+(i*0.04)+"s";obs.observe(el);});
 })();
 </script>
 </body>
